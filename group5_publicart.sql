@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2021 at 10:46 AM
+-- Generation Time: Nov 20, 2021 at 11:26 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -1351,11 +1351,24 @@ CREATE TABLE `member` (
   `userID` int(4) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(500) NOT NULL,
-  `email` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `phoneNumber` int(10) NOT NULL,
-  `profilePhoto` blob NOT NULL
+  `profilePhoto` blob NOT NULL,
+  `email` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`userID`, `username`, `password`, `name`, `phoneNumber`, `profilePhoto`, `email`) VALUES
+(4, 'xwd', '$2y$10$DukRzL1tvrV7M/PDBmYoLebQOkb1d7hC9W3pHpO5bDq15ZAuIvqoa', 'Wendi Xiao', 2048813703, '', 'xwd443907076@hotmail.com'),
+(5, 'Manatay', '$2y$10$dYgh.1R7vx4uYLEuTkVKSO1UmYfUEyl0pp/do2/CJ9oJNbPIpCVqi', 'Wendi Xiao', 2048813703, '', 'xwd@xwd.com'),
+(6, 'xxx', '$2y$10$FJhDKWKErM5yqg6.1yD0WuZkLL3Obp2Kxp3kcm9lqE4kiep01vmH2', 'xxx', 2048813703, '', 'xxx@xxx.com'),
+(7, 'xxxx', '$2y$10$ezyP38FfFDM24s2ndyMZ9OB0ot50D5D9VzLanWi3EGKvEtfLwFu9e', 'xxxx', 123, '', 'xxxx@xxxx.com'),
+(8, 'aaa', '$2y$10$py/HC/4.PC9NOmr0D9z06efOPKJ0M1FitPAmsKIRYAixRYQ66AC2m', 'aaa', 2048813703, '', 'aaa@aaa.com'),
+(9, 'bbb', '$2y$10$ps0bWwJnZQ9E5rNCectyq.huvVdL1m0ZbgT2D.x6F/3a/xcAuDt.S', 'bbb', 2048813703, '', 'bb@bb.com'),
+(10, 'ccc', '$2y$10$w4y9kyyPDtpn3YuCBvkXQ.yjZhLydKs5h.jmJ35ymwUqPN5eaRsSS', 'Wendi Xiao', 2048813703, '', 'c@c.com');
 
 -- --------------------------------------------------------
 
@@ -1414,7 +1427,8 @@ ALTER TABLE `followinglist`
 -- Indexes for table `member`
 --
 ALTER TABLE `member`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `rating`
@@ -1450,7 +1464,7 @@ ALTER TABLE `followinglist`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `rating`
