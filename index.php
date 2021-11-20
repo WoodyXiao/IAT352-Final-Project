@@ -1,6 +1,7 @@
 <!--------------------------------- index page part -------------------------------->
 <?php include('private/initialize.php');
 include("private/database/db.php");
+include 'private/controller/user.php';
 ?>
 
 

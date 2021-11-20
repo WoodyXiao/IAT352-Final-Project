@@ -2,7 +2,7 @@
 <?php
 include("private/database/db.php");
 include "private/helpers/validate.php";
-include 'private/controller/user.php';
+include('private/controller/user.php');
 
 ?>
 

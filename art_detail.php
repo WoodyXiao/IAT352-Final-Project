@@ -1,6 +1,7 @@
 <!--------------------------------- art detail page part -------------------------------->
 <?php include('private/initialize.php');
 include("private/database/db.php");
+include('private/controller/user.php');
 ?>
 
 <?php
@@ -82,6 +83,7 @@ if (isset($_GET['id'])) { // ---> if there is an exist id.
     <!-- </form> -->
 
     <!-- for the comment body part -->
+
     <!-- end for the comment body part  -->
 </body>
 
