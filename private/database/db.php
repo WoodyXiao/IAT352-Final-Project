@@ -1,4 +1,3 @@
-<!-- -------------------- for all SQL query functions --------------------  -->
 <?php
 
 session_start(); // ---> run the session in here.
@@ -95,6 +94,7 @@ function create($table, $data)
     $id = $stmt->insert_id;
     return $id;
 }
+// ----- for create account function-----
 function createRecord($table, $username, $password, $email, $name, $phoneNumber)
 {
     global $conn;
