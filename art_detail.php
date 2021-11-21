@@ -99,6 +99,14 @@ if (isset($_SESSION['userID'])) {
         .container .display-comment-box .display-comment .comment-body .name-and-time {
             display: flex;
         }
+
+        .checked {
+            color: orange;
+        }
+
+        .clicked {
+            color: orange;
+        }
     </style>
 </head>
 
@@ -133,6 +141,18 @@ if (isset($_SESSION['userID'])) {
     </div>
     <!-- </form> -->
 
+    <!-- for rating system part -->
+    <div class="container">
+        <h4 id="rate-message">Rate this artwork</h4>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+
+    </div>
+    <!-- end for rating system part -->
+
     <!-- for the comment body part -->
     <div class="container" id="comment-container">
         <h4><span class="count-of-comment"></span> Comments</h4>
@@ -153,28 +173,49 @@ if (isset($_SESSION['userID'])) {
 
     <!-- jquery code part -->
     <script>
-        var artID = $('.artID').val();
-        load_comment(); // ---> run the function.
-        // for loading the comment and display part
+        // for the start rating systm 
+        $(document).ready(function() {
+            $('span.fa').mouseover(function() {
+                var current = $(this);
+                $("span.fa").each(function(index) {
+                    $(this).addClass("checked");
+                    if (index === current.index() - 1) {
+                        return false;
+                    }
+                });
+            });
+            $('span.fa').mouseleave(function() {
+                $('span.fa').removeClass("checked");
+            });
+            $('span.fa').click(function() {
+                $('span.fa').removeClass("clicked");
+                $('.checked').addClass("clicked");
+                $('#rate-message').html("Thanks! You have rated this " + $(".clicked").length + " stars. ");
+            });
 
-        function load_comment() {
+
             var artID = $('.artID').val();
-            $.post("comment/comment.php", {
-                artID: artID,
-                comment_load_data: true
-            }, function(res) {
-                res = JSON.parse(res)
-                console.log(res);
-                if (typeof res === 'string') {
-                    $('.display-comment-box').html("");
-                    $('.display-comment-box').append('<p>' + res + '</p>');
-                }
-                if (typeof res != 'string') {
-                    count = 0;
-                    $('.display-comment-box').html("");
-                    $.each(res, function(key, value) {
+            load_comment(); // ---> run the function.
+            // for loading the comment and display part
 
-                        $('.display-comment-box').append('<div class="display-comment">\
+            function load_comment() {
+                var artID = $('.artID').val();
+                $.post("comment/comment.php", {
+                    artID: artID,
+                    comment_load_data: true
+                }, function(res) {
+                    res = JSON.parse(res)
+                    console.log(res);
+                    if (typeof res === 'string') {
+                        $('.display-comment-box').html("");
+                        $('.display-comment-box').append('<p>' + res + '</p>');
+                    }
+                    if (typeof res != 'string') {
+                        count = 0;
+                        $('.display-comment-box').html("");
+                        $.each(res, function(key, value) {
+
+                            $('.display-comment-box').append('<div class="display-comment">\
                             <div class="profile">\
                                 <img src="public/Assets/img/1.jpg" alt="">\
                             </div>\
@@ -191,52 +232,53 @@ if (isset($_SESSION['userID'])) {
                             </div>\
                         </div>\
                     ');
-                        count++;
-                    });
+                            count++;
+                        });
 
-                    //show the number of comment 
-                    $('.count-of-comment').html(count);
-                }
-
-            });
-        }
-
-        // for the post click event part
-        $('.post-btn').click(function(e) {
-            e.preventDefault();
-
-            var msg = $('#comment').val();
-            var artID = $('.artID').val();
-            if ($.trim(msg).length == 0) {
-                error_msg = '(Please type comment!!)';
-                $('#error_status').html('<p>' + error_msg + '</p>')
-            } else {
-                error_msg = '';
-                $('#error_status').html("")
-            }
-            if (error_msg != '') {
-                return false;
-            } else {
-
-                var data = {
-                    msg: msg,
-                    artID: artID,
-                    add_comment: true,
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "comment/comment.php",
-                    data: data,
-                    success: function(responese) {
-                        $('#comment').val("");
-                        load_comment()
-
+                        //show the number of comment 
+                        $('.count-of-comment').html(count);
                     }
 
                 });
             }
 
-        })
+            // for the post click event part
+            $('.post-btn').click(function(e) {
+                e.preventDefault();
+
+                var msg = $('#comment').val();
+                var artID = $('.artID').val();
+                if ($.trim(msg).length == 0) {
+                    error_msg = '(Please type comment!!)';
+                    $('#error_status').html('<p>' + error_msg + '</p>')
+                } else {
+                    error_msg = '';
+                    $('#error_status').html("")
+                }
+                if (error_msg != '') {
+                    return false;
+                } else {
+
+                    var data = {
+                        msg: msg,
+                        artID: artID,
+                        add_comment: true,
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "comment/comment.php",
+                        data: data,
+                        success: function(responese) {
+                            $('#comment').val("");
+                            load_comment()
+
+                        }
+
+                    });
+                }
+
+            })
+        });
     </script>
 </body>
 

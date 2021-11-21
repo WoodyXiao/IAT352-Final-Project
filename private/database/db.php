@@ -104,3 +104,5 @@ function createRecord($table, $username, $password, $email, $name, $phoneNumber)
     $id = $stmt->insert_id;
     return $id;
 }
+
+// ------- for insert ratting founction -------

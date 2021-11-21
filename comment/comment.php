@@ -35,3 +35,19 @@ if (isset($_POST['add_comment'])) {
     $comment_add_query = "INSERT INTO comment (userID, artID, commentText) VALUES ('$user_id', '$artID', '$msg')";
     $result = mysqli_query($conn, $comment_add_query);
 }
+// ----- count rating function -----
+function count_rating($art_id, $conn)
+{
+    $output = 0;
+    $query = "AVG(score) as rating FROM rating WHERE artID = '" . $art_id . "'";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    $total_row = $stmt->rowCount();
+    if ($total_row > 0) {
+        foreach ($result as $row) {
+            $output = round($row['rating']);
+        }
+    }
+    return $output;
+}
