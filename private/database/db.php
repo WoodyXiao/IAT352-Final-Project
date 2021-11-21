@@ -105,4 +105,12 @@ function createRecord($table, $username, $password, $email, $name, $phoneNumber)
     return $id;
 }
 
-// ------- for insert ratting founction -------
+// ------- for show rate founction -------
+function showRating($art_id)
+{
+    global $conn;
+    $query = "SELECT AVG(score) as avgRating, COUNT(score) as ratingNum FROM rating WHERE artID = '" . $art_id . "'";
+    $stmt = $conn->query($query);
+    $result = $stmt->fetch_assoc();
+    return $result;
+}

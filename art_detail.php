@@ -26,6 +26,9 @@ if (isset($_GET['id'])) { // ---> if there is an exist id.
     $type = $art['type'];
     $siteAddress = $art['siteAddress'];
     $description = $art['description'];
+
+    // call the function for showing rating so far.
+    $average_rating = showRating($id);
 }
 
 if (isset($_SESSION['userID'])) {
@@ -107,6 +110,11 @@ if (isset($_SESSION['userID'])) {
         .clicked {
             color: orange;
         }
+
+        .hover {
+            color: orange;
+
+        }
     </style>
 </head>
 
@@ -144,12 +152,12 @@ if (isset($_SESSION['userID'])) {
     <!-- for rating system part -->
     <div class="container">
         <h4 id="rate-message">Rate this artwork</h4>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-
+        <span class="fa fa-star <?php echo ($average_rating['avgRating'] >= 1) ? 'checked' : ''; ?>" id="star1" value='1'></span>
+        <span class="fa fa-star <?php echo ($average_rating['avgRating'] >= 2) ? 'checked' : ''; ?>" id="star2" value='2'></span>
+        <span class="fa fa-star <?php echo ($average_rating['avgRating'] >= 3) ? 'checked' : ''; ?>" id="star3" value='3'></span>
+        <span class="fa fa-star <?php echo ($average_rating['avgRating'] >= 4) ? 'checked' : ''; ?>" id="star4" value='4'></span>
+        <span class="fa fa-star <?php echo ($average_rating['avgRating'] >= 5) ? 'checked' : ''; ?>" id="star5" value='5'></span>
+        <p>Average: <span id="average"><?php echo $average_rating['avgRating'] ?></span> base on <span id="totalRating"><?php echo $average_rating['ratingNum'] ?> </span>rating</p>
     </div>
     <!-- end for rating system part -->
 
@@ -178,19 +186,55 @@ if (isset($_SESSION['userID'])) {
             $('span.fa').mouseover(function() {
                 var current = $(this);
                 $("span.fa").each(function(index) {
-                    $(this).addClass("checked");
+                    $(this).addClass("hover");
                     if (index === current.index() - 1) {
                         return false;
                     }
                 });
             });
             $('span.fa').mouseleave(function() {
-                $('span.fa').removeClass("checked");
+                $('span.fa').removeClass("hover");
             });
-            $('span.fa').click(function() {
+            $('span.fa').click(function(e) {
+                e.preventDefault();
                 $('span.fa').removeClass("clicked");
-                $('.checked').addClass("clicked");
+                $('span.fa').removeClass("checked");
+                $('.hover').addClass("clicked");
                 $('#rate-message').html("Thanks! You have rated this " + $(".clicked").length + " stars. ");
+
+                // ---- for the inserting rate ----
+                var artID = $('.artID').val();
+                var ratingNum = $('.clicked').length;
+                var data = {
+                    artID: artID,
+                    ratingNum: ratingNum,
+                    add_rating: true,
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "rating/rating.php",
+                    data: data,
+                    success: function(res) {
+
+                        console.log(res);
+                        if (res.status == 1) {
+                            $("#average").html("" + res.data.avgRating);
+                            $("#totalRating").html("" + res.data.ratingNum);
+
+
+                        } else if (res.status == 2) {
+                            $("#average").html("" + res.data.avgRating);
+                            $("#totalRating").html("" + res.data.ratingNum);
+                        }
+                        $('span.fa').each(function() {
+                            // if ($(this).val() <= parseInt(res.data.avgRating)) {
+                            //     $(this).attr('checked', 'checked');
+                            // } else {
+                            //     $(this).prop("checked", false);
+                            // }
+                        });
+                    }
+                });
             });
 
 
