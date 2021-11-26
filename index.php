@@ -49,15 +49,17 @@ include 'private/controller/user.php';
     <!-- end flash message when log in successfully -->
 
     <div class="heading">
-        <h1>Public Art</h1>
+        <h1>BROWSE OUR COLLECTION</h1>
     </div>
 
     <!-- for the filter part -->
     <section class="filter-part">
-
+        <div class="form-outline" id="search">
+            <input type="search" id="form1" class="form-control search_text" placeholder="Search art..." aria-label="Search" />
+        </div>
         <div id="filters">
             <span>Country: &nbsp;</span>
-            <select name="fetchval" id="fetchval">
+            <select name="fetchval" id="fetchCountry">
                 <option value="ALL">---Select Country---</option>
                 <?php $result = getSpercificData('country', 'artist');
                 foreach ($result as $row) {
@@ -74,6 +76,46 @@ include 'private/controller/user.php';
                 }
                 ?>
             </select>
+            <!-- for the location part -->
+            <span>Neighborhood: &nbsp;</span>
+            <select name="fetchLocationVal" id="fetchLocation">
+                <option value="ALL">---Select Neighborhood---</option>
+                <?php $result = getSpercificData('neighborhood', 'artwork');
+                foreach ($result as $row) {
+                ?>
+                    <?php
+                    if ($row['neighborhood'] == '') {
+                        $neighborhood = 'Other';
+                    } else {
+                        $neighborhood = $row['neighborhood'];
+                    }
+                    ?>
+                    <option value="<?php echo $row['neighborhood']; ?>"><?php echo $neighborhood; ?></option>
+                <?php
+                }
+                ?>
+            </select>
+            <!-- end for the location part -->
+            <!-- for the ownership part -->
+            <span>Ownership: &nbsp;</span>
+            <select name="fetchOwnerVal" id="fetchOwner">
+                <option value="ALL">------------------------Select Ownership-------------------------</option>
+                <?php $result = getSpercificData('ownership', 'artwork');
+                foreach ($result as $row) {
+                ?>
+                    <?php
+                    if ($row['ownership'] == '') {
+                        $ownership = 'Other';
+                    } else {
+                        $ownership = $row['ownership'];
+                    }
+                    ?>
+                    <option value="<?php echo $row['ownership']; ?>"><?php echo $ownership; ?></option>
+                <?php
+                }
+                ?>
+            </select>
+            <!-- end for the location part -->
         </div>
 
         <div class="list-group" id="yearRange">
@@ -128,8 +170,12 @@ include 'private/controller/user.php';
         <div class="main-content-container">
         </div>
         <!-- end main content -->
-
     </section>
+
+    <!-- footer part -->
+    <?php include(INCLUDE_PATH . '/footer.php'); ?>
+    <!-- end footer part -->
+
 
 
     <!-- for the jquery code -->
@@ -142,7 +188,7 @@ include 'private/controller/user.php';
                 var type = get_filter('type');
                 var from = $('#hidden_minimum_year').val();
                 var to = $('#hidden_maximum_year').val();
-                var country = $('#fetchval').val();
+                var country = $('#fetchCountry').val();
                 $.ajax({
                     url: "filter_art.php",
                     type: "POST",
@@ -195,7 +241,7 @@ include 'private/controller/user.php';
                 filter_data(id);
             });
             // ---- click event for country selecting ----
-            $("#fetchval").on("change", function() {
+            $("#fetchCountry").on("change", function() {
                 id = $(".page").attr('id');
                 filter_data(id);
             });
@@ -214,6 +260,15 @@ include 'private/controller/user.php';
                     $('#hidden_maximum_year').val(ui.values[1]);
                     filter_data();
                 }
+            });
+
+            // timer for close the message
+            setTimeout(function() {
+                $('.msg').fadeOut();
+            }, 6000);
+
+            $('.msg').mouseover(function() {
+                $('.msg').fadeOut();
             });
         });
     </script>

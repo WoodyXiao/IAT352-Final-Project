@@ -180,11 +180,17 @@ header .menu-toggle {
 
 /* for the filter part and body part */
 .filter-part {
-  height: 150px;
+  height: auto;
   background-color: #d6d6d6;
   padding: 20px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.filter-part #filters #fetchCountry,
+.filter-part #filters #fetchLocation {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .filter-part .list-group {
@@ -208,7 +214,7 @@ header .menu-toggle {
   margin-top: 10px;
   padding: 20px;
   min-width: 200px;
-  height: 750px;
+  height: auto;
   min-height: 800px;
 }
 
@@ -217,7 +223,8 @@ header .menu-toggle {
 }
 
 .main-container .side-bar .type-items,
-.main-container .side-bar .status-items {
+.main-container .side-bar .status-items,
+.main-container .side-bar .material-items {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
@@ -274,9 +281,32 @@ header .menu-toggle {
 /* end for the filter part and body part */
 
 /* for the pagination part */
-.pagination {
-}
 .pagination .page:hover {
   cursor: pointer;
 }
 /* end for the pagination part */
+
+/* for showing the number of record part */
+p.numOfData {
+  position: absolute;
+  top: 350px;
+  left: 300px;
+}
+/* end for showing the number of record part */
+
+/* for the footer part */
+.footer {
+  width: 100%;
+  height: 87px;
+  background-color: #004643;
+  color: white;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footer p {
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* end for the footer part */

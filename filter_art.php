@@ -138,6 +138,6 @@ if ($page < $total_page) {
     $output .= '<li class="page " id="' . $total_page . '"><span class="page-link">Last page</span></li>';
 }
 $output .= '</ul>';
-
-echo $output;
+$num = '<P class="numOfData">Showing <span class="">' . $total_records . '</span> Result(s).</P>';
+echo $output . $num;
 ?>

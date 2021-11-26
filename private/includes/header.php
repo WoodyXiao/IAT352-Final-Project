@@ -2,7 +2,7 @@
 <header>
     <div class="logo">
         <a href="index.php">
-            <h1 class="logo-text"><span>Public</span>Art</h1>
+            <h1 class="logo-text"><span>VANCOUVER </span>PUBLIC ART</h1>
         </a>
     </div>
     <i class="fa fa-bars menu-toggle"></i>

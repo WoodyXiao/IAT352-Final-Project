@@ -22,7 +22,12 @@ function loginUser($user)
     $_SESSION['message'] = 'logged in successfully';
     $_SESSION['type'] = 'success';
 
-    header('location: index.php');
+    if ($_SESSION['artID']) {
+        $artID = $_SESSION['artID'];
+        header('location: art_detail.php?id=' . $artID);
+    } else {
+        header('location: index.php');
+    }
 
     exit();
 }
