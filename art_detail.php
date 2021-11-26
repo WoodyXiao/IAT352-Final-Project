@@ -89,6 +89,18 @@ if (isset($_SESSION['userID'])) {
             margin-bottom: 30px;
         }
 
+        .container .comment-box {
+            position: relative;
+        }
+
+        .container .comment-box .comment_mess {
+            position: absolute;
+
+            left: 500px;
+            top: 80px;
+
+        }
+
         .container .display-comment-box .display-comment .profile img {
             width: 80px;
             height: 80px;
@@ -108,12 +120,11 @@ if (isset($_SESSION['userID'])) {
         }
 
         .clicked {
-            color: orange;
+            color: lightcoral;
         }
 
         .hover {
-            color: orange;
-
+            color: lightcoral;
         }
     </style>
 </head>
@@ -166,7 +177,16 @@ if (isset($_SESSION['userID'])) {
         <h4><span class="count-of-comment"></span> Comments</h4>
         <span id="error_status"></span>
         <div class="comment-box">
-            <textarea name="comment" id="comment" cols="100" rows="10" placeholder="Add your comment here..."></textarea>
+            <textarea name="comment" id="comment" cols="100" rows="10" <?php if (!isset($_SESSION['userID'])) {
+                                                                            echo "disabled";
+                                                                        } else {
+                                                                            echo 'placeholder="Add comment here"';
+                                                                        }  ?>></textarea>
+            <?php
+            if (!isset($_SESSION['userID'])) {
+                echo "<p class='comment_mess'><a href='login.php' style='cursor:pointer; text-decoration:underline'>Log in</a> to add a comment!!</p>";
+            }
+            ?>
         </div>
         <button class="post-btn">POST</button>
 
@@ -186,6 +206,8 @@ if (isset($_SESSION['userID'])) {
             $('span.fa').mouseover(function() {
                 var current = $(this);
                 $("span.fa").each(function(index) {
+                    $('span.fa').removeClass("clicked");
+
                     $(this).addClass("hover");
                     if (index === current.index() - 1) {
                         return false;
@@ -193,18 +215,21 @@ if (isset($_SESSION['userID'])) {
                 });
             });
             $('span.fa').mouseleave(function() {
+
                 $('span.fa').removeClass("hover");
             });
             $('span.fa').click(function(e) {
                 e.preventDefault();
                 $('span.fa').removeClass("clicked");
                 $('span.fa').removeClass("checked");
+
                 $('.hover').addClass("clicked");
                 $('#rate-message').html("Thanks! You have rated this " + $(".clicked").length + " stars. ");
 
                 // ---- for the inserting rate ----
                 var artID = $('.artID').val();
-                var ratingNum = $('.clicked').length;
+                var ratingNum = $(".clicked").length;
+                // var ratingNum = $('span.fa').val();
                 var data = {
                     artID: artID,
                     ratingNum: ratingNum,
@@ -215,7 +240,7 @@ if (isset($_SESSION['userID'])) {
                     url: "rating/rating.php",
                     data: data,
                     success: function(res) {
-
+                        console.log("sdsd");
                         console.log(res);
                         if (res.status == 1) {
                             $("#average").html("" + res.data.avgRating);
@@ -227,11 +252,11 @@ if (isset($_SESSION['userID'])) {
                             $("#totalRating").html("" + res.data.ratingNum);
                         }
                         $('span.fa').each(function() {
-                            // if ($(this).val() <= parseInt(res.data.avgRating)) {
-                            //     $(this).attr('checked', 'checked');
-                            // } else {
-                            //     $(this).prop("checked", false);
-                            // }
+                            if ($(this).val() <= parseInt(res.data.avgRating)) {
+                                $(this).attr('checked', 'checked');
+                            } else {
+                                $(this).prop("checked", false);
+                            }
                         });
                     }
                 });

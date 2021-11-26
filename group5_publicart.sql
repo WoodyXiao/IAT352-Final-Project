@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2021 at 11:26 PM
+-- Generation Time: Nov 26, 2021 at 05:17 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -1317,6 +1317,58 @@ CREATE TABLE `comment` (
   `commentText` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`commentID`, `userID`, `artID`, `date`, `commentText`) VALUES
+(1, 4, 869, '2021-11-21 00:51:43', ''),
+(2, 4, 869, '2021-11-21 00:51:45', 'xwd'),
+(3, 4, 869, '2021-11-21 00:52:18', ''),
+(4, 4, 785, '2021-11-21 02:20:49', 'xwd'),
+(5, 4, 785, '2021-11-21 02:23:27', 'test'),
+(6, 4, 785, '2021-11-21 04:11:15', 'test2'),
+(7, 4, 785, '2021-11-21 04:13:06', 'test'),
+(8, 4, 785, '2021-11-21 04:13:13', 'test2'),
+(9, 4, 785, '2021-11-21 04:23:49', 'xxxx'),
+(10, 4, 785, '2021-11-21 04:23:54', 'xxxx'),
+(11, 4, 785, '2021-11-21 05:22:48', 'xwd'),
+(12, 4, 869, '2021-11-21 06:39:36', 'xwd'),
+(13, 4, 869, '2021-11-21 06:40:57', 'xwd'),
+(14, 4, 785, '2021-11-21 06:43:46', 'xwd'),
+(15, 4, 785, '2021-11-21 06:46:29', 'xwxxxxxxxxxxxxxxxxxx'),
+(16, 4, 870, '2021-11-21 06:52:43', 'xxx'),
+(17, 4, 847, '2021-11-21 07:03:23', 'xxx'),
+(18, 4, 853, '2021-11-21 07:06:43', 'xwd'),
+(19, 4, 853, '2021-11-21 07:06:49', 'xwd'),
+(20, 4, 843, '2021-11-21 07:09:25', 'xwd'),
+(21, 4, 785, '2021-11-21 07:20:59', 'xwd'),
+(22, 4, 785, '2021-11-21 07:21:51', 'xwd'),
+(23, 4, 785, '2021-11-21 07:22:13', 'xwd'),
+(24, 4, 785, '2021-11-21 07:22:23', 'xxx'),
+(25, 4, 785, '2021-11-21 07:22:34', 'xxx'),
+(26, 6, 785, '2021-11-21 07:24:49', 'xxxx'),
+(27, 6, 869, '2021-11-21 07:25:03', 'xxxxxxx'),
+(31, 4, 785, '2021-11-21 08:56:40', 'xxxxxxxx'),
+(32, 4, 785, '2021-11-21 08:56:48', 'xwdxwd'),
+(33, 8, 785, '2021-11-21 18:56:59', 'xxxxxxaaxaxsdasdasdadasdasdas'),
+(34, 8, 785, '2021-11-21 19:19:49', 'xxxx\n'),
+(36, 5, 870, '2021-11-21 21:50:53', 'xxxxx'),
+(38, 12, 785, '2021-11-21 21:52:51', 'nxnxnnxnxnx'),
+(39, 10, 848, '2021-11-22 04:08:43', 'hi'),
+(40, 10, 843, '2021-11-22 04:09:08', 'hello!!!!'),
+(41, 10, 335, '2021-11-22 09:56:48', 'hi'),
+(42, 10, 869, '2021-11-22 09:57:26', 'hiii'),
+(43, 4, 785, '2021-11-23 20:48:19', '123213123'),
+(44, 13, 785, '2021-11-25 01:38:35', 'nmnmn'),
+(45, 13, 865, '2021-11-25 01:39:16', 'hi'),
+(46, 13, 869, '2021-11-25 01:46:47', 'hiii'),
+(47, 13, 847, '2021-11-25 02:20:02', 'Hi'),
+(48, 13, 845, '2021-11-25 02:20:25', 'Good'),
+(49, 13, 843, '2021-11-25 02:23:09', 'Cool'),
+(52, 14, 870, '2021-11-25 23:30:27', 'Test'),
+(53, 15, 865, '2021-11-26 02:15:45', 'Good!');
+
 -- --------------------------------------------------------
 
 --
@@ -1368,7 +1420,12 @@ INSERT INTO `member` (`userID`, `username`, `password`, `name`, `phoneNumber`, `
 (7, 'xxxx', '$2y$10$ezyP38FfFDM24s2ndyMZ9OB0ot50D5D9VzLanWi3EGKvEtfLwFu9e', 'xxxx', 123, '', 'xxxx@xxxx.com'),
 (8, 'aaa', '$2y$10$py/HC/4.PC9NOmr0D9z06efOPKJ0M1FitPAmsKIRYAixRYQ66AC2m', 'aaa', 2048813703, '', 'aaa@aaa.com'),
 (9, 'bbb', '$2y$10$ps0bWwJnZQ9E5rNCectyq.huvVdL1m0ZbgT2D.x6F/3a/xcAuDt.S', 'bbb', 2048813703, '', 'bb@bb.com'),
-(10, 'ccc', '$2y$10$w4y9kyyPDtpn3YuCBvkXQ.yjZhLydKs5h.jmJ35ymwUqPN5eaRsSS', 'Wendi Xiao', 2048813703, '', 'c@c.com');
+(10, 'ccc', '$2y$10$w4y9kyyPDtpn3YuCBvkXQ.yjZhLydKs5h.jmJ35ymwUqPN5eaRsSS', 'Wendi Xiao', 2048813703, '', 'c@c.com'),
+(11, 'yyy', '$2y$10$Q0u7RAZFs26TxhKEEo701eoYIDII1.BKvm6OCbeUc.qsMh76rKjW.', 'yy', 2048813703, '', 'yy@yy.com'),
+(12, 'Weibao', '$2y$10$TP420onf4F7TruOUhjtJDuu02GCUv4fl.9r0Z5j44IfGg/uQQqinK', 'weiwei', 2048813703, '', 'weiwei@we.com'),
+(13, 'jjj', '$2y$10$EKdvIpG6l8T7Oqdn60wbNegRUFhRS9hstjEjz3h8dRm9N9ldzYtHq', 'jjj', 123, '', 'jj@j.com'),
+(14, 'test3', '$2y$10$2inDq60aedA887Wz9ebOwu9ZuvDgOLHSZPKzbZVGNRmtmQWNGw8di', 'ttt', 123, '', 'test@test'),
+(15, 't4', '$2y$10$lThZh0z08oSHekECKZ6lK.BBuzkPp72Xx4schZiU.QsQlyCWNb0u6', 'xwd', 123, '', 't4@t4.com');
 
 -- --------------------------------------------------------
 
@@ -1382,6 +1439,29 @@ CREATE TABLE `rating` (
   `artID` int(4) NOT NULL,
   `score` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`rateID`, `userID`, `artID`, `score`) VALUES
+(1, 4, 870, 2),
+(2, 5, 870, 5),
+(3, 12, 785, 5),
+(4, 4, 785, 2),
+(5, 10, 785, 5),
+(11, 10, 870, 5),
+(12, 10, 869, 5),
+(13, 10, 848, 5),
+(14, 10, 843, 5),
+(15, 10, 335, 5),
+(16, 10, 853, 5),
+(91, 13, 847, 2),
+(92, 13, 785, 2),
+(93, 13, 845, 2),
+(94, 13, 843, 2),
+(103, 14, 870, 5),
+(108, 15, 865, 5);
 
 --
 -- Indexes for dumped tables
@@ -1436,7 +1516,7 @@ ALTER TABLE `member`
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`rateID`),
   ADD KEY `artID` (`artID`),
-  ADD KEY `userID` (`userID`);
+  ADD KEY `rating_ibfk_2` (`userID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1446,7 +1526,7 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `favouriteslist`
@@ -1464,13 +1544,13 @@ ALTER TABLE `followinglist`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `rateID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `rateID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- Constraints for dumped tables
@@ -1502,7 +1582,7 @@ ALTER TABLE `followinglist`
 --
 ALTER TABLE `rating`
   ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`artID`) REFERENCES `artwork` (`artID`),
-  ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `artist` (`artistID`);
+  ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `member` (`userID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

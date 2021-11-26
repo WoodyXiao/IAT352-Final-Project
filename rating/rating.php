@@ -2,13 +2,13 @@
 <?php
 include('../private/initialize.php');
 include("../private/database/db.php");
-
-if (isset($_POST['add_rating'])) {
+$user_id = $_SESSION['userID'];
+if (isset($_POST['add_rating']) && isset($_POST['ratingNum'])) {
     // get posted data 
     $art_id = $_POST['artID'];
     $ratingNum = $_POST['ratingNum'];
     // get user id 
-    $user_id = $_SESSION['userID'];
+
 
     // Check whether the user already submitted the rating for the same artWork.
     $query = "SELECT score FROM rating WHERE artID = $art_id AND userID = '" . $user_id . "'";

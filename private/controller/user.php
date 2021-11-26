@@ -19,7 +19,7 @@ function loginUser($user)
     // --- user information that need to be stored in the session
     $_SESSION['userID'] = $user['userID'];
     $_SESSION['username'] = $user['username'];
-    $_SESSION['message'] = 'You are new logged in...';
+    $_SESSION['message'] = 'logged in successfully';
     $_SESSION['type'] = 'success';
 
     header('location: index.php');

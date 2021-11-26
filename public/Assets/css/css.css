@@ -47,8 +47,9 @@ a {
 }
 
 .btn:hover {
-  color: white !important;
-  background: #005255;
+  /* color: #abd1c6 !important; */
+  /* background: #005255; */
+  background: #abd1c6;
 }
 
 .text-input {
@@ -66,7 +67,7 @@ a {
 
 /* for the message part */
 .msg {
-  width: 100%;
+  width: 50%;
   margin: 5px auto;
   padding: 8px;
   border-radius: 5px;
@@ -88,7 +89,8 @@ a {
 
 /* for the header part */
 header {
-  background: #008489;
+  /* background: #008489; */
+  background: #004643;
   height: 66px;
 }
 
@@ -108,7 +110,7 @@ header .logo-text {
 }
 
 header .logo-text span {
-  color: #05f7ff;
+  color: #abd1c6;
 }
 
 header ul {
@@ -235,6 +237,7 @@ header .menu-toggle {
   display: flex;
   flex-wrap: wrap;
   height: auto;
+  min-height: 1000px;
 }
 .main-container .main-content-container .main-content .card-box {
   position: relative;
@@ -269,3 +272,11 @@ header .menu-toggle {
   padding-right: 20px; */
 }
 /* end for the filter part and body part */
+
+/* for the pagination part */
+.pagination {
+}
+.pagination .page:hover {
+  cursor: pointer;
+}
+/* end for the pagination part */
