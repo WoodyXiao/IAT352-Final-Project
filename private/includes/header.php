@@ -1,15 +1,15 @@
 <!-- for the nav bar container -->
 <header>
     <div class="logo">
-        <a href="index.php">
+        <a href="<?php echo BASE_URL . 'index.php' ?>">
             <h1 class="logo-text"><span>VANCOUVER </span>PUBLIC ART</h1>
         </a>
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">
-        <li><a href="index.php">Browse</a></li>
-        <li><a href="#">Favourites</a></li>
-        <li><a href="#">Following</a></li>
+        <li><a href="<?php echo BASE_URL . 'index.php' ?>">Browse</a></li>
+        <li><a href="<?php echo PUBLIC_URL . 'member/favourite.php' ?>">Favourites</a></li>
+        <li><a href="<?php echo PUBLIC_URL . 'member/following.php' ?>">Following</a></li>
 
         <!--  if user log in successfully, show the account name  -->
         <?php if (isset($_SESSION['userID'])) { ?>
@@ -20,16 +20,16 @@
                     <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
                 </a>
                 <ul>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="logout.php" class="logout">Logout</a></li>
+                    <li><a href="<?php echo PUBLIC_URL . 'member/profile.php' ?>">Profile</a></li>
+                    <li><a href="<?php echo BASE_URL . 'logout.php' ?>" class="logout">Logout</a></li>
                 </ul>
             </li>
 
 
             <!-- otherwise, show the button of login and sign up only -->
         <?php } else { ?>
-            <li><a href="register.php">Sign Up</a></li>
-            <li><a href="login.php">Login</a></li>
+            <li><a href="<?php echo BASE_URL . 'register.php' ?>">Sign Up</a></li>
+            <li><a href="<?php echo BASE_URL . 'login.php' ?>">Login</a></li>
         <?php } ?>
 
     </ul>

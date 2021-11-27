@@ -6,7 +6,7 @@ $limit = 10; // ---> setting default by 5 for the limit at first.
 $output = ''; // ---> initialize output frist.
 $page = ''; // ---> page.
 
-$query = "SELECT a.artID,a.artName, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1  ON a.artistID = a1.artistID ";
+$query = "SELECT a.artID,a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1  ON a.artistID = a1.artistID ";
 $num = 0;
 
 // --- setting the page as 1 by default. --- 
@@ -19,7 +19,7 @@ if (isset($_POST['page'])) {
 if (isset($_POST['country'])) {
     $country = $_POST['country'];
     if ($country === 'ALL') {
-        $query = "SELECT a.artID, a.artName, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID";
+        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID";
         $num = 0;
         $num++;
     } else {
@@ -32,7 +32,7 @@ if (isset($_POST['status'])) {
     $status_filter =  implode("','", $_POST["status"]);
     if ($num === 0) {
         $query = '';
-        $query = "SELECT a.artID, a.artName, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.status IN ('" . $status_filter . "')";
+        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.status IN ('" . $status_filter . "')";
         $num++;
     } else {
         $query .= " AND a.status IN('" . $status_filter . "')";
@@ -43,7 +43,7 @@ if (isset($_POST['type'])) {
     $type_filter =  implode("','", $_POST["type"]);
     if ($num === 0) {
         $query = '';
-        $query = "SELECT a.artID, a.artName, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.type IN ('" . $type_filter . "')";
+        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.type IN ('" . $type_filter . "')";
         $num++;
     } else {
         $query .= " AND a.type IN('" . $type_filter . "')";
@@ -88,7 +88,7 @@ if ($count > 0) {
                     </a>
                 </div>
                 <h2 class="title"><a href="art_detail.php?id=' . $row['artID'] . '">' . $row['artName'] . '</a></h2>
-                <h4 class="author"><a href="art_detail.php?id=' . $row['artID'] . '">' . $row['firstName'] . ' ' .  $row['lastName'] . '</a></h4>
+                <h4 class="author"><a href="artist_detail.php?artistID=' . $row['artistID'] . '">' . $row['firstName'] . ' ' .  $row['lastName'] . '</a></h4>
                 <div class="subTitle-box">
                     <p class="Type">' . $row['type'] . '</p>
                     <p class="year">' . $row['year'] . '</p>

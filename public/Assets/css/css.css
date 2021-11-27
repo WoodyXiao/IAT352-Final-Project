@@ -7,6 +7,7 @@ body {
   height: 100%;
   padding: 0px;
   margin: 0px;
+  padding-top: 40px;
   background: #f6f6f6;
 }
 
@@ -92,6 +93,10 @@ header {
   /* background: #008489; */
   background: #004643;
   height: 66px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
 
 header * {
@@ -289,7 +294,7 @@ header .menu-toggle {
 /* for showing the number of record part */
 p.numOfData {
   position: absolute;
-  top: 350px;
+  top: 370px;
   left: 300px;
 }
 /* end for showing the number of record part */

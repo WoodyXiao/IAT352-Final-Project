@@ -29,6 +29,7 @@ if (isset($_GET['id'])) { // ---> if there is an exist id.
     $artistStatement = $art['artistStatement'];
     $ownership = $art['ownership'];
     $locationOnSite = $art['locationOnSite'];
+    $artistID = $art['artistID'];
     // 
     $_SESSION['artID'] = $id;
     // call the function for showing rating so far.
@@ -186,6 +187,7 @@ if (isset($_SESSION['userID'])) {
     <!-- end flash message when log in successfully -->
 
     <!-- <form action="art_detail.php" method="post"> -->
+    <!-- save the art id -->
     <input type="hidden" name="id" class="artID" value="<?php echo $id ?>">
     <div class="container">
         <?php if ($photoURL != '') {
@@ -200,7 +202,7 @@ if (isset($_SESSION['userID'])) {
                 <button class="favBtn">Add to Favourites</button>
             </div>
 
-            <h4><?php echo $firstName ?> <?php echo $lastName ?> <span><?php echo $year ?></span></h4>
+            <h4><a href="artist_detail.php?artistID=<?php echo $artistID ?>"><?php echo $firstName ?> <?php echo $lastName ?> <span><?php echo $year ?></span></a></h4>
 
             <!-- for rating system part -->
             <div class="">

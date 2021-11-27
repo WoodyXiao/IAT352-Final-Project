@@ -1,5 +1,6 @@
 <!--------------------------------- Signup page part -------------------------------->
 <?php
+include('private/initialize.php');
 include("private/database/db.php");
 include "private/helpers/validate.php";
 include('private/controller/user.php');
@@ -23,7 +24,8 @@ include('private/controller/user.php');
     <style>
         <?php //include(PUBLIC_PATH . '/Assets/css/login.css'); 
         ?><?php //include(PUBLIC_PATH . '/Assets/css/css.css'); 
-            ?><?php include('public/Assets/css/login.css'); ?><?php include('public/Assets/css/css.css'); ?>
+            ?><?php //include('public/Assets/css/login.css'); 
+                ?><?php include('public/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/edit.css'); ?>
     </style>
 </head>
 
@@ -40,41 +42,59 @@ include('private/controller/user.php');
 
     <!-- for the login body part -->
     <form action="register.php" method="post">
-        <div class="body-box">
-            <div id="">
-                <!-- Tabs Titles -->
-                <!-- Icon -->
-                <div class="logo">
-                    <h1>Public Art</h1>
-                    <h4>Create an account</h4>
-                </div>
-                <div class="register-container">
-                    <!-- Login Form -->
-                    <div class="form-body">
-                        <input type="text" id="login" class="" name="username" placeholder="username" value="<?php echo $username ?>">
-                        <input type="email" id="email" class="" name="email" placeholder="email" value="<?php echo $email ?>">
+        <div class="main-containers">
+            <h1>CREATE YOUR ACCOUNT</h1>
+            <h5>Please fill in fields with *</h5>
+            <div class="main-box">
+                <div class="left-side">
+                    <div class="detail-box">
+                        <h5>Name*</h5>
                         <input type="text" id="name" class="" name="name" placeholder="name" value="<?php echo $name ?>">
-                        <input type="number" id="phoneNumber" class="" name="phone" placeholder="phone number" value="<?php echo $phone ?>">
-                        <input type="password" id="password" class="" name="password" placeholder="password" value="<?php echo $password ?>">
-                        <input type="password" id="confirm-password" class="" name="passwordConf" placeholder="confirmed password" value="<?php echo $passwordConf ?>">
-                        <button type="submit" class="signUpBtn" name="register-btn">Register</button>
-                        <div id="formFooter">
-                            <a class="" href="login.php">Alreadly have account?</a>
-                        </div>
                     </div>
+                    <div class="detail-box">
+                        <h5>Email*</h5>
+                        <input type="email" id="email" class="" name="email" placeholder="email" value="<?php echo $email ?>">
+                    </div>
+                    <div class="detail-box">
+                        <h5>Phone Number*</h5>
+                        <input type="number" id="phoneNumber" class="" name="phone" placeholder="phone number" value="<?php echo $phone ?>">
+                    </div>
+                    <div class="detail-box">
+                        <h5>Username* (must be under 30 characters)</h5>
+                        <input type="text" id="login" class="" name="username" placeholder="username" value="<?php echo $username ?>">
+                    </div>
+                    <div class="detail-box">
+                        <h5>Password* (must be under 30 characters)*</h5>
+                        <input type="password" id="password" class="" name="password" placeholder="password" value="<?php echo $password ?>">
+                    </div>
+                    <div class="detail-box">
+                        <h5>Confirmed Password* (must be under 30 characters)*</h5>
+                        <input type="password" id="confirm-password" class="" name="passwordConf" placeholder="confirmed password" value="<?php echo $passwordConf ?>">
+                    </div>
+                    <button type="submit" class="signUpBtn" name="register-btn">Register</button>
+                </div>
+                <div class="right-side">
+                    <div class="detail-box">
+                        <h5>Upload A Profile Photo</h5>
+                        <input type="file" id="file" id="uploadBtn">
+                    </div>
+                    <div class="profile-pic-div">
+                        <h5>Preview Photo</h5>
+                        <img src="public/Assets/img/1.jpg" alt="" id="photo">
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </form>
 
     <!-- for the photo profile part -->
-    <div class="profile-pic-div">
+    <!-- <div class="profile-pic-div">
         <img src="public/Assets/img/1.jpg" alt="" id="photo">
         <input type="file" id="file">
         <label for="file" id="uploadBtn">Choose Photo</label>
-    </div>
+    </div> -->
     <!-- end for the photo profile part -->
-    </div>
-    </div>
-    </div>
-
     <!-- end for the login body part -->
 
     <!-- for the js code  -->
