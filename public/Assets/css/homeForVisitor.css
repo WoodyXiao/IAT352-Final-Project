@@ -1,0 +1,28 @@
+.main-containers {
+  margin: 40px;
+  height: auto;
+  min-height: 1100px;
+}
+.main-containers .art-container {
+  display: flex;
+}
+.main-containers .art-container .artCard {
+  width: 300px;
+  height: auto;
+  margin-top: 40px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+}
+.main-containers .art-container .artCard .imgBox {
+  width: 100%;
+}
+.main-containers .art-container .artCard .imgBox img {
+  width: 100%;
+  height: auto;
+}
+.main-containers .art-container .artCard h3,
+.main-containers .art-container .artCard h5,
+.main-containers .art-container .artCard .descrpBox {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}

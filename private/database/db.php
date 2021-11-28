@@ -73,7 +73,27 @@ function selectOneByOneTable($table, $conditions)
     $records = $stmt->get_result()->fetch_assoc(); // ---> return the associate array of the data.
     return $records;
 }
-
+function selectOneByOneTable2($table, $key, $condition, $userid)
+{
+    global $conn;
+    $query = "SELECT DISTINCT *  FROM " . $table . " WHERE " . $key . " = " . $condition . " AND userID !=" . $userid . "";
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
+function selectOneByOneTable3($table, $condition, $userid)
+{
+    global $conn;
+    $query = "SELECT DISTINCT *  FROM " . $table . " WHERE username = " . $condition . " AND userID !=" . $userid . "";
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
+function selectAll($table)
+{
+    global $conn;
+    $query = "SELECT  *  FROM " . $table;
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
 // ----- create one record function -----
 function create($table, $data)
 {
@@ -94,7 +114,7 @@ function create($table, $data)
     $id = $stmt->insert_id;
     return $id;
 }
-// ----- for create account function-----
+// ------ for create account function ------
 function createRecord($table, $username, $password, $email, $name, $phoneNumber)
 {
     global $conn;
@@ -103,6 +123,41 @@ function createRecord($table, $username, $password, $email, $name, $phoneNumber)
     $stmt->execute();
     $id = $stmt->insert_id;
     return $id;
+}
+
+// ------- for update account function -----
+function update($table, $userid, $data)
+{
+    global $conn;
+    $sql = "UPDATE $table SET ";
+    $i = 0;
+    foreach ($data as $key => $value) {
+        if ($i === 0) {
+            $sql = $sql . " $key=?";
+        } else {
+            $sql = $sql . ", $key=?";
+        }
+        $i++;
+    }
+    $sql = $sql . " WHERE userID=?";
+    $data['userID'] = $userid;
+    $stmt = executeQuery($sql, $data);
+    return $stmt->affected_rows;
+}
+// ------ for create account function ------
+function updateRecord($table, $username, $password, $email, $name, $phoneNumber, $userid)
+{
+    global $conn;
+    $stmt = $conn->prepare("UPDATE $table SET username=?, password=?, email=?, name=?, phoneNumber=? WHERE userID=?");
+    $stmt->bind_param('ssssss', $username, $password, $email, $name, $phoneNumber, $userid);
+    $stmt->execute();
+}
+function updateRecord2($table, $username, $email, $name, $phoneNumber, $userid)
+{
+    global $conn;
+    $stmt = $conn->prepare("UPDATE $table SET username=?, email=?, name=?, phoneNumber=? WHERE userID=?");
+    $stmt->bind_param('sssss', $username, $email, $name, $phoneNumber, $userid);
+    $stmt->execute();
 }
 
 // ------- for show rate founction -------

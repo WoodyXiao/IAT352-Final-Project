@@ -47,27 +47,33 @@ include('private/controller/user.php');
     <!-- for the login body part -->
     <form action="login.php" method="post">
         <div class="body-box">
-            <div id="">
-                <!-- Tabs Titles -->
 
-                <!-- Icon -->
-                <div class="logo">
-                    <h1>Public Art</h1>
-                    <h4>Login Now</h4>
-                </div>
+            <!-- Tabs Titles -->
 
-                <div class="register-container">
-                    <!-- Login Form -->
-                    <div class="form-body">
+            <!-- Icon -->
+            <div class="logo">
+                <h1>MEMBER LOGIN</h1>
+            </div>
+
+            <div class="register-container">
+                <!-- Login Form -->
+                <div class="form-container">
+                    <div class="detail-box">
+                        <h5>Username</h5>
                         <input type="text" id="login" class="" name="username" placeholder="username" value="<?php echo $username ?>">
+                    </div>
+                    <div class="detail-box">
+                        <h5>Password</h5>
                         <input type="text" id="password" class="" name="password" placeholder="password" value="<?php echo $password ?>">
-                        <button type="submit" class="login-btn" name="login-btn">Login</button>
-                        <div id="formFooter">
-                            <a class="" href="register.php">Creata account?</a>
-                        </div>
+                    </div>
+
+                    <button type="submit" class="login-btn" name="login-btn">Login</button>
+                    <div id="formFooter">
+                        <a class="" href="register.php">Not a member yet? Create an account now ></a>
                     </div>
                 </div>
             </div>
+
         </div>
     </form>
     <!-- end for the login body part -->

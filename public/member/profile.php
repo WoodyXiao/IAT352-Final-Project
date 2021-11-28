@@ -1,8 +1,10 @@
 <!--------------------------------- account profile page part -------------------------------->
 <?php include('../../private/initialize.php');
 include("../../private/database/db.php");
-include('../../private/controller/user.php');
+include "../../private/helpers/validate.php";
+include("../../private/controller/userProfile.php");
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,19 +52,19 @@ include('../../private/controller/user.php');
                 </div>
                 <div class="detail-box">
                     <h4>Name</h4>
-                    <h5>Jonathan</h5>
+                    <h5><?php echo $name ?></h5>
                 </div>
                 <div class="detail-box">
                     <h4>Username</h4>
-                    <h5>username123</h5>
+                    <h5><?php echo $username ?></h5>
                 </div>
                 <div class="detail-box">
                     <h4>Email</h4>
-                    <h5>jonathan@gmail.com</h5>
+                    <h5><?php echo $email ?></h5>
                 </div>
                 <div class="detail-box">
                     <h4>Phone Number</h4>
-                    <h5>2048813703</h5>
+                    <h5><?php echo $phoneNumber ?></h5>
                 </div>
             </div>
             <div class="right-side">
@@ -95,7 +97,7 @@ include('../../private/controller/user.php');
                 </div>
             </div>
         </div>
-        <button class="editBtn"><a href="editProfile.php">Edit Profile</a></button>
+        <button class="editBtn"><a href="editProfile.php?userID=<?php echo $userid ?>">Edit Profile</a></button>
     </div>
 
     <!-- footer part -->

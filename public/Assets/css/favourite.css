@@ -1,0 +1,34 @@
+.main-containers {
+  margin: 40px;
+  height: auto;
+  min-height: 1100px;
+}
+.main-containers .detail-box {
+  display: flex;
+}
+.main-containers .detail-box .artCard {
+  width: 300px;
+  height: auto;
+  margin-top: 40px;
+  margin-right: 40px;
+}
+.main-containers .detail-box .artCard .imgBox {
+  width: 100%;
+}
+.main-containers .detail-box .artCard .imgBox img {
+  width: 100%;
+  height: auto;
+}
+.main-containers .detail-box .artCard h3,
+.main-containers .detail-box .artCard h5,
+.main-containers .detail-box .artCard .descrpBox,
+.main-containers .detail-box .artCard .removeBtn {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.main-containers .detail-box .artCard .descrpBox {
+  text-align: left;
+}
+.main-containers .detail-box .artCard .descrpBox p {
+  width: 100%;
+}

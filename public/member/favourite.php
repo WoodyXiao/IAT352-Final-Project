@@ -21,7 +21,7 @@ include("../../private/database/db.php");
     <style>
         <?php //include(PUBLIC_PATH . '/Assets/css/login.css'); 
         ?><?php //include(PUBLIC_PATH . '/Assets/css/css.css'); 
-            ?><?php include('../Assets/css/login.css'); ?><?php include('../Assets/css/css.css'); ?>
+            ?><?php include('../Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/favourite.css'); ?>
     </style>
 </head>
 
@@ -29,6 +29,55 @@ include("../../private/database/db.php");
     <!-- header part -->
     <?php include(INCLUDE_PATH . '/header.php'); ?>
     <!-- end header part -->
+
+    <!-- flash message when log in successfully -->
+    <?php include(INCLUDE_PATH . '/message.php'); ?>
+    <!-- end flash message when log in successfully -->
+
+    <!-- for the main part -->
+    <div class="main-containers">
+        <h1>FAVOURITE ARTWORKS</h1>
+        <div class="detail-box">
+            <div class="artCard">
+                <div class="imgBox">
+                    <a href=""><img src="../Assets/img/1.jpg" alt=""></a>
+                </div>
+                <a href="">
+                    <h3>Untitled (Tile Mural of a Woman and Child)</h3>
+                </a>
+                <a href="">
+                    <h5>Paul Huba - 1958</h5>
+                </a>
+                <div class="descripBox">
+                    <p>Description of artworkkkkkkkkkkkkk dsdsdsdsdsdsddsddsd kjalkfjwfhjkrjlclakjfmwl;jfawekjfhkhfkj ...</p>
+                </div>
+                <button class="removeBtn">Remove From List</button>
+            </div>
+
+            <div class="artCard">
+                <div class="imgBox">
+                    <a href=""><img src="../Assets/img/1.jpg" alt=""></a>
+                </div>
+                <a href="">
+                    <h3>Untitled (Tile Mural of a Woman and Child)</h3>
+                </a>
+                <a href="">
+                    <h5>Paul Huba - 1958</h5>
+                </a>
+                <div class="descripBox">
+                    <p>Description of artworkkkkkkkkkkkkk dsdsdsdsdsdsddsddsd kjalkfjwfhjkrjlclakjfmwl;jfawekjfhkhfkj ...</p>
+                </div>
+                <button class="removeBtn">Remove From List</button>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end for the main part -->
+
+    <!-- footer part -->
+    <?php include(INCLUDE_PATH . '/footer.php'); ?>
+    <!-- end footer part -->
 </body>
 
 </html>

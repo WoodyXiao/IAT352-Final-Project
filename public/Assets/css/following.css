@@ -1,0 +1,8 @@
+.main-containers {
+  margin: 40px;
+  height: auto;
+  min-height: 1100px;
+}
+.main-containers .artistList .artistBox {
+  display: flex;
+}

@@ -1,7 +1,8 @@
 <!--------------------------------- edit account profile page part -------------------------------->
 <?php include('../../private/initialize.php');
 include("../../private/database/db.php");
-include('../../private/controller/user.php');
+include("../../private/helpers/validate.php");
+include("../../private/controller/userProfile.php");
 ?>
 
 <!DOCTYPE html>
@@ -36,53 +37,67 @@ include('../../private/controller/user.php');
     <?php include(INCLUDE_PATH . '/header.php'); ?>
     <!-- end header part -->
 
-    <!-- flash message when log in successfully -->
-    <?php include(INCLUDE_PATH . '/message.php'); ?>
-    <!-- end flash message when log in successfully -->
+    <!-- display the error in the register form  -->
+    <?php include("../../private/helpers/formErrors.php"); ?>
+    <!-- end display the error in the register form  -->
 
     <div class="main-containers">
         <h1>EDIT PROFILE</h1>
         <h5>Edit account information</h5>
-        <div class="main-box">
-            <div class="left-side">
-                <div class="detail-box">
-                    <h5>Name*</h5>
-                    <input type="text">
-                </div>
-                <div class="detail-box">
-                    <h5>Email*</h5>
-                    <input type="email">
-                </div>
-                <div class="detail-box">
-                    <h5>Phone Number*</h5>
-                    <input type="number">
-                </div>
-                <div class="detail-box">
-                    <h5>Username* (must be under 30 characters)</h5>
-                    <input type="text">
-                </div>
-                <div class="detail-box">
-                    <h5>Password* (must be under 30 characters)*</h5>
-                    <input type="password">
-                </div>
-                <div class="detail-box">
-                    <h5>Confirmed Password* (must be under 30 characters)*</h5>
-                    <input type="password">
-                </div>
-                <button class="saveBtn">Save Changes</button>
-            </div>
-            <div class="right-side">
-                <div class="detail-box">
-                    <h5>Upload A Profile Photo</h5>
-                    <input type="file" id="file">
-                </div>
-                <div class="image-preview">
-                    <h5>Preview Photo</h5>
-                    <img src="../Assets/img/1.jpg" alt="">
-                </div>
-            </div>
-        </div>
+        <form action="editProfile.php?userID=<?php echo $userid ?>" method="post">
+            <input type="hidden" id="name" class="" name="userID" placeholder="name" value="<?php echo $userid ?>">
+            <div class="main-box">
+                <div class="left-side">
+                    <div class="detail-box">
+                        <h5>Name*</h5>
+                        <input type="text" id="name" class="" name="name" placeholder="name" value="<?php echo $name ?>">
+                    </div>
+                    <div class="detail-box">
+                        <h5>Email*</h5>
+                        <input type="email" id="email" class="" name="email" placeholder="email" value="<?php echo $email ?>">
+                    </div>
+                    <div class="detail-box">
+                        <h5>Phone Number*</h5>
+                        <input type="number" id="phoneNumber" class="" name="phone" placeholder="phone number" value="<?php echo $phoneNumber ?>">
+                    </div>
+                    <div class="detail-box">
+                        <h5>Username* (must be under 30 characters)</h5>
+                        <input type="text" id="login" class="" name="username" placeholder="username" value="<?php echo $username ?>">
+                    </div>
 
+                    <button type="submit" class="saveBtn" name="saveBtn">Save Changes</button>
+                </div>
+                <div class="right-side">
+                    <div class="detail-box">
+                        <h5>Upload A Profile Photo</h5>
+                        <input type="file" id="file">
+                    </div>
+                    <div class="image-preview">
+                        <h5>Preview Photo</h5>
+                        <img src="../Assets/img/1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form action="editProfile.php?userID=<?php echo $userid ?>" method="post">
+            <input type="hidden" id="name" class="" name="userID" placeholder="name" value="<?php echo $userid ?>">
+            <div class="password-box">
+                <div class="detail-box">
+                    <h5>Old Password* (must be under 30 characters)*</h5>
+                    <input type="password" id="password" class="" name="oldPassword" placeholder="password" value="">
+                </div>
+                <div class="detail-box">
+                    <h5>New Password* (must be under 30 characters)*</h5>
+                    <input type="password" id="confirm-password" class="" name="newPassword" placeholder="new password" value="">
+                </div>
+                <div class="detail-box">
+                    <h5>New Password Confirmed* (must be under 30 characters)*</h5>
+                    <input type="password" id="confirm-password" class="" name="newPasswordConf" placeholder="confirmed new password" value="">
+                </div>
+            </div>
+
+            <button type="submit" class="changePassBtn" name="changePassBtn">Change Password</button>
+        </form>
     </div>
 
     <!-- footer part -->
