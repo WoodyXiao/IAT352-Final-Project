@@ -21,6 +21,9 @@ $(document).ready(function () {
                 $('.msg li').html("Added to your favourite successfully!!");
                 $('.favBtn').remove();
                 $('.title-and-button').append('<button name="unSaveBtn" class="unSaveBtn" >Saved already</button>');
+                setTimeout(function(){
+                    window.location.reload();
+                },1500)
             }
         });
     });
@@ -42,6 +45,10 @@ $(document).ready(function () {
                 $('.msg li').html("Removed to your favourite successfully!!");
                 $('.unSaveBtn').remove();
                 $('.title-and-button').append('<button name="favBtn" class="favBtn" >Add to Favourites</button>');
+                setTimeout(function(){
+                    window.location.reload();
+                },1500)
+
             }
         });
     });

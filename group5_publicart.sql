@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2021 at 05:17 AM
+-- Generation Time: Nov 29, 2021 at 02:40 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -1367,7 +1367,25 @@ INSERT INTO `comment` (`commentID`, `userID`, `artID`, `date`, `commentText`) VA
 (48, 13, 845, '2021-11-25 02:20:25', 'Good'),
 (49, 13, 843, '2021-11-25 02:23:09', 'Cool'),
 (52, 14, 870, '2021-11-25 23:30:27', 'Test'),
-(53, 15, 865, '2021-11-26 02:15:45', 'Good!');
+(53, 15, 865, '2021-11-26 02:15:45', 'Good!'),
+(56, 16, 785, '2021-11-26 06:00:48', 'good!'),
+(57, 18, 870, '2021-11-26 06:44:07', 'Good!'),
+(58, 19, 870, '2021-11-26 06:51:03', 'Good!'),
+(59, 4, 214, '2021-11-26 09:20:26', 'heyyy'),
+(60, 4, 811, '2021-11-26 09:42:58', 'hiii'),
+(61, 4, 366, '2021-11-26 17:48:34', 'wow'),
+(62, 21, 853, '2021-11-27 09:11:25', 'nice!'),
+(63, 4, 845, '2021-11-27 19:17:13', 'Nice!'),
+(64, 5, 843, '2021-11-27 19:19:55', 'Nice'),
+(65, 7, 83, '2021-11-28 05:55:34', 'aaa'),
+(66, 7, 97, '2021-11-28 05:56:06', 'good'),
+(67, 24, 785, '2021-11-28 08:13:01', '123'),
+(68, 27, 785, '2021-11-28 10:25:46', 'xwd'),
+(69, 28, 785, '2021-11-28 19:01:35', 'yes!'),
+(70, 28, 869, '2021-11-28 19:01:47', 'nice!'),
+(71, 28, 870, '2021-11-28 19:02:07', 'good!'),
+(72, 28, 865, '2021-11-28 19:02:25', 'nice!'),
+(73, 28, 785, '2021-11-28 19:17:57', 'test1');
 
 -- --------------------------------------------------------
 
@@ -1380,6 +1398,18 @@ CREATE TABLE `favouriteslist` (
   `userID` int(4) NOT NULL,
   `artID` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `favouriteslist`
+--
+
+INSERT INTO `favouriteslist` (`favID`, `userID`, `artID`) VALUES
+(27, 13, 869),
+(28, 13, 845),
+(46, 26, 843),
+(47, 26, 845),
+(48, 26, 847),
+(50, 26, 849);
 
 -- --------------------------------------------------------
 
@@ -1414,18 +1444,28 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`userID`, `username`, `password`, `name`, `phoneNumber`, `profilePhoto`, `email`) VALUES
-(4, 'xwd', '$2y$10$DukRzL1tvrV7M/PDBmYoLebQOkb1d7hC9W3pHpO5bDq15ZAuIvqoa', 'Wendi Xiao', 2048813703, '', 'xwd443907076@hotmail.com'),
+(4, 'xwd', '$2y$10$3vPh5ssNHVdutOAQmSK3m.mQi9e8Zsn.t3WSugo51P7/PMa.aBQ52', 'Wendi Xiao', 2048813703, '', 'xwd443907076@hotmail.com'),
 (5, 'Manatay', '$2y$10$dYgh.1R7vx4uYLEuTkVKSO1UmYfUEyl0pp/do2/CJ9oJNbPIpCVqi', 'Wendi Xiao', 2048813703, '', 'xwd@xwd.com'),
 (6, 'xxx', '$2y$10$FJhDKWKErM5yqg6.1yD0WuZkLL3Obp2Kxp3kcm9lqE4kiep01vmH2', 'xxx', 2048813703, '', 'xxx@xxx.com'),
-(7, 'xxxx', '$2y$10$ezyP38FfFDM24s2ndyMZ9OB0ot50D5D9VzLanWi3EGKvEtfLwFu9e', 'xxxx', 123, '', 'xxxx@xxxx.com'),
-(8, 'aaa', '$2y$10$py/HC/4.PC9NOmr0D9z06efOPKJ0M1FitPAmsKIRYAixRYQ66AC2m', 'aaa', 2048813703, '', 'aaa@aaa.com'),
+(7, 'xxxx123', '$2y$10$dls8U2aE5MORACvLkis13ukhKIFLwAX.FylKsiFPYpnI9qnvI/Qd6', 'xxxx', 123123, '', 'xxxx@xxxx.com'),
+(8, 'aaa', '$2y$10$5HdG5yGmYM0JjDLWNX/ylu1ZAjku86iKyYyB62tx/VTDVNljF/9ym', 'aaa123', 2048813703, '', 'aaa@aaa.com'),
 (9, 'bbb', '$2y$10$ps0bWwJnZQ9E5rNCectyq.huvVdL1m0ZbgT2D.x6F/3a/xcAuDt.S', 'bbb', 2048813703, '', 'bb@bb.com'),
 (10, 'ccc', '$2y$10$w4y9kyyPDtpn3YuCBvkXQ.yjZhLydKs5h.jmJ35ymwUqPN5eaRsSS', 'Wendi Xiao', 2048813703, '', 'c@c.com'),
 (11, 'yyy', '$2y$10$Q0u7RAZFs26TxhKEEo701eoYIDII1.BKvm6OCbeUc.qsMh76rKjW.', 'yy', 2048813703, '', 'yy@yy.com'),
 (12, 'Weibao', '$2y$10$TP420onf4F7TruOUhjtJDuu02GCUv4fl.9r0Z5j44IfGg/uQQqinK', 'weiwei', 2048813703, '', 'weiwei@we.com'),
 (13, 'jjj', '$2y$10$EKdvIpG6l8T7Oqdn60wbNegRUFhRS9hstjEjz3h8dRm9N9ldzYtHq', 'jjj', 123, '', 'jj@j.com'),
 (14, 'test3', '$2y$10$2inDq60aedA887Wz9ebOwu9ZuvDgOLHSZPKzbZVGNRmtmQWNGw8di', 'ttt', 123, '', 'test@test'),
-(15, 't4', '$2y$10$lThZh0z08oSHekECKZ6lK.BBuzkPp72Xx4schZiU.QsQlyCWNb0u6', 'xwd', 123, '', 't4@t4.com');
+(15, 't4', '$2y$10$lThZh0z08oSHekECKZ6lK.BBuzkPp72Xx4schZiU.QsQlyCWNb0u6', 'xwd', 123, '', 't4@t4.com'),
+(16, 'test6', '$2y$10$G8VHWPh.dkbw4.31Ta.o/eTg6YUi4SJjqz2yVtHPsZxRurBvfCIe2', 'test', 123, '', 't@t.com'),
+(17, 't7', '$2y$10$hYt.dMXP1RaovtIQuPmp2uUmdKihS9vI6/D.wrvn87SlQEPsbMBQ.', 'tt', 123, '', 'tt@tt.com'),
+(18, 'test8', '$2y$10$MimkArrboZY7FaLlYo8T8uqcjOLcds3GmgbPhQBszsKh28opm17SW', 'tt', 123, '', 'tt@ttt.com'),
+(19, 'tttt', '$2y$10$cmIt8X33hs.bKOcIF4v.GeHngANpJV21dOpVR8GzOdq6a1hqa6SDq', 'tttt', 123, '', 'tttt@tttt.com'),
+(20, 'kkk', '$2y$10$f.WjJ7ARsGQ67DVHnik.yON/83pIAPom0vDjOHE4QTgTjAH1.Dmtu', 'kk', 123, '', 'kk@kk.com'),
+(21, 'xxxxx', '$2y$10$LrBGCQLKS8YLScBWcdKJnuJugRNpPZWtEV80xdfgvr8yOd1elVQg6', 'xxxxx', 123, '', 'xx@xx.com'),
+(24, '1234', '', '12344', 123123, '', '123@123.com'),
+(26, '12345', '$2y$10$sGNjxZCWRNGTQvBdWSTx4eCR7pFdZQVxrwLAP4o4E2VXzMtLh3g7S', '1111', 2147483647, '', 'nnuw@hotmail.com'),
+(27, 'wwwww', '$2y$10$GdiZvBtao.UtZc6.FtuKc.znOG9GPyYllrv/zWMcCYoGgVrM1CgDm', 'xxxxx', 123, '', 'www@wwwww.com'),
+(28, 'xwdxwd', '$2y$10$iKg.HnWUi7idw11yi25K..8g4QzXKHHtAwFYMw4JZvk2KyASY2vIW', 'wwxx', 12345678, '', 'dd@ddd.com');
 
 -- --------------------------------------------------------
 
@@ -1461,7 +1501,23 @@ INSERT INTO `rating` (`rateID`, `userID`, `artID`, `score`) VALUES
 (93, 13, 845, 2),
 (94, 13, 843, 2),
 (103, 14, 870, 5),
-(108, 15, 865, 5);
+(108, 15, 865, 5),
+(109, 16, 785, 5),
+(110, 18, 870, 5),
+(111, 19, 870, 5),
+(118, 4, 214, 5),
+(119, 4, 811, 5),
+(120, 4, 366, 4),
+(121, 21, 853, 4),
+(122, 4, 845, 5),
+(123, 5, 843, 5),
+(124, 7, 83, 5),
+(125, 7, 97, 5),
+(126, 27, 785, 4),
+(127, 28, 785, 5),
+(128, 28, 869, 5),
+(129, 28, 870, 5),
+(130, 28, 865, 5);
 
 --
 -- Indexes for dumped tables
@@ -1526,13 +1582,13 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `favouriteslist`
 --
 ALTER TABLE `favouriteslist`
-  MODIFY `favID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `favID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `followinglist`
@@ -1544,13 +1600,13 @@ ALTER TABLE `followinglist`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `rateID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `rateID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- Constraints for dumped tables
