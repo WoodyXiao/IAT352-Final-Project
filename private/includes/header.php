@@ -15,8 +15,8 @@
 
         <!--  if user log in successfully, show the account name  -->
         <?php if (isset($_SESSION['userID'])) { ?>
-            <li><a href="<?php echo PUBLIC_URL . 'member/favourite.php' ?>">Favourites</a></li>
-            <li><a href="<?php echo PUBLIC_URL . 'member/following.php' ?>">Following</a></li>
+            <li><a href="<?php echo PUBLIC_URL . 'member/favourite.php?userID=' .$_SESSION['userID'] ?>">Favourites</a></li>
+            <li><a href="<?php echo PUBLIC_URL . 'member/following.php?userID=' .$_SESSION['userID'] ?>">Following</a></li>
             <li>
                 <a href="#">
                     <i class="fa fa-user"></i>

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     // ----- for the function of fetching data -----
     function filter_data(pageID) {
         var status = get_filter('status');

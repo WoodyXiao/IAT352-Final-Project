@@ -5,30 +5,43 @@
 }
 .main-containers .detail-box {
   display: flex;
+  gap: 10px 10px;
+  flex-wrap: wrap;
 }
 .main-containers .detail-box .artCard {
-  width: 300px;
-  height: auto;
+  position: relative;
+  width: 280px;
+  height: 500px;
   margin-top: 40px;
   margin-right: 40px;
 }
 .main-containers .detail-box .artCard .imgBox {
   width: 100%;
+  height:300px;
 }
 .main-containers .detail-box .artCard .imgBox img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit:cover;
 }
 .main-containers .detail-box .artCard h3,
 .main-containers .detail-box .artCard h5,
-.main-containers .detail-box .artCard .descrpBox,
-.main-containers .detail-box .artCard .removeBtn {
+.main-containers .detail-box .artCard .descripBox
+{
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.main-containers .detail-box .artCard .descrpBox {
+.main-containers .detail-box .artCard .descripBox {
   text-align: left;
+
 }
-.main-containers .detail-box .artCard .descrpBox p {
+.main-containers .detail-box .artCard .descripBox p {
   width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+.main-containers .detail-box .artCard .removeBtn {
+  position: absolute;
+  bottom:10px;
 }

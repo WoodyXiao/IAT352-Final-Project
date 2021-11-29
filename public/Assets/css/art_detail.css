@@ -1,0 +1,107 @@
+#comment-container {
+    height: auto;
+    min-height: 700px;
+    margin-top: 50px;
+}
+textarea {
+    width: 100%;
+}
+
+.post-btn {
+    float: right;
+}
+
+.container {
+    height: auto;
+    padding-left: 80px;
+    padding-left: 80px;
+    width: 80%;
+}
+
+.container .comment-box {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+}
+
+.container .display-comment-box .display-comment {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.container .comment-box {
+    position: relative;
+}
+
+.container .comment-box .comment_mess {
+    position: absolute;
+
+    left: 42%;
+    top: 80px;
+
+}
+
+.container .display-comment-box .display-comment .profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.container .display-comment-box .display-comment .comment-body {
+    margin-left: 20px;
+}
+
+.container .display-comment-box .display-comment .comment-body .name-and-time {
+    display: flex;
+}
+
+.checked {
+    color: orange;
+}
+
+.clicked {
+    color: lightcoral;
+}
+
+.hover {
+    color: lightcoral;
+}
+
+.container .text-container {
+    margin-top: 30px;
+}
+
+.container .text-container img {
+    width: 600px;
+    height: auto;
+}
+
+.container .text-container .title-and-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .text-container .details-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.container .text-container .details-container .left-side {}
+
+
+.container .text-container .details-container .left-side .detail-box {
+    margin-bottom: 20px;
+}
+
+.container .text-container .details-container .right-side {
+    width: 800px;
+}
+
+.container .text-container .details-container .right-side .detail-box1 {
+    margin-bottom: 40px;
+}

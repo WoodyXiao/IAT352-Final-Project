@@ -7,6 +7,7 @@ include('private/controller/user.php');
 <?php
 $table1 = 'artwork';
 $table2 = 'artist';
+$table3 = 'favouriteslist';
 // ---------- show one artwork detail ---------- //
 if (isset($_GET['id'])) { // ---> if there is an exist id.
     $id = $_GET['id'];
@@ -38,7 +39,11 @@ if (isset($_GET['id'])) { // ---> if there is an exist id.
 
 if (isset($_SESSION['userID'])) {
     $user_id = $_SESSION['userID'];
+
+    $favourite = selectOneByOneTable($table3, ['userID'=> $user_id,'artID' =>$id]);
 }
+
+
 
 ?>
 
@@ -66,114 +71,8 @@ if (isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Custom Styling -->
     <style>
-        <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?>#comment-container {
-            height: auto;
-            min-height: 700px;
-            margin-top: 50px;
-        }
-
-        textarea {
-            width: 100%;
-        }
-
-        .post-btn {
-            float: right;
-        }
-
-        .container {
-            height: auto;
-            padding-left: 80px;
-            padding-left: 80px;
-            width: 80%;
-        }
-
-        .container .comment-box {
-            width: 100%;
-            display: flex;
-            margin-top: 20px;
-            margin-bottom: 30px;
-
-        }
-
-        .container .display-comment-box .display-comment {
-            width: 100%;
-            display: flex;
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-
-        .container .comment-box {
-            position: relative;
-        }
-
-        .container .comment-box .comment_mess {
-            position: absolute;
-
-            left: 42%;
-            top: 80px;
-
-        }
-
-        .container .display-comment-box .display-comment .profile img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-        }
-
-        .container .display-comment-box .display-comment .comment-body {
-            margin-left: 20px;
-        }
-
-        .container .display-comment-box .display-comment .comment-body .name-and-time {
-            display: flex;
-        }
-
-        .checked {
-            color: orange;
-        }
-
-        .clicked {
-            color: lightcoral;
-        }
-
-        .hover {
-            color: lightcoral;
-        }
-
-        .container .text-container {
-            margin-top: 30px;
-        }
-
-        .container .text-container img {
-            width: 600px;
-            height: auto;
-        }
-
-        .container .text-container .title-and-button {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .container .text-container .details-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 80px;
-        }
-
-        .container .text-container .details-container .left-side {}
-
-
-        .container .text-container .details-container .left-side .detail-box {
-            margin-bottom: 20px;
-        }
-
-        .container .text-container .details-container .right-side {
-            width: 800px;
-        }
-
-        .container .text-container .details-container .right-side .detail-box1 {
-            margin-bottom: 40px;
-        }
+        <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?>
+        <?php include(PUBLIC_PATH . '/Assets/css/art_detail.css'); ?>            
     </style>
 </head>
 
@@ -186,9 +85,14 @@ if (isset($_SESSION['userID'])) {
     <?php include(INCLUDE_PATH . '/message.php'); ?>
     <!-- end flash message when log in successfully -->
 
+    <div class="msg">
+        <li></li>
+    </div>
+
     <!-- <form action="art_detail.php" method="post"> -->
     <!-- save the art id -->
     <input type="hidden" name="id" class="artID" value="<?php echo $id ?>">
+    <input type="hidden" name="id" class="userID" value="<?php echo $user_id ?>">
     <div class="container">
         <?php if ($photoURL != '') {
             $photo = $photoURL;
@@ -199,7 +103,12 @@ if (isset($_SESSION['userID'])) {
         <div class="text-container">
             <div class="title-and-button">
                 <h1><?php echo $title ?></h1>
-                <button class="favBtn">Add to Favourites</button>
+                <?php if(isset($_SESSION['userID']) && !$favourite){?>               
+                    <button name="favBtn" class="favBtn">Add to Favourites</button>
+                <?php }else if(isset($_SESSION['userID']) && $favourite) {?>
+                    <input type="hidden" name="id" class="favID" value="<?php echo $favourite['favID'] ?>">
+                    <button name="unSaveBtn" class="unSaveBtn" >Saved already</button>
+                <?php }else{ }?>
             </div>
 
             <h4><a href="artist_detail.php?artistID=<?php echo $artistID ?>"><?php echo $firstName ?> <?php echo $lastName ?> <span><?php echo $year ?></span></a></h4>
@@ -299,11 +208,8 @@ if (isset($_SESSION['userID'])) {
         </div>
         <!-- end displaying comment container part -->
 
-
-
     </div>
     <!-- end for the comment body part  -->
-
 
     <!-- footer part -->
     <?php include(INCLUDE_PATH . '/footer.php'); ?>
@@ -311,6 +217,7 @@ if (isset($_SESSION['userID'])) {
 
     <!-- jquery code part -->
     <script type="text/javascript" src="public/Assets/js/comment_rating.js"></script>
+    <script type="text/javascript" src="public/Assets/js/favourite.js"></script>
 
 </body>
 
