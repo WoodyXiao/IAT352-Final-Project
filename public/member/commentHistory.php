@@ -2,7 +2,7 @@
 <?php include('../../private/initialize.php');
 include("../../private/database/db.php");
 include "../../private/helpers/validate.php";
-include("../../private/controller/userProfile.php");
+include("../../private/controller/getcommentHistory.php");
 
 ?>
 
@@ -29,7 +29,7 @@ include("../../private/controller/userProfile.php");
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Custom Styling -->
     <style>
-        <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/profile.css'); ?>
+        <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/commentHistory.css'); ?>
     </style>
 </head>
 
@@ -42,10 +42,43 @@ include("../../private/controller/userProfile.php");
     <?php include(INCLUDE_PATH . '/message.php'); ?>
     <!-- end flash message when log in successfully -->
 
+    <div class="msg">
+        <li></li>
+    </div>
+
+    <!-- for the main part -->
+    <div class="history-container">
+        <h1>COMMENT HISTORY</h1>
+
+        <?php foreach ($history as $row) { ?>
+
+            <div class="history-box" id="cmt<?php echo $row['commentID'] ?>">
+                <div class="left-side">
+                    <h3><?php echo $row['date'] ?></h3>
+                </div>
+                <div class="right-side">
+                    <a href="<?php echo url_for('art_detail.php?id=' . $row['artID']) ?>">
+                        <h4><?php echo $row['artName'] ?></h4>
+                    </a>
+                    <a href="<?php echo url_for('art_detail.php?id=' . $row['artID']) . '#' . $row['username'] ?>">
+                        <p><?php echo $row['commentText'] ?></p>
+                    </a>
+                    <button name='removeBtn' class="removeBtn" onclick="removeComment(<?php echo $row['commentID'] ?>)">Remove Comment</button>
+                </div>
+            </div>
+
+        <?php } ?>
+    </div>
+    <!-- end for the main part -->
 
     <!-- footer part -->
     <?php include(INCLUDE_PATH . '/footer.php'); ?>
     <!-- end footer part -->
+
+    <!-- for the jquery code -->
+    <script type="text/javascript" src="../Assets/js/removeComment.js">
+    </script>
+    <!-- end for the jquery code -->
 </body>
 
 </html>

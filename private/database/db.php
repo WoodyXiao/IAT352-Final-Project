@@ -94,6 +94,16 @@ function selectAll($table)
     $result = mysqli_query($conn, $query);
     return $result;
 }
+function selectAllFromThreeTables($artwork, $comment, $member,  $userID)
+{
+    global $conn;
+    $query = "SELECT a.artName,a.artID, c.commentText, c.date,c.commentID, m.username,m.userID FROM $comment c  
+    INNER JOIN $artwork a ON a.artID = c.artID 
+    INNER JOIN $member m ON c.userID = m.userID 
+    WHERE m.userID = $userID";
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
 function selectAllFromFourTables($artwork, $favouriteslist, $member, $artist, $userID)
 {
     global $conn;

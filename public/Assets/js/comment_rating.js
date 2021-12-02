@@ -85,7 +85,7 @@ $(document).ready(function () {
                             <div class="profile">\
                                 <img src="Assets/img/1.jpg" alt="">\
                             </div>\
-                            <div class="comment-body">\
+                            <div class="comment-body"  id=' + value.user['username'] + '>\
                                 <div class="name-and-time">\
                                     <a href="">\
                                         <p style="font-weight:bold">' + value.user['username'] + '</p>\

@@ -1,0 +1,19 @@
+.history-container {
+    margin: 40px;
+    height: auto;
+    min-height: 1100px;
+}
+.history-container h1 {
+    margin-bottom: 30px;
+}
+.history-container .history-box {
+    display: flex;
+    
+}
+.history-container .history-box .right-side {
+    margin-left: 300px;
+}
+button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
