@@ -1,7 +1,7 @@
 <!-- -------------------- for loading rating and insert rating part -------------------- -->
 <?php
-include('../private/initialize.php');
-include("../private/database/db.php");
+include('../../private/initialize.php');
+include("../../private/database/db.php");
 $user_id = $_SESSION['userID'];
 if (isset($_POST['add_rating']) && isset($_POST['ratingNum'])) {
     // get posted data 

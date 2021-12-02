@@ -14,7 +14,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "public/favourite/addFavourite.php",
+            url: "favourite/addFavourite.php",
             data: data,
             success: function (res) {
                 $('.msg').addClass('success');
@@ -38,7 +38,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "POST",
-            url: "public/favourite/addFavourite.php",
+            url: "favourite/addFavourite.php",
             data: data,
             success: function (res) {
                 $('.msg').addClass('success');

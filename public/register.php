@@ -1,9 +1,9 @@
 <!--------------------------------- Signup page part -------------------------------->
 <?php
-include('private/initialize.php');
-include("private/database/db.php");
-include "private/helpers/validate.php";
-include('private/controller/user.php');
+include('../private/initialize.php');
+include("../private/database/db.php");
+include "../private/helpers/validate.php";
+include('../private/controller/user.php');
 
 ?>
 
@@ -23,21 +23,21 @@ include('private/controller/user.php');
     <!-- Custom Styling -->
     <style>
         <?php //include(PUBLIC_PATH . '/Assets/css/login.css'); 
-        ?><?php //include(PUBLIC_PATH . '/Assets/css/css.css'); 
+        ?><?php include(PUBLIC_PATH . '/Assets/css/css.css'); 
             ?><?php //include('public/Assets/css/login.css'); 
-                ?><?php include('public/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/edit.css'); ?>
+                ?><?php //include('public/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/edit.css'); ?>
     </style>
 </head>
 
 <body>
     <!-- header part -->
-    <?php //include(INCLUDE_PATH . '/header.php'); 
+    <?php include(INCLUDE_PATH . '/header.php'); 
     ?>
-    <?php include 'private/includes/header.php'; ?>
+    <?php //include '../private/includes/header.php'; ?>
     <!-- end header part -->
 
     <!-- display the error in the register form  -->
-    <?php include "private/helpers/formErrors.php"; ?>
+    <?php include "../private/helpers/formErrors.php"; ?>
     <!-- end display the error in the register form  -->
 
     <!-- for the login body part -->
@@ -80,7 +80,7 @@ include('private/controller/user.php');
                     </div>
                     <div class="profile-pic-div">
                         <h5>Preview Photo</h5>
-                        <img src="public/Assets/img/1.jpg" alt="" id="photo">
+                        <img src="Assets/img/1.jpg" alt="" id="photo">
                     </div>
                 </div>
             </div>

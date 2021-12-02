@@ -1,6 +1,6 @@
 <?php
-include('private/initialize.php');
-include("private/database/db.php");
+include('../../private/initialize.php');
+include("../../private/database/db.php");
 
 $limit = 10; // ---> setting default by 5 for the limit at first.
 $output = ''; // ---> initialize output frist.

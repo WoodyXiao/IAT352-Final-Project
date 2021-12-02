@@ -1,6 +1,6 @@
 <?php
-include('../private/initialize.php');
-include("../private/database/db.php");
+include('../../private/initialize.php');
+include("../../private/database/db.php");
 
 if (isset($_POST['comment_load_data'])) {
     $artID = $_POST['artID'];

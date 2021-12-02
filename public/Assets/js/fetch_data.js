@@ -8,7 +8,7 @@ $(document).ready(function () {
         var to = $('#hidden_maximum_year').val();
         var country = $('#fetchCountry').val();
         $.ajax({
-            url: "filter_art.php",
+            url: "filterData/filter_art.php",
             type: "POST",
             data: {
                 status: status,

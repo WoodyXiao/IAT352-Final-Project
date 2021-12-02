@@ -83,7 +83,7 @@ $(document).ready(function () {
 
                     $('.display-comment-box').append('<div class="display-comment">\
                             <div class="profile">\
-                                <img src="public/Assets/img/1.jpg" alt="">\
+                                <img src="Assets/img/1.jpg" alt="">\
                             </div>\
                             <div class="comment-body">\
                                 <div class="name-and-time">\

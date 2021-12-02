@@ -1,7 +1,7 @@
 <!--------------------------------- art detail page part -------------------------------->
-<?php include('private/initialize.php');
-include("private/database/db.php");
-include('private/controller/user.php');
+<?php include('../private/initialize.php');
+include("../private/database/db.php");
+include('../private/controller/user.php');
 ?>
 
 <?php
@@ -214,10 +214,9 @@ if (isset($_SESSION['userID'])) {
     <!-- footer part -->
     <?php include(INCLUDE_PATH . '/footer.php'); ?>
     <!-- end footer part -->
-
     <!-- jquery code part -->
-    <script type="text/javascript" src="public/Assets/js/comment_rating.js"></script>
-    <script type="text/javascript" src="public/Assets/js/favourite.js"></script>
+    <script type="text/javascript" src="Assets/js/comment_rating.js"></script>
+    <script type="text/javascript" src="Assets/js/favourite.js"></script>
 
 </body>
 

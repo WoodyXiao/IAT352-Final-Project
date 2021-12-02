@@ -1,7 +1,7 @@
 <!--------------------------------- index page part -------------------------------->
-<?php include('private/initialize.php');
-include("private/database/db.php");
-include 'private/controller/user.php';
+<?php include('../private/initialize.php');
+include("../private/database/db.php");
+include '../private/controller/user.php';
 ?>
 
 
@@ -177,7 +177,7 @@ include 'private/controller/user.php';
     <!-- end footer part -->
       
     <!-- for the jquery ajax code -->
-    <script type="text/javascript" src="public/Assets/js/fetch_data.js"></script>
+    <script type="text/javascript" src="Assets/js/fetch_data.js"></script>
     <!-- end for the jquery code -->
 </body>
 
