@@ -1,4 +1,4 @@
-<!-- -------------------- for adding art work to favourite part ------------------- -->
+<!-- -------------------- for removing art work to favourite part ------------------- -->
 <?php
 include('../../private/initialize.php');
 include("../../private/database/db.php");

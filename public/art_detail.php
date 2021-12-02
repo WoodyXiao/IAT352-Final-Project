@@ -40,7 +40,7 @@ if (isset($_GET['id'])) { // ---> if there is an exist id.
 if (isset($_SESSION['userID'])) {
     $user_id = $_SESSION['userID'];
 
-    $favourite = selectOneByOneTable($table3, ['userID'=> $user_id,'artID' =>$id]);
+    $favourite = selectOneByOneTable($table3, ['userID' => $user_id, 'artID' => $id]);
 }
 
 
@@ -71,8 +71,7 @@ if (isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Custom Styling -->
     <style>
-        <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?>
-        <?php include(PUBLIC_PATH . '/Assets/css/art_detail.css'); ?>            
+        <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/art_detail.css'); ?>
     </style>
 </head>
 
@@ -103,12 +102,13 @@ if (isset($_SESSION['userID'])) {
         <div class="text-container">
             <div class="title-and-button">
                 <h1><?php echo $title ?></h1>
-                <?php if(isset($_SESSION['userID']) && !$favourite){?>               
+                <?php if (isset($_SESSION['userID']) && !$favourite) { ?>
                     <button name="favBtn" class="favBtn">Add to Favourites</button>
-                <?php }else if(isset($_SESSION['userID']) && $favourite) {?>
+                <?php } else if (isset($_SESSION['userID']) && $favourite) { ?>
                     <input type="hidden" name="id" class="favID" value="<?php echo $favourite['favID'] ?>">
-                    <button name="unSaveBtn" class="unSaveBtn" >Saved already</button>
-                <?php }else{ }?>
+                    <button name="unSaveBtn" class="unSaveBtn">Saved already</button>
+                <?php } else {
+                } ?>
             </div>
 
             <h4><a href="artist_detail.php?artistID=<?php echo $artistID ?>"><?php echo $firstName ?> <?php echo $lastName ?> <span><?php echo $year ?></span></a></h4>

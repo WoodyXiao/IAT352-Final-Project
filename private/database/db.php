@@ -94,11 +94,21 @@ function selectAll($table)
     $result = mysqli_query($conn, $query);
     return $result;
 }
-function selectAallFromFourTables($artwork, $favouriteslist, $member, $artist,$userID)
+function selectAllFromFourTables($artwork, $favouriteslist, $member, $artist, $userID)
 {
     global $conn;
     $query = "SELECT f.favID,m.userID,a.artID,a.artName,a.year,a.photoURL,a1.artistID,a1.firstName,a1.lastName,a.status,a.description 
     FROM $artwork a INNER JOIN $favouriteslist f ON f.artID = a.artID 
+                INNER JOIN $member m ON f.userID = m.userID 
+                INNER JOIN $artist a1 ON a.artistID = a1.artistID WHERE m.userID =$userID";
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
+function selectAllFromFourTables2($artwork, $followinglist, $member, $artist, $userID)
+{
+    global $conn;
+    $query = "SELECT f.followID,m.userID,a.artID,a.artName,a.year,a.photoURL,a1.artistID,a1.firstName,a1.lastName,a.status,a.description 
+    FROM $artwork a INNER JOIN $followinglist f ON f.artistID = a.artistID 
                 INNER JOIN $member m ON f.userID = m.userID 
                 INNER JOIN $artist a1 ON a.artistID = a1.artistID WHERE m.userID =$userID";
     $result = mysqli_query($conn, $query);

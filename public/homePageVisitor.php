@@ -1,7 +1,7 @@
 <!--------------------------------- home page for non-member part -------------------------------->
-<?php include('private/initialize.php');
-include("private/database/db.php");
-include 'private/controller/user.php';
+<?php include('../private/initialize.php');
+include("../private/database/db.php");
+include '../private/controller/user.php';
 ?>
 
 <!-- html part -->
@@ -39,7 +39,7 @@ include 'private/controller/user.php';
         <div class="art-container">
             <div class="artCard">
                 <div class="imgBox">
-                    <a href=""><img src="public/Assets/img/1.jpg" alt=""></a>
+                    <a href=""><img src="Assets/img/1.jpg" alt=""></a>
                 </div>
                 <a href="">
                     <h3>Untitled (Tile Mural of a Woman and Child)</h3>
@@ -53,7 +53,7 @@ include 'private/controller/user.php';
             </div>
             <div class="artCard">
                 <div class="imgBox">
-                    <a href=""><img src="public/Assets/img/1.jpg" alt=""></a>
+                    <a href=""><img src="Assets/img/1.jpg" alt=""></a>
                 </div>
                 <a href="">
                     <h3>Untitled (Tile Mural of a Woman and Child)</h3>
@@ -71,7 +71,7 @@ include 'private/controller/user.php';
         <div class="art-container">
             <div class="artCard">
                 <div class="imgBox">
-                    <a href=""><img src="public/Assets/img/1.jpg" alt=""></a>
+                    <a href=""><img src="Assets/img/1.jpg" alt=""></a>
                 </div>
                 <a href="">
                     <h3>Untitled (Tile Mural of a Woman and Child)</h3>
@@ -89,7 +89,7 @@ include 'private/controller/user.php';
         <div class="art-container">
             <div class="artCard">
                 <div class="imgBox">
-                    <a href=""><img src="public/Assets/img/1.jpg" alt=""></a>
+                    <a href=""><img src="Assets/img/1.jpg" alt=""></a>
                 </div>
                 <a href="">
                     <h3>Untitled (Tile Mural of a Woman and Child)</h3>
@@ -107,7 +107,7 @@ include 'private/controller/user.php';
         <div class="art-container">
             <div class="artCard">
                 <div class="imgBox">
-                    <a href=""><img src="public/Assets/img/1.jpg" alt=""></a>
+                    <a href=""><img src="Assets/img/1.jpg" alt=""></a>
                 </div>
                 <a href="">
                     <h3>Untitled (Tile Mural of a Woman and Child)</h3>

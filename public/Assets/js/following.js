@@ -1,29 +1,29 @@
 $(document).ready(function () {
 
-    var artID = $('.artID').val();
+    var artistID = $('.artistID').val();
     var userID = $('.userID').val();
 
-    $('.favBtn').click(function (e) {
+    $('.followBtn').click(function (e) {
         $('.msg').removeClass('success');
         $('.msg li').html("");
         var data = {
-            artID: artID,
+            artistID: artistID,
             userID: userID,
-            add_favourite: true
+            add_following: true
         }
 
         $.ajax({
             type: "POST",
-            url: "favourite/addFavourite.php",
+            url: "following/addFollowing.php",
             data: data,
             success: function (res) {
                 $('.msg').addClass('success');
-                $('.msg li').html("Added to your favourite successfully!!");
-                $('.favBtn').remove();
-                $('.title-and-button').append('<button name="unSaveBtn" class="unSaveBtn" >Saved already</button>');
+                $('.msg li').html("Added to your following list successfully!!");
+                $('.followBtn').remove();
+                $('.title-and-button').append('<button name="unSaveBtn" class="unSaveBtn" >Followed already</button>');
                 setTimeout(function () {
                     window.location.reload();
-                }, 1500)
+                }, 1500);
             }
         });
     });
@@ -31,25 +31,25 @@ $(document).ready(function () {
     $('.unSaveBtn').click(function (e) {
         $('.msg').removeClass('success');
         $('.msg li').html("");
-        var favID = $('.favID').val();
+        var followID = $('.followID').val();
         var data = {
-            favID: favID,
-            remove_favourite: true
+            followID: followID,
+            remove_following: true
         }
+
         $.ajax({
             type: "POST",
-            url: "favourite/addFavourite.php",
+            url: "following/addfollowing.php",
             data: data,
             success: function (res) {
                 $('.msg').addClass('success');
-                $('.msg li').html("Removed to your favourite successfully!!");
+                $('.msg li').html("Removed to your following list successfully!!");
                 $('.unSaveBtn').remove();
-                $('.title-and-button').append('<button name="favBtn" class="favBtn" >Add to Favourites</button>');
+                $('.title-and-button').append('<button name="followBtn" class="followBtn" >Follow</button>');
                 setTimeout(function () {
                     window.location.reload();
                 }, 1500)
-
             }
         });
-    });
+    })
 });

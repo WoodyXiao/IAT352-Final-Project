@@ -7,6 +7,7 @@ include('../private/controller/user.php');
 
 <?php
 $table = 'artist';
+$table2 = 'followinglist';
 // ---------- show one artist detail ----------
 if (isset($_GET['artistID'])) {
     $artistID = $_GET['artistID'];
@@ -36,6 +37,12 @@ if (isset($_GET['artistID'])) {
     }
     $fname = $artist['firstName'];
     $lname = $artist['lastName'];
+}
+
+if (isset($_SESSION['userID'])) {
+    $user_id = $_SESSION['userID'];
+
+    $follwing = selectOneByOneTable($table2, ['userID' => $user_id, 'artistID' => $artistID]);
 }
 ?>
 <!DOCTYPE html>
@@ -121,12 +128,25 @@ if (isset($_GET['artistID'])) {
     <?php include(INCLUDE_PATH . '/message.php'); ?>
     <!-- end flash message when log in successfully -->
 
+    <div class="msg">
+        <li></li>
+    </div>
+
     <!-- for the main part -->
     <div class="container">
+        <!-- save the artist id and user id -->
+        <input type="hidden" name="id" class="artistID" value="<?php echo $artistID ?>">
+        <input type="hidden" name="id" class="userID" value="<?php echo $user_id ?>">
         <div class="text-container">
             <div class="title-and-button">
                 <h1><?php echo $fname ?> <?php echo $lname ?></h1>
-                <button class="followBtn">Follow</button>
+                <?php if (isset($_SESSION['userID']) && !$follwing) { ?>
+                    <button class="followBtn">Follow</button>
+                <?php } else if (isset($_SESSION['userID']) && $follwing) { ?>
+                    <input type="hidden" name="id" class="followID" value="<?php echo $follwing['followID'] ?>">
+                    <button name="unSaveBtn" class="unSaveBtn">Followed already</button>
+                <?php } else {
+                } ?>
             </div>
 
             <img src="<?php echo $artistPhotoURL ?>" alt="">
@@ -162,6 +182,9 @@ if (isset($_GET['artistID'])) {
     <!-- footer part -->
     <?php include(INCLUDE_PATH . '/footer.php'); ?>
     <!-- end footer part -->
+
+    <!-- jquery code part -->
+    <script type="text/javascript" src="Assets/js/following.js"></script>
 </body>
 
 </html>

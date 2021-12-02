@@ -3,6 +3,11 @@
 include("../../private/database/db.php");
 include "../../private/helpers/validate.php";
 include("../../private/controller/userProfile.php");
+
+$table = 'artwork';
+$neighborhood = getSpercificData('neighborhood', $table);
+$type  = getSpercificData('type', $table);
+$material  = getSpercificData('material', $table);
 ?>
 
 
@@ -74,24 +79,66 @@ include("../../private/controller/userProfile.php");
                     <h4>Neighborhood</h4>
                     <select name="" id="">
                         <option value="">Select neighborhood</option>
+                        <?php
+                        foreach ($neighborhood as $row) {
+                        ?>
+                            <?php
+                            if ($row['neighborhood'] == '') {
+                                $data = 'Other';
+                            } else {
+                                $data = $row['neighborhood'];
+                            }
+                            ?>
+                            <option value="<?php echo $row['neighborhood']; ?>"><?php echo $data; ?></option>
+                        <?php
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="detail-box1">
                     <h4>Artwork Type</h4>
                     <select name="" id="">
                         <option value="">Select artwork type</option>
+                        <?php
+                        foreach ($type as $row) {
+                        ?>
+                            <?php
+                            if ($row['type'] == '') {
+                                $data = 'Other';
+                            } else {
+                                $data = $row['type'];
+                            }
+                            ?>
+                            <option value="<?php echo $row['type']; ?>"><?php echo $data; ?></option>
+                        <?php
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="detail-box1">
                     <h4>Artwork Primary Material</h4>
                     <select name="" id="">
                         <option value="">Select primary material</option>
+                        <?php
+                        foreach ($material as $row) {
+                        ?>
+                            <?php
+                            if ($row['material'] == '') {
+                                $data = 'Other';
+                            } else {
+                                $data = $row['material'];
+                            }
+                            ?>
+                            <option value="<?php echo $row['material']; ?>"><?php echo $data; ?></option>
+                        <?php
+                        }
+                        ?>
                     </select>
                 </div>
                 <button class="savePreBtn">Save Preference</button>
                 <div class="historyBox">
                     <h3>COMMENT HISTORY</h3>
-                    <a href="commentHistory.php">
+                    <a href="commentHistory.php?userID=<?php echo $userid ?>">
                         <h5>Browse and manage comments you've posted ></h5>
                     </a>
                 </div>
