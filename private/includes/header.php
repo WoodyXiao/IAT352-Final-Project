@@ -10,7 +10,7 @@
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">
-        <li><a href="<?php echo url_for('/index.php') ?>">Browse</a></li>
+        <li><a href="<?php echo url_for('/browse.php') ?>">Browse</a></li>
 
 
         <!--  if user log in successfully, show the account name  -->
