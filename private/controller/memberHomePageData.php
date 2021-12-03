@@ -24,6 +24,12 @@ foreach ($typeData as $row) {
     array_push($typeWhiteList, $row['type']);
 }
 
+// ---------- for following artist ----------
+if (isset($_SESSION['userID'])) {
+    $userID = $_SESSION['userID'];
+    $followingData = selectAllFromFourTables2('artwork', 'followinglist', 'member', 'artist', $userID);
+}
+
 // ---------- for artist. ------------
 $randomartist = $artistWhiteList[rand(0, count($artistWhiteList) - 1)];
 $artistNameData = selectOneByOneTable('artist', ['artistID' => $randomartist]);

@@ -19,11 +19,14 @@ if (isset($_POST['page'])) {
 if (isset($_POST['country'])) {
     $country = $_POST['country'];
     if ($country === 'ALL') {
-        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID";
-        $num = 0;
+        //$query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID";
         $num++;
-    } else {
+    } else if ($num === 0) {
+        //$query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a1.country = '$country'";
         $query .= " WHERE a1.country = '$country'";
+        $num++;
+    } else if ($num != 0) {
+        $query .= " AND a1.country = '$location'";
         $num++;
     }
 }
@@ -31,12 +34,10 @@ if (isset($_POST['country'])) {
 if (isset($_POST['location'])) {
     $location = $_POST['location'];
     if ($location === 'ALL') {
-        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID";
-        $num = 0;
+        //$query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID";
         $num++;
     } else if ($num === 0) {
-        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.neighborhood = '$location'";
-        $num = 0;
+        $query .= " WHERE a.neighborhood = '$location'";
         $num++;
     } else if ($num != 0) {
         $query .= " AND a.neighborhood = '$location'";
@@ -47,14 +48,14 @@ if (isset($_POST['location'])) {
 if (isset($_POST['material'])) {
     $material = $_POST['material'];
     if ($material === 'ALL') {
-        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID";
-        $num = 0;
+        //$query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID";
         $num++;
-    } else if ($num === 0) {
-        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.material = '$material'";
-        $num = 0;
+    } else if ($num === 0 && $material != 'ALL') {
+        // $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.material = '$material'";
+        $query .= " WHERE a.material = '$material'";
+
         $num++;
-    } else if ($num != 0) {
+    } else if ($num != 0 && $material != 'ALL') {
         $query .= " AND a.material = '$material'";
         $num++;
     }

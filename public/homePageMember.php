@@ -79,22 +79,34 @@ include '../private/controller/memberHomePageData.php';
             } ?>
         </div>
         <!-- for the artwork from following part -->
-        <h3><a href="">FROM ARTISTS YOU FOLLOW ></a></h3>
+        <h3><a href="member/following.php?userID=<?php echo $_SESSION['userID'] ?>">FROM ARTISTS YOU FOLLOW ></a></h3>
         <div class="art-container">
-            <div class="artCard">
-                <div class="imgBox">
-                    <a href=""><img src="Assets/img/1.jpg" alt=""></a>
+
+            <?php foreach ($followingData as $follow) { ?>
+                <?php
+                if ($follow['photoURL'] === "") {
+                    $photo = 'Assets/img/1.jpg';
+                } else {
+                    $photo = $follow['photoURL'];
+                }
+                ?>
+                <div class="artCard">
+                    <div class="imgBox">
+                        <a href="art_detail.php?id=<?php echo $follow['artID'] ?>"><img src="<?php echo $photo
+                                                                                                ?>" alt=""></a>
+                    </div>
+                    <a href="art_detail.php?id=<?php echo $follow['artID'] ?>">
+                        <h3><?php echo $follow['artName'] ?></h3>
+                    </a>
+                    <a href="artist_detail.php?artistID=<?php echo $follow['artistID'] ?>">
+                        <h5><?php echo $follow['firstName'] ?> <?php echo $follow['lastName'] ?> - <?php echo $follow['year'] ?></h5>
+                    </a>
+                    <div class="descripBox">
+                        <p><?php echo $follow['description']
+                            ?></p>
+                    </div>
                 </div>
-                <a href="">
-                    <h3>Untitled (Tile Mural of a Woman and Child)</h3>
-                </a>
-                <a href="">
-                    <h5>Paul Huba - 1958</h5>
-                </a>
-                <div class="descripBox">
-                    <p>Description of artworkkkkkkkkkkkkk dsdsdsdsdsdsddsddsd kjalkfjwfhjkrjlclakjfmwl;jfawekjfhkhfkj ...</p>
-                </div>
-            </div>
+            <?php } ?>
         </div>
         <!-- --------------------- for location part --------------------------- -->
         <h3><a href="browse.php?location=<?php echo $randomlocation ?>">ARTWORKS AT <?php echo $randomlocation ?> ></a></h3>
