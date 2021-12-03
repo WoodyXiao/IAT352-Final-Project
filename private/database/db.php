@@ -73,6 +73,13 @@ function selectOneByOneTable($table, $conditions)
     $records = $stmt->get_result()->fetch_assoc(); // ---> return the associate array of the data.
     return $records;
 }
+function selectOneByOneTable1($table, $col, $conditions)
+{
+    global $conn;
+    $query = "SELECT DISTINCT * FROM $table WHERE $col = $conditions";
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
 function selectOneByOneTable2($table, $key, $condition, $userid)
 {
     global $conn;
@@ -94,6 +101,22 @@ function selectAll($table)
     $result = mysqli_query($conn, $query);
     return $result;
 }
+function selectAllFromTwoTable($artwork, $artist, $condition, $conditionValue)
+{
+    global $conn;
+    if ($condition === 'artistID') {
+        $query = "SELECT * FROM $artwork a 
+    INNER JOIN $artist a1 ON a.artistID = a1.artistID WHERE a.$condition = $conditionValue ORDER BY year DESC LIMIT 4 ";
+    } else {
+        $query = "SELECT * FROM $artwork a 
+        INNER JOIN $artist a1 ON a.artistID = a1.artistID WHERE $condition = '$conditionValue' ORDER BY year DESC LIMIT 4 ";
+    }
+
+    $result = mysqli_query($conn, $query);
+
+    return $result;
+}
+
 function selectAllFromThreeTables($artwork, $comment, $member,  $userID)
 {
     global $conn;
