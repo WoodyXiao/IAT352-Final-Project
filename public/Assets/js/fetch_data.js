@@ -7,6 +7,8 @@ $(document).ready(function () {
         var from = $('#hidden_minimum_year').val();
         var to = $('#hidden_maximum_year').val();
         var country = $('#fetchCountry').val();
+        var location = $('#fetchLocation').val();
+        var material = $('#fetchMaterial').val();
         $.ajax({
             url: "filterData/filter_art.php",
             type: "POST",
@@ -16,6 +18,8 @@ $(document).ready(function () {
                 from: from,
                 to: to,
                 country: country,
+                location: location,
+                material: material,
                 page: pageID,
             },
             beforeSend: function () {
@@ -60,6 +64,16 @@ $(document).ready(function () {
     });
     // ---- click event for country selecting ----
     $("#fetchCountry").on("change", function () {
+        id = $(".page").attr('id');
+        filter_data(id);
+    });
+    // ---- click event for location selecting ----
+    $("#fetchLocation").on("change", function () {
+        id = $(".page").attr('id');
+        filter_data(id);
+    });
+    // ---- click event for material selecting ----
+    $("#fetchMaterial").on("change", function () {
         id = $(".page").attr('id');
         filter_data(id);
     });

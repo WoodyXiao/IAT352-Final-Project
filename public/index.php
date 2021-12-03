@@ -3,6 +3,23 @@
 include("../private/database/db.php");
 include '../private/controller/user.php';
 
+// ---------- here is for the preset filter from the homepage. ----------
+if (isset($_GET['type'])) {
+    $presetType = $_GET['type'];
+} else {
+    $presetType = '';
+}
+if (isset($_GET['location'])) {
+    $presetLocation = $_GET['location'];
+} else {
+    $presetLocation = '';
+}
+if (isset($_GET['material'])) {
+    $presetMaterial = $_GET['material'];
+} else {
+    $presetMaterial = '';
+}
+
 ?>
 
 
@@ -91,12 +108,40 @@ include '../private/controller/user.php';
                         $neighborhood = $row['neighborhood'];
                     }
                     ?>
-                    <option value="<?php echo $row['neighborhood']; ?>"><?php echo $neighborhood; ?></option>
+                    <option value="<?php echo $row['neighborhood']; ?>" <?php if ($presetLocation === $row['neighborhood'] && !empty($presetLocation)) {
+                                                                            echo "selected";
+                                                                        } else {
+                                                                        } ?>><?php echo $neighborhood; ?></option>
                 <?php
                 }
                 ?>
             </select>
             <!-- end for the location part -->
+
+            <!-- for the material part -->
+            <span>Material: &nbsp;</span>
+            <select name="fetchMaterialVal" id="fetchMaterial">
+                <option value="ALL">---Select Material---</option>
+                <?php $result = getSpercificData('material', 'artwork');
+                foreach ($result as $row) {
+                ?>
+                    <?php
+                    if ($row['material'] == '') {
+                        $material = 'Other';
+                    } else {
+                        $material = $row['material'];
+                    }
+                    ?>
+                    <option value="<?php echo $row['material']; ?>" <?php if ($presetMaterial === $row['material'] && !empty($presetMaterial)) {
+                                                                        echo "selected";
+                                                                    } else {
+                                                                    } ?>><?php echo $material; ?></option>
+                <?php
+                }
+                ?>
+            </select>
+            <!-- end for the material part -->
+
             <!-- for the ownership part -->
             <span>Ownership: &nbsp;</span>
             <select name="fetchOwnerVal" id="fetchOwner">
@@ -144,7 +189,10 @@ include '../private/controller/user.php';
             foreach ($result as $row) {
             ?>
                 <div class="type-items">
-                    <label> <?php echo $row['type']; ?></label><input type="checkbox" class="type_selector type" value="<?php echo $row['type']; ?>">
+                    <label> <?php echo $row['type']; ?></label><input type="checkbox" class="type_selector type" value="<?php echo $row['type']; ?>" <?php if ($presetType === $row['type'] && !empty($presetType)) {
+                                                                                                                                                            echo "checked";
+                                                                                                                                                        } else {
+                                                                                                                                                        } ?>>
                 </div>
             <?php
             }
