@@ -80,7 +80,7 @@ $material  = getSpercificData('material', $table);
                     <div class="detail-box1">
                         <h4>Neighborhood</h4>
                         <select name="location_selector" id="">
-                            <option value="">Select neighborhood</option>
+                            <option value=" ">Select neighborhood</option>
                             <?php
                             foreach ($neighborhood as $row) {
                             ?>
@@ -91,8 +91,14 @@ $material  = getSpercificData('material', $table);
                                     $data = $row['neighborhood'];
                                 }
                                 ?>
-                                <option value="<?php echo $row['neighborhood']; ?>" <?php if (isset($_SESSION['location_by_user']) && $_SESSION['location_by_user'] === $row['neighborhood']) {
-                                                                                        echo "selected";
+                                <option value="<?php echo $row['neighborhood']; ?>" <?php
+                                                                                    if ($preferenceData) {
+                                                                                        foreach ($preferenceData as $pre) {
+                                                                                            if ($pre['location'] === $row['neighborhood']) {
+                                                                                                echo "selected";
+                                                                                            } else {
+                                                                                            }
+                                                                                        }
                                                                                     } else {
                                                                                     } ?>><?php echo $data; ?></option>
                             <?php
@@ -103,7 +109,7 @@ $material  = getSpercificData('material', $table);
                     <div class="detail-box1">
                         <h4>Artwork Type</h4>
                         <select name="type_selecotr" id="">
-                            <option value="">Select artwork type</option>
+                            <option value=" ">Select artwork type</option>
                             <?php
                             foreach ($type as $row) {
                             ?>
@@ -114,10 +120,15 @@ $material  = getSpercificData('material', $table);
                                     $data = $row['type'];
                                 }
                                 ?>
-                                <option value="<?php echo $row['type']; ?>" <?php if (isset($_SESSION['type_by_user']) && $_SESSION['type_by_user'] === $row['type']) {
-                                                                                echo "selected";
+                                <option value="<?php echo $row['type']; ?>" <?php if ($preferenceData) {
+                                                                                foreach ($preferenceData as $pre) {
+                                                                                    if ($pre['type'] === $row['type']) {
+                                                                                        echo "selected";
+                                                                                    } else {
+                                                                                    }
+                                                                                }
                                                                             } else {
-                                                                            } ?>><?php echo $data; ?></option>
+                                                                            }  ?>><?php echo $data; ?></option>
                             <?php
                             }
                             ?>
@@ -126,7 +137,7 @@ $material  = getSpercificData('material', $table);
                     <div class="detail-box1">
                         <h4>Artwork Primary Material</h4>
                         <select name="material_selector" id="">
-                            <option value="">Select primary material</option>
+                            <option value=" ">Select primary material</option>
                             <?php
                             foreach ($material as $row) {
                             ?>
@@ -137,7 +148,16 @@ $material  = getSpercificData('material', $table);
                                     $data = $row['material'];
                                 }
                                 ?>
-                                <option value="<?php echo $row['material']; ?>"><?php echo $data; ?></option>
+                                <option value="<?php echo $row['material']; ?>" <?php if ($preferenceData) {
+                                                                                    foreach ($preferenceData as $pre) {
+                                                                                        if ($pre['material'] === $row['material']) {
+                                                                                            echo "selected";
+                                                                                        } else {
+                                                                                        }
+                                                                                    }
+                                                                                } else {
+                                                                                }
+                                                                                ?>><?php echo $data; ?></option>
                             <?php
                             }
                             ?>

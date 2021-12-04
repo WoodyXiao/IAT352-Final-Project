@@ -37,24 +37,47 @@ $artistName = $artistNameData['firstName'] . ' ' . $artistNameData['lastName'];
 $artistRecord = selectAllFromTwoTable('artwork', 'artist', 'artistID', $randomartist);
 
 // ---------- for location. ------------
-if (isset($_SESSION['location_by_user'])) {
-    $randomlocation = $_SESSION['location_by_user'];
+// if (isset($_SESSION['location_by_user'])) {
+//     $randomlocation = $_SESSION['location_by_user'];
+// } else {
+//     $randomlocation = $locationWhiteList[rand(0, count($locationWhiteList) - 1)];
+// }
+if ($preferenceData) {
+    foreach ($preferenceData as $data) {
+        if ($data['location'] != 'NULL') {
+            $randomlocation =   $data['location'];
+        } else {
+            $randomlocation = $locationWhiteList[rand(0, count($locationWhiteList) - 1)];
+        }
+    }
 } else {
     $randomlocation = $locationWhiteList[rand(0, count($locationWhiteList) - 1)];
 }
 $locationRecord = selectAllFromTwoTable('artwork', 'artist', 'neighborhood', $randomlocation);
 
 // ---------- for material. ------------
-if (isset($_SESSION['material_by_user'])) {
-    $randommaterial = $_SESSION['material_by_user'];
+if ($preferenceData) {
+    foreach ($preferenceData as $data) {
+        if ($data['material'] != 'NULL') {
+            $randommaterial =   $data['material'];
+        } else {
+            $randommaterial = $materialWhiteList[rand(0, count($materialWhiteList) - 1)];
+        }
+    }
 } else {
     $randommaterial = $materialWhiteList[rand(0, count($materialWhiteList) - 1)];
 }
 $materialRecord = selectAllFromTwoTable('artwork', 'artist', 'material', $randommaterial);
 
 // ---------- for type part. ---------- 
-if (isset($_SESSION['type_by_user'])) {
-    $randomtype = $_SESSION['type_by_user'];
+if ($preferenceData) {
+    foreach ($preferenceData as $data) {
+        if ($data['type'] != 'NULL') {
+            $randomtype =   $data['type'];
+        } else {
+            $randomtype =  $typeWhiteList[rand(0, count($typeWhiteList) - 1)];
+        }
+    }
 } else {
     $randomtype =  $typeWhiteList[rand(0, count($typeWhiteList) - 1)];
 }

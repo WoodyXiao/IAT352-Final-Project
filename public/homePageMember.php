@@ -1,6 +1,7 @@
 <!--------------------------------- home page for member part -------------------------------->
 <?php include('../private/initialize.php');
 include("../private/database/db.php");
+include '../private/controller/preference.php';
 include '../private/controller/memberHomePageData.php';
 ?>
 

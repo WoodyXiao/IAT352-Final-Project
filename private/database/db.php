@@ -222,3 +222,22 @@ function showRating($art_id)
     $result = $stmt->fetch_assoc();
     return $result;
 }
+
+// ------- function for setting preference -------
+function setSettingRecord($user_id, $col, $colVal)
+{
+    global $conn;
+
+    $query = "SELECT * FROM membersetting WHERE userID = $user_id";
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        $query = "UPDATE membersetting SET $col = '$colVal' WHERE userID = $user_id";
+        $insert = $conn->query($query);
+    } else {
+        // Insert score data in the database 
+        $query = "INSERT INTO membersetting ($col,userID) VALUES ('$colVal',$user_id)";
+        $insert = $conn->query($query);
+    }
+}
+// ------ function for deleting preference -------
