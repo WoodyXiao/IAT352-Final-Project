@@ -3,6 +3,7 @@
 include("../../private/database/db.php");
 include "../../private/helpers/validate.php";
 include("../../private/controller/userProfile.php");
+include("../../private/controller/preference.php");
 
 $table = 'artwork';
 $neighborhood = getSpercificData('neighborhood', $table);
@@ -72,79 +73,87 @@ $material  = getSpercificData('material', $table);
                     <h5><?php echo $phoneNumber ?></h5>
                 </div>
             </div>
-            <div class="right-side">
-                <h3>HOMEPAGE CONTENT PREFERENCE</h3>
-                <h5>Select specific content you would like to see more of on your homepage</h5>
-                <div class="detail-box1">
-                    <h4>Neighborhood</h4>
-                    <select name="" id="">
-                        <option value="">Select neighborhood</option>
-                        <?php
-                        foreach ($neighborhood as $row) {
-                        ?>
+            <form action="profile.php?userID=<?php echo $_SESSION['userID'] ?>" method="POST">
+                <div class="right-side">
+                    <h3>HOMEPAGE CONTENT PREFERENCE</h3>
+                    <h5>Select specific content you would like to see more of on your homepage</h5>
+                    <div class="detail-box1">
+                        <h4>Neighborhood</h4>
+                        <select name="location_selector" id="">
+                            <option value="">Select neighborhood</option>
                             <?php
-                            if ($row['neighborhood'] == '') {
-                                $data = 'Other';
-                            } else {
-                                $data = $row['neighborhood'];
+                            foreach ($neighborhood as $row) {
+                            ?>
+                                <?php
+                                if ($row['neighborhood'] == '') {
+                                    $data = 'Other';
+                                } else {
+                                    $data = $row['neighborhood'];
+                                }
+                                ?>
+                                <option value="<?php echo $row['neighborhood']; ?>" <?php if (isset($_SESSION['location_by_user']) && $_SESSION['location_by_user'] === $row['neighborhood']) {
+                                                                                        echo "selected";
+                                                                                    } else {
+                                                                                    } ?>><?php echo $data; ?></option>
+                            <?php
                             }
                             ?>
-                            <option value="<?php echo $row['neighborhood']; ?>"><?php echo $data; ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="detail-box1">
-                    <h4>Artwork Type</h4>
-                    <select name="" id="">
-                        <option value="">Select artwork type</option>
-                        <?php
-                        foreach ($type as $row) {
-                        ?>
+                        </select>
+                    </div>
+                    <div class="detail-box1">
+                        <h4>Artwork Type</h4>
+                        <select name="type_selecotr" id="">
+                            <option value="">Select artwork type</option>
                             <?php
-                            if ($row['type'] == '') {
-                                $data = 'Other';
-                            } else {
-                                $data = $row['type'];
+                            foreach ($type as $row) {
+                            ?>
+                                <?php
+                                if ($row['type'] == '') {
+                                    $data = 'Other';
+                                } else {
+                                    $data = $row['type'];
+                                }
+                                ?>
+                                <option value="<?php echo $row['type']; ?>" <?php if (isset($_SESSION['type_by_user']) && $_SESSION['type_by_user'] === $row['type']) {
+                                                                                echo "selected";
+                                                                            } else {
+                                                                            } ?>><?php echo $data; ?></option>
+                            <?php
                             }
                             ?>
-                            <option value="<?php echo $row['type']; ?>"><?php echo $data; ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="detail-box1">
-                    <h4>Artwork Primary Material</h4>
-                    <select name="" id="">
-                        <option value="">Select primary material</option>
-                        <?php
-                        foreach ($material as $row) {
-                        ?>
+                        </select>
+                    </div>
+                    <div class="detail-box1">
+                        <h4>Artwork Primary Material</h4>
+                        <select name="material_selector" id="">
+                            <option value="">Select primary material</option>
                             <?php
-                            if ($row['material'] == '') {
-                                $data = 'Other';
-                            } else {
-                                $data = $row['material'];
+                            foreach ($material as $row) {
+                            ?>
+                                <?php
+                                if ($row['material'] == '') {
+                                    $data = 'Other';
+                                } else {
+                                    $data = $row['material'];
+                                }
+                                ?>
+                                <option value="<?php echo $row['material']; ?>"><?php echo $data; ?></option>
+                            <?php
                             }
                             ?>
-                            <option value="<?php echo $row['material']; ?>"><?php echo $data; ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-                <button class="savePreBtn">Save Preference</button>
-                <div class="historyBox">
-                    <h3>COMMENT HISTORY</h3>
-                    <a href="commentHistory.php?userID=<?php echo $userid ?>">
-                        <h5>Browse and manage comments you've posted ></h5>
-                    </a>
-                </div>
+                        </select>
+                    </div>
+                    <button class="savePreBtn" name="savePreBtn">Save Preference</button>
+            </form>
+            <div class="historyBox">
+                <h3>COMMENT HISTORY</h3>
+                <a href="commentHistory.php?userID=<?php echo $userid ?>">
+                    <h5>Browse and manage comments you've posted ></h5>
+                </a>
             </div>
         </div>
-        <button class="editBtn"><a href="editProfile.php?userID=<?php echo $userid ?>">Edit Profile</a></button>
+    </div>
+    <button class="editBtn"><a href="editProfile.php?userID=<?php echo $userid ?>">Edit Profile</a></button>
     </div>
 
     <!-- footer part -->
