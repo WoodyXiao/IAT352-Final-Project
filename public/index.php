@@ -32,6 +32,10 @@ include '../private/controller/user.php';
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    
     <!-- Custom Styling -->
     <style>
         <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?>
@@ -59,7 +63,7 @@ include '../private/controller/user.php';
             <input type="search" id="form1" class="form-control search_text" placeholder="Search art..." aria-label="Search" />
         </div>
         <div id="filters">
-            <span>Country: &nbsp;</span>
+            <label>Country: &nbsp;</label>
             <select name="fetchval" id="fetchCountry">
                 <option value="ALL">---Select Country---</option>
                 <?php $result = getSpercificData('country', 'artist');
@@ -78,7 +82,7 @@ include '../private/controller/user.php';
                 ?>
             </select>
             <!-- for the location part -->
-            <span>Neighborhood: &nbsp;</span>
+            <label>Neighborhood: &nbsp;</label>
             <select name="fetchLocationVal" id="fetchLocation">
                 <option value="ALL">---Select Neighborhood---</option>
                 <?php $result = getSpercificData('neighborhood', 'artwork');
@@ -98,9 +102,9 @@ include '../private/controller/user.php';
             </select>
             <!-- end for the location part -->
             <!-- for the ownership part -->
-            <span>Ownership: &nbsp;</span>
+            <label>Ownership: &nbsp;</label>
             <select name="fetchOwnerVal" id="fetchOwner">
-                <option value="ALL">------------------------Select Ownership-------------------------</option>
+                <option value="ALL">--------------------Select Ownership---------------------</option>
                 <?php $result = getSpercificData('ownership', 'artwork');
                 foreach ($result as $row) {
                 ?>
@@ -121,7 +125,7 @@ include '../private/controller/user.php';
 
         <div class="list-group" id="yearRange">
             <div class="box">
-                <p>Year: </p>
+                <label>Year: </label>
                 <p id="year_show">1900 - 2022</p>
                 <input type="hidden" id="hidden_minimum_year" value="1900" />
                 <input type="hidden" id="hidden_maximum_year" value="2022" />
@@ -137,6 +141,7 @@ include '../private/controller/user.php';
     <section class="main-container">
         <!-- side bar -->
         <div class="side-bar">
+            <h2>FILTERS</h2>
 
             <!-- for the type part -->
             <h3>Type</h3>

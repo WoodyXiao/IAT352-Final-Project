@@ -69,6 +69,8 @@ if (isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/art_detail.css'); ?>
@@ -111,11 +113,11 @@ if (isset($_SESSION['userID'])) {
                 } ?>
             </div>
 
-            <h4><a href="artist_detail.php?artistID=<?php echo $artistID ?>"><?php echo $firstName ?> <?php echo $lastName ?> <span><?php echo $year ?></span></a></h4>
+            <h3><a href="artist_detail.php?artistID=<?php echo $artistID ?>"><?php echo $firstName ?> <?php echo $lastName ?> <span><?php echo "- ".$year ?></span></a></h3>
 
             <!-- for rating system part -->
             <div class="">
-                <h4 id="rate-message">Rate this artwork</h4>
+                <p id="rate-message">Rate this artwork</p>
                 <span class="fa fa-star <?php echo ($average_rating['avgRating'] >= 1) ? 'checked' : ''; ?>" id="star1" value='1'></span>
                 <span class="fa fa-star <?php echo ($average_rating['avgRating'] >= 2) ? 'checked' : ''; ?>" id="star2" value='2'></span>
                 <span class="fa fa-star <?php echo ($average_rating['avgRating'] >= 3) ? 'checked' : ''; ?>" id="star3" value='3'></span>
@@ -129,50 +131,50 @@ if (isset($_SESSION['userID'])) {
             <div class="details-container">
                 <div class="left-side">
                     <div class="detail-box">
-                        <h4>Year Of Installation</h4>
-                        <h5><?php echo $year ?></h5>
+                        <h2>Year Of Installation</h2>
+                        <p><?php echo $year ?></p>
                     </div>
                     <div class="detail-box">
-                        <h4>Country</h4>
-                        <h5><?php echo $country ?></h5>
+                        <h2>Country</h2>
+                        <p><?php echo $country ?></p>
                     </div>
                     <div class="detail-box">
-                        <h4>Primary Material</h4>
-                        <h5><?php echo $meterial ?></h5>
+                        <h2>Primary Material</h2>
+                        <p><?php echo $meterial ?></p>
                     </div>
                     <div class="detail-box">
-                        <h4>Type</h4>
-                        <h5><?php echo $type ?></h5>
+                        <h2>Type</h2>
+                        <p><?php echo $type ?></p>
                     </div>
                     <div class="detail-box">
-                        <h4>Status</h4>
-                        <h5><?php echo $status ?></h5>
+                        <h2>Status</h2>
+                        <p><?php echo $status ?></p>
                     </div>
                     <div class="detail-box">
-                        <h4>Ownership</h4>
-                        <h5><?php echo $ownership ?></h5>
+                        <h2>Ownership</h2>
+                        <p><?php echo $ownership ?></p>
                     </div>
                     <div class="detail-box">
-                        <h4>Neighborhood</h4>
-                        <h5><?php echo $neighborhood ?></h5>
+                        <h2>Neighborhood</h2>
+                        <p><?php echo $neighborhood ?></p>
                     </div>
                     <div class="detail-box">
-                        <h4>Location</h4>
-                        <h5><?php echo $siteName ?></h5>
-                        <h5> <?php echo $siteAddress ?> </h5>
+                        <h2>Location</h2>
+                        <p><?php echo $siteName ?></p>
+                        <p> <?php echo $siteAddress ?> </p>
                     </div>
                     <div class="detail-box">
-                        <h5>Location on site:</h5>
-                        <h5><?php echo $locationOnSite ?></h5>
+                        <h4>Location on site:</h4>
+                        <p><?php echo $locationOnSite ?></p>
                     </div>
                 </div>
                 <div class="right-side">
                     <div class="detail-box1">
-                        <h4>Description</h4>
+                        <h2>Description</h2>
                         <p><?php echo $description ?></p>
                     </div>
                     <div class="detail-box1">
-                        <h4>Artist Statement</h4>
+                        <h2>Artist Statement</h2>
                         <p><?php echo $artistStatement ?></p>
                     </div>
 
@@ -186,7 +188,7 @@ if (isset($_SESSION['userID'])) {
 
     <!-- for the comment body part -->
     <div class="container" id="comment-container">
-        <h4><span class="count-of-comment"></span> Comments</h4>
+        <h2><span class="count-of-comment"></span> Comments</h2>
         <span id="error_status"></span>
         <div class="comment-box">
             <textarea name="comment" id="comment" cols="100" rows="10" style="resize: none;" <?php if (!isset($_SESSION['userID'])) {
@@ -200,7 +202,7 @@ if (isset($_SESSION['userID'])) {
             }
             ?>
         </div>
-        <button class="post-btn">POST</button>
+        <button class="post-btn">Post Comment</button>
 
         <!-- displaying comment container part -->
         <div class="display-comment-box">

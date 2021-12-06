@@ -9,6 +9,11 @@ textarea {
 
 .post-btn {
     float: right;
+    padding: 8px;
+    width: 150px;
+    background-color: #4E55FF;
+    color: white;
+    border: none;
 }
 
 .container {
