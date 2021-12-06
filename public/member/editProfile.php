@@ -46,7 +46,7 @@ include("../../private/controller/userProfile.php");
     <div class="main-containers">
         <h1>EDIT PROFILE</h1>
         <p>Please fill in all fields with *</p>
-        <form action="editProfile.php?userID=<?php echo $userid ?>" method="post">
+        <form action="<?php echo url_for("/member/editProfile.php?userID=" . $_SESSION['userID'])  ?>" method="POST">
             <input type="hidden" id="name" class="" name="userID" placeholder="name" value="<?php echo $userid ?>">
             <div class="main-box">
                 <div class="left-side">
@@ -81,7 +81,7 @@ include("../../private/controller/userProfile.php");
                 </div>
             </div>
         </form>
-        <form action="editProfile.php?userID=<?php echo $userid ?>" method="post">
+        <form action="editProfile.php?userID=<?php echo $_SESSION['userID'] ?>" method="POST">
             <input type="hidden" id="name" class="" name="userID" placeholder="name" value="<?php echo $userid ?>">
             <div class="password-box">
                 <div class="detail-box">

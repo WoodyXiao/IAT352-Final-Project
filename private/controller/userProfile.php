@@ -41,7 +41,7 @@ if (isset($_POST['saveBtn'])) {
         $_SESSION['type'] = 'success';
         $_SESSION['username'] = $username;
         updateRecord2($table, $username, $email, $name, $phoneNumber, $userid);
-        header('location: ' . BASE_URL . 'public/member/profile.php?userID=' . $userid);
+        header('location: profile.php?userID=' . $userid);
 
         exit();
     }
@@ -73,7 +73,7 @@ if (isset($_POST['changePassBtn'])) {
         $_SESSION['type'] = 'success';
         $_SESSION['username'] = $username;
         updateRecord($table, $username, $newPassword, $email, $name, $phoneNumber, $userid);
-        header('location: ' . BASE_URL . 'public/member/profile.php?userID=' . $userid);
+        header('location: profile.php?userID=' . $userid);
 
 
         exit();
