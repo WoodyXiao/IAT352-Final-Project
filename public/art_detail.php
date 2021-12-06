@@ -105,15 +105,15 @@ if (isset($_SESSION['userID'])) {
             <div class="title-and-button">
                 <h1><?php echo $title ?></h1>
                 <?php if (isset($_SESSION['userID']) && !$favourite) { ?>
-                    <button name="favBtn" class="favBtn">Add to Favourites</button>
+                    <button name="favBtn" class="favBtn secondaryBtn">Add to Favourites</button>
                 <?php } else if (isset($_SESSION['userID']) && $favourite) { ?>
                     <input type="hidden" name="id" class="favID" value="<?php echo $favourite['favID'] ?>">
-                    <button name="unSaveBtn" class="unSaveBtn">Saved already</button>
+                    <button name="unSaveBtn" class="unSaveBtn secondaryBtn">Saved already</button>
                 <?php } else {
                 } ?>
             </div>
 
-            <h3><a href="artist_detail.php?artistID=<?php echo $artistID ?>"><?php echo $firstName ?> <?php echo $lastName ?> <span><?php echo "- ".$year ?></span></a></h3>
+            <h3><a class="textlink" href="artist_detail.php?artistID=<?php echo $artistID ?>"><?php echo $firstName ?> <?php echo $lastName ?> <span><?php echo "- ".$year ?></span></a></h3>
 
             <!-- for rating system part -->
             <div class="">
@@ -198,11 +198,11 @@ if (isset($_SESSION['userID'])) {
                                                                                                 }  ?>></textarea>
             <?php
             if (!isset($_SESSION['userID'])) {
-                echo "<p class='comment_mess'><a href='login.php' style='cursor:pointer; text-decoration:underline'>Log in</a> to add a comment!!</p>";
+                echo "<p class='comment_mess'><a class='textlink' href='login.php' style='cursor:pointer; text-decoration:underline; font-weight:700;'>Log in</a> to add a comment!</p>";
             }
             ?>
         </div>
-        <button class="post-btn">Post Comment</button>
+        <button class="post-btn primaryBtn">Post Comment</button>
 
         <!-- displaying comment container part -->
         <div class="display-comment-box">

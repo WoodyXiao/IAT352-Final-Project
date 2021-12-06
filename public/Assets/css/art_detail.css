@@ -9,11 +9,6 @@ textarea {
 
 .post-btn {
     float: right;
-    padding: 8px;
-    width: 150px;
-    background-color: #4E55FF;
-    color: white;
-    border: none;
 }
 
 .container {
@@ -44,10 +39,8 @@ textarea {
 
 .container .comment-box .comment_mess {
     position: absolute;
-
     left: 42%;
     top: 80px;
-
 }
 
 .container .display-comment-box .display-comment .profile img {

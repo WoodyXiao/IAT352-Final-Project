@@ -20,6 +20,8 @@ include('../private/controller/user.php');
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php //include(PUBLIC_PATH . '/Assets/css/login.css'); 
@@ -44,42 +46,42 @@ include('../private/controller/user.php');
     <form action="register.php" method="post">
         <div class="main-containers">
             <h1>CREATE YOUR ACCOUNT</h1>
-            <h5>Please fill in fields with *</h5>
+            <p>Please fill in all fields with *</p>
             <div class="main-box">
                 <div class="left-side">
                     <div class="detail-box">
-                        <h5>Name*</h5>
+                        <h3>Name*</h3>
                         <input type="text" id="name" class="" name="name" placeholder="name" value="<?php echo $name ?>">
                     </div>
                     <div class="detail-box">
-                        <h5>Email*</h5>
+                        <h3>Email*</h3>
                         <input type="email" id="email" class="" name="email" placeholder="email" value="<?php echo $email ?>">
                     </div>
                     <div class="detail-box">
-                        <h5>Phone Number*</h5>
+                        <h3>Phone Number*</h3>
                         <input type="number" id="phoneNumber" class="" name="phone" placeholder="phone number" value="<?php echo $phone ?>">
                     </div>
                     <div class="detail-box">
-                        <h5>Username* (must be under 30 characters)</h5>
+                        <h3>Username* (must be under 30 characters)</h3>
                         <input type="text" id="login" class="" name="username" placeholder="username" value="<?php echo $username ?>">
                     </div>
                     <div class="detail-box">
-                        <h5>Password* (must be under 30 characters)*</h5>
+                        <h3>Password* (must be under 30 characters)*</h3>
                         <input type="password" id="password" class="" name="password" placeholder="password" value="<?php echo $password ?>">
                     </div>
                     <div class="detail-box">
-                        <h5>Confirmed Password* (must be under 30 characters)*</h5>
+                        <h3>Confirmed Password* (must be under 30 characters)*</h3>
                         <input type="password" id="confirm-password" class="" name="passwordConf" placeholder="confirmed password" value="<?php echo $passwordConf ?>">
                     </div>
-                    <button type="submit" class="signUpBtn" name="register-btn">Register</button>
+                    <button type="submit" class="signUpBtn primaryBtn" name="register-btn">Register</button>
                 </div>
                 <div class="right-side">
                     <div class="detail-box">
-                        <h5>Upload A Profile Photo</h5>
+                        <h3>Upload A Profile Photo</h3>
                         <input type="file" id="file" id="uploadBtn">
                     </div>
                     <div class="profile-pic-div">
-                        <h5>Preview Photo</h5>
+                        <p>Preview Photo</p>
                         <img src="Assets/img/1.jpg" alt="" id="photo">
                     </div>
                 </div>

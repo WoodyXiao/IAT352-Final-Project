@@ -50,6 +50,10 @@ a {
   color: inherit;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .clearfix::after {
   content: "";
   display: block;
@@ -135,10 +139,6 @@ header .logo {
 
 header .logo-text {
   margin: 9px;
-}
-
-.logo a {
-  text-decoration: none;
 }
 
 header .logo-text span {
@@ -374,3 +374,45 @@ p.numOfData {
   padding-right: 24px;
 }
 /* end for the footer part */
+
+.primaryBtn {
+  padding: 8px;
+  width: 150px;
+  background-color: #4E55FF;
+  color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #4E55FF;
+}
+
+.primaryBtn:hover {
+  background-color: white;
+  color: #4E55FF;
+  transition-duration: 0.3s;
+}
+
+.secondaryBtn {
+  padding: 8px;
+  width: 150px;
+  background-color: white;
+  color: black;
+  border: solid;
+  border-width: 1px;
+}
+
+.secondaryBtn:hover {
+  background-color: #4E55FF;
+  color: white;
+  border-color: #4E55FF;
+  transition-duration: 0.3s;
+}
+
+.textlink {
+  color: black;
+}
+
+.textlink:hover {
+  text-decoration: none;
+  color: #4E55FF;
+  transition-duration: 0.3s;
+}

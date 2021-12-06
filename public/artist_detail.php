@@ -143,10 +143,10 @@ if (isset($_SESSION['userID'])) {
             <div class="title-and-button">
                 <h1><?php echo $fname ?> <?php echo $lname ?></h1>
                 <?php if (isset($_SESSION['userID']) && !$follwing) { ?>
-                    <button class="followBtn">Follow</button>
+                    <button class="followBtn secondaryBtn">Follow</button>
                 <?php } else if (isset($_SESSION['userID']) && $follwing) { ?>
                     <input type="hidden" name="id" class="followID" value="<?php echo $follwing['followID'] ?>">
-                    <button name="unSaveBtn" class="unSaveBtn">Followed already</button>
+                    <button name="unSaveBtn" class="unSaveBtn secondaryBtn">Followed already</button>
                 <?php } else {
                 } ?>
             </div>
@@ -161,7 +161,7 @@ if (isset($_SESSION['userID'])) {
                     </div>
                     <div class="detail-box">
                         <h2>Website</h2>
-                        <a href="<?php echo $link ?>"><?php echo $website ?></a>
+                        <a class="textlink" href="<?php echo $link ?>"><?php echo $website ?></a>
                     </div>
                 </div>
 
@@ -177,7 +177,7 @@ if (isset($_SESSION['userID'])) {
     <!-- end for the main part -->
     <div class="container" id="">
         <a href="index.php">
-            <h2>Browse artworks by <?php echo $fname ?> <?php echo $lname ?> ></h2>
+            <h2 class="textlink">Browse artworks by <?php echo $fname ?> <?php echo $lname ?> ></h2>
         </a>
     </div>
 

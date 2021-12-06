@@ -21,6 +21,8 @@ $linkToBrowser = 'index.php';
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/homeForVisitor.css'); ?>
@@ -39,7 +41,7 @@ $linkToBrowser = 'index.php';
     <!-- for the main part -->
     <div class="main-containers">
         <!-- --------------------- for artist part --------------------------- -->
-        <h1><a href="browse.php">DECEMBER ARTIST FEATURE - <?php echo $artistName ?> > ></a></h1>
+        <h1><a class="textlink" href="browse.php">DECEMBER ARTIST FEATURE - <?php echo $artistName ?> ></a></h1>
         <div class="art-container">
             <?php
             if (!$artistRecord) {
@@ -82,7 +84,7 @@ $linkToBrowser = 'index.php';
             } ?>
         </div>
         <!-- --------------------- for location part --------------------------- -->
-        <h3><a href="browse.php?location=<?php echo $randomlocation ?>">ARTWORKS AT <?php echo $randomlocation ?> ></a></h3>
+        <h2><a class="textlink" href="browse.php?location=<?php echo $randomlocation ?>">ARTWORKS AT <?php echo $randomlocation ?> ></a></h2>
         <div class="art-container">
 
             <?php foreach ($locationRecord as $location) {
@@ -119,7 +121,7 @@ $linkToBrowser = 'index.php';
             <?php } ?>
         </div>
         <!-- ----------------------- for material part -------------------------- -->
-        <h3><a href="browse.php?material=<?php echo $randommaterial ?>">ARTWORKS MADE BY <?php echo $randommaterial ?> ></a></h3>
+        <h2><a class="textlink" href="browse.php?material=<?php echo $randommaterial ?>">ARTWORKS MADE OF <?php echo $randommaterial ?> ></a></h2>
         <div class="art-container">
 
             <?php foreach ($materialRecord as $material) {
@@ -156,7 +158,7 @@ $linkToBrowser = 'index.php';
             <?php } ?>
         </div>
         <!-- -------------------- for type part --------------------- -->
-        <h3><a href="browse.php?type=<?php echo $randomtype ?>">ARTWORKS TYPE IS <?php echo $randomtype ?> ></a></h3>
+        <h2><a class="textlink" href="browse.php?type=<?php echo $randomtype ?>">ARTWORKS TYPE IS <?php echo $randomtype ?> ></a></h2>
         <div class="art-container">
 
             <?php foreach ($typeRecord as $type) {

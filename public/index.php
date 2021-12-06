@@ -37,7 +37,6 @@ if (isset($_SESSION['userID'])) {
     <!-- for bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     
@@ -73,7 +72,7 @@ if (isset($_SESSION['userID'])) {
         <div id="filters">
             <label>Country: &nbsp;</label>
             <select name="fetchval" id="fetchCountry">
-                <option value="ALL">---Select Country---</option>
+                <option value="ALL">---Select Artist's Country---</option>
                 <?php $result = getSpercificData('country', 'artist');
                 foreach ($result as $row) {
                 ?>

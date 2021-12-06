@@ -27,6 +27,8 @@ include("../../private/controller/getfavourite.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php //include(PUBLIC_PATH . '/Assets/css/login.css'); 
@@ -74,7 +76,7 @@ include("../../private/controller/getfavourite.php");
                     <div class="descripBox">
                         <p><?php echo $fav['description'] ?></p>
                     </div>
-                    <button class="removeBtn" onclick="removeFavouritesList(<?php echo $fav['favID'] ?>)">Remove From List</button>
+                    <button class="removeBtn secondaryBtn" onclick="removeFavouritesList(<?php echo $fav['favID'] ?>)">Remove From List</button>
                 </div>
             <?php } ?>
         </div>

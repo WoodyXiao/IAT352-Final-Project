@@ -5,15 +5,20 @@
   width: 15%;
   min-width: 400px;
   height: auto;
-  border: 3px solid #006669;
+  /* border: 3px solid #006669; */
   padding: 20px;
 }
 .body-box .logo {
   margin-bottom: 20px;
 }
 
+.register-container {
+  margin-top: 40px;
+}
+
 .body-box .register-container .form-container button {
-  margin-bottom: 20px;
+  margin-top: 8px;
+  margin-bottom: 40px;
   width: 100%;
   height: 35px;
 }

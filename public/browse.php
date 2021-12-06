@@ -45,8 +45,8 @@ if (isset($_GET['material'])) {
 
     <!-- for bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Custom Styling -->
@@ -76,9 +76,9 @@ if (isset($_GET['material'])) {
             <input type="search" id="form1" class="form-control search_text" placeholder="Search art..." aria-label="Search" />
         </div>
         <div id="filters">
-            <span>Country: &nbsp;</span>
+            <label>Country: &nbsp;</label>
             <select name="fetchval" id="fetchCountry">
-                <option value="ALL">---Select Country---</option>
+                <option value="ALL">---Select Artist's Country---</option>
                 <?php $result = getSpercificData('country', 'artist');
                 foreach ($result as $row) {
                 ?>
@@ -95,7 +95,7 @@ if (isset($_GET['material'])) {
                 ?>
             </select>
             <!-- for the location part -->
-            <span>Neighborhood: &nbsp;</span>
+            <label>Neighborhood: &nbsp;</label>
             <select name="fetchLocationVal" id="fetchLocation">
                 <option value="ALL">---Select Neighborhood---</option>
                 <?php $result = getSpercificData('neighborhood', 'artwork');
@@ -118,8 +118,29 @@ if (isset($_GET['material'])) {
             </select>
             <!-- end for the location part -->
 
+            <!-- for the ownership part -->
+            <label>Ownership: &nbsp;</label>
+            <select name="fetchOwnerVal" id="fetchOwner">
+                <option value="ALL">--------------------Select Ownership---------------------</option>
+                <?php $result = getSpercificData('ownership', 'artwork');
+                foreach ($result as $row) {
+                ?>
+                    <?php
+                    if ($row['ownership'] == '') {
+                        $ownership = 'Other';
+                    } else {
+                        $ownership = $row['ownership'];
+                    }
+                    ?>
+                    <option value="<?php echo $row['ownership']; ?>"><?php echo $ownership; ?></option>
+                <?php
+                }
+                ?>
+            </select>
+            <!-- end for the location part -->
+
             <!-- for the material part -->
-            <span>Material: &nbsp;</span>
+            <label>Material: &nbsp;</label>
             <select name="fetchMaterialVal" id="fetchMaterial">
                 <option value="ALL">---Select Material---</option>
                 <?php $result = getSpercificData('material', 'artwork');
@@ -141,32 +162,11 @@ if (isset($_GET['material'])) {
                 ?>
             </select>
             <!-- end for the material part -->
-
-            <!-- for the ownership part -->
-            <span>Ownership: &nbsp;</span>
-            <select name="fetchOwnerVal" id="fetchOwner">
-                <option value="ALL">------------------------Select Ownership-------------------------</option>
-                <?php $result = getSpercificData('ownership', 'artwork');
-                foreach ($result as $row) {
-                ?>
-                    <?php
-                    if ($row['ownership'] == '') {
-                        $ownership = 'Other';
-                    } else {
-                        $ownership = $row['ownership'];
-                    }
-                    ?>
-                    <option value="<?php echo $row['ownership']; ?>"><?php echo $ownership; ?></option>
-                <?php
-                }
-                ?>
-            </select>
-            <!-- end for the location part -->
         </div>
 
         <div class="list-group" id="yearRange">
             <div class="box">
-                <p>Year: </p>
+                <label>Year: </label>
                 <p id="year_show">1900 - 2022</p>
                 <input type="hidden" id="hidden_minimum_year" value="1900" />
                 <input type="hidden" id="hidden_maximum_year" value="2022" />
@@ -182,6 +182,7 @@ if (isset($_GET['material'])) {
     <section class="main-container">
         <!-- side bar -->
         <div class="side-bar">
+            <h2>FILTERS</h2>
 
             <!-- for the type part -->
             <h3>Type</h3>

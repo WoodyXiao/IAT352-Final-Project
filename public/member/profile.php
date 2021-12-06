@@ -33,6 +33,8 @@ $material  = getSpercificData('material', $table);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/profile.css'); ?>
@@ -52,31 +54,31 @@ $material  = getSpercificData('material', $table);
         <h1>PROFILE</h1>
         <div class="profile-box">
             <div class="left-side">
-                <h3>PERSONAL INFORMATION</h3>
+                <h2>PERSONAL INFORMATION</h2>
                 <div class="imgBox">
                     <img src="../Assets/img/1.jpg" alt="">
                 </div>
                 <div class="detail-box">
-                    <h4>Name</h4>
-                    <h5><?php echo $name ?></h5>
+                    <h3>Name</h3>
+                    <p><?php echo $name ?></p>
                 </div>
                 <div class="detail-box">
-                    <h4>Username</h4>
-                    <h5><?php echo $username ?></h5>
+                    <h3>Username</h3>
+                    <p><?php echo $username ?></p>
                 </div>
                 <div class="detail-box">
-                    <h4>Email</h4>
-                    <h5><?php echo $email ?></h5>
+                    <h3>Email</h3>
+                    <p><?php echo $email ?></p>
                 </div>
                 <div class="detail-box">
-                    <h4>Phone Number</h4>
-                    <h5><?php echo $phoneNumber ?></h5>
+                    <h3>Phone Number</h3>
+                    <p><?php echo $phoneNumber ?></p>
                 </div>
             </div>
             <form action="profile.php?userID=<?php echo $_SESSION['userID'] ?>" method="POST">
                 <div class="right-side">
-                    <h3>HOMEPAGE CONTENT PREFERENCE</h3>
-                    <h5>Select specific content you would like to see more of on your homepage</h5>
+                    <h2>HOMEPAGE CONTENT PREFERENCE</h2>
+                    <p>Select specific content you would like to see more of on your homepage</p>
                     <div class="detail-box1">
                         <h4>Neighborhood</h4>
                         <select name="location_selector" id="">
@@ -163,17 +165,17 @@ $material  = getSpercificData('material', $table);
                             ?>
                         </select>
                     </div>
-                    <button class="savePreBtn" name="savePreBtn">Save Preference</button>
+                    <button class="savePreBtn secondaryBtn" name="savePreBtn">Save Preference</button>
             </form>
             <div class="historyBox">
-                <h3>COMMENT HISTORY</h3>
+                <h2>COMMENT HISTORY</h2>
                 <a href="commentHistory.php?userID=<?php echo $userid ?>">
-                    <h5>Browse and manage comments you've posted ></h5>
+                    <h4 class="textlink">Browse and manage comments you've posted ></h4>
                 </a>
             </div>
         </div>
     </div>
-    <button class="editBtn"><a href="editProfile.php?userID=<?php echo $userid ?>">Edit Profile</a></button>
+    <button class="editBtn secondaryBtn"><a href="editProfile.php?userID=<?php echo $userid ?>">Edit Profile</a></button>
     </div>
 
     <!-- footer part -->
