@@ -39,10 +39,8 @@ textarea {
 
 .container .comment-box .comment_mess {
     position: absolute;
-
     left: 42%;
     top: 80px;
-
 }
 
 .container .display-comment-box .display-comment .profile img {

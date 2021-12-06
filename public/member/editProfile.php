@@ -26,6 +26,8 @@ include("../../private/controller/userProfile.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/edit.css'); ?>
@@ -43,37 +45,37 @@ include("../../private/controller/userProfile.php");
 
     <div class="main-containers">
         <h1>EDIT PROFILE</h1>
-        <h5>Edit account information</h5>
+        <p>Please fill in all fields with *</p>
         <form action="editProfile.php?userID=<?php echo $userid ?>" method="post">
             <input type="hidden" id="name" class="" name="userID" placeholder="name" value="<?php echo $userid ?>">
             <div class="main-box">
                 <div class="left-side">
                     <div class="detail-box">
-                        <h5>Name*</h5>
+                        <h3>Name*</h3>
                         <input type="text" id="name" class="" name="name" placeholder="name" value="<?php echo $name ?>">
                     </div>
                     <div class="detail-box">
-                        <h5>Email*</h5>
+                        <h3>Email*</h3>
                         <input type="email" id="email" class="" name="email" placeholder="email" value="<?php echo $email ?>">
                     </div>
                     <div class="detail-box">
-                        <h5>Phone Number*</h5>
+                        <h3>Phone Number*</h3>
                         <input type="number" id="phoneNumber" class="" name="phone" placeholder="phone number" value="<?php echo $phoneNumber ?>">
                     </div>
                     <div class="detail-box">
-                        <h5>Username* (must be under 30 characters)</h5>
+                        <h3>Username* (must be under 30 characters)</h3>
                         <input type="text" id="login" class="" name="username" placeholder="username" value="<?php echo $username ?>">
                     </div>
 
-                    <button type="submit" class="saveBtn" name="saveBtn">Save Changes</button>
+                    <button type="submit" class="saveBtn primaryBtn" name="saveBtn">Save Changes</button>
                 </div>
                 <div class="right-side">
                     <div class="detail-box">
-                        <h5>Upload A Profile Photo</h5>
+                        <h3>Upload A Profile Photo</h3>
                         <input type="file" id="file">
                     </div>
                     <div class="image-preview">
-                        <h5>Preview Photo</h5>
+                        <p>Preview Photo</p>
                         <img src="../Assets/img/1.jpg" alt="">
                     </div>
                 </div>
@@ -83,20 +85,20 @@ include("../../private/controller/userProfile.php");
             <input type="hidden" id="name" class="" name="userID" placeholder="name" value="<?php echo $userid ?>">
             <div class="password-box">
                 <div class="detail-box">
-                    <h5>Old Password* (must be under 30 characters)*</h5>
+                    <h3>Old Password* (must be under 30 characters)*</h3>
                     <input type="password" id="password" class="" name="oldPassword" placeholder="password" value="">
                 </div>
                 <div class="detail-box">
-                    <h5>New Password* (must be under 30 characters)*</h5>
+                    <h3>New Password* (must be under 30 characters)*</h3>
                     <input type="password" id="confirm-password" class="" name="newPassword" placeholder="new password" value="">
                 </div>
                 <div class="detail-box">
-                    <h5>New Password Confirmed* (must be under 30 characters)*</h5>
+                    <h3>New Password Confirmed* (must be under 30 characters)*</h3>
                     <input type="password" id="confirm-password" class="" name="newPasswordConf" placeholder="confirmed new password" value="">
                 </div>
             </div>
 
-            <button type="submit" class="changePassBtn" name="changePassBtn">Change Password</button>
+            <button type="submit" class="changePassBtn primaryBtn" name="changePassBtn">Change Password</button>
         </form>
     </div>
 

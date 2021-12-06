@@ -27,6 +27,8 @@ include("../../private/controller/getcommentHistory.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/commentHistory.css'); ?>
@@ -58,12 +60,12 @@ include("../../private/controller/getcommentHistory.php");
                 </div>
                 <div class="right-side">
                     <a href="<?php echo url_for('art_detail.php?id=' . $row['artID']) ?>">
-                        <h4><?php echo $row['artName'] ?></h4>
+                        <h2 class="textlink"><?php echo $row['artName'] ?></h2>
                     </a>
                     <a href="<?php echo url_for('art_detail.php?id=' . $row['artID']) . '#' . $row['username'] ?>">
-                        <p><?php echo $row['commentText'] ?></p>
+                        <p class="textlink"><?php echo $row['commentText'] ?></p>
                     </a>
-                    <button name='removeBtn' class="removeBtn" onclick="removeComment(<?php echo $row['commentID'] ?>)">Remove Comment</button>
+                    <button name='removeBtn' class="removeBtn secondaryBtn" onclick="removeComment(<?php echo $row['commentID'] ?>)">Remove Comment</button>
                 </div>
             </div>
 

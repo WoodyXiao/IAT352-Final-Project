@@ -27,6 +27,8 @@ include("../../private/controller/getfollowing.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php include('../Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/following.css'); ?>
@@ -53,14 +55,14 @@ include("../../private/controller/getfollowing.php");
             <?php foreach ($followingData as $follow) { ?>
                 <div class="artistBox" id="follow<?php echo $follow['followID'] ?>">
                     <a href="../artist_detail.php?artistID=<?php echo $follow['artistID'] ?>">
-                        <h4><?php echo $follow['firstName'] ?> <?php echo $follow['lastName']  ?></h4>
+                        <h2 class="textlink"><?php echo $follow['firstName'] ?> <?php echo $follow['lastName']  ?></h2>
                     </a>
-                    <i class="far fa-times-circle removeBtn" style="cursor:pointer;" onclick="removeFollowingList(<?php echo $follow['followID'] ?>)"></i>
+                    <i class="fas fa-times removeBtn" style="cursor:pointer;" onclick="removeFollowingList(<?php echo $follow['followID'] ?>)"></i>
                 </div>
             <?php } ?>
         </div>
     </div>
-
+    <!-- <i class="fas fa-times"></i> fa-times-circle -->
     <!-- footer part -->
     <?php include(INCLUDE_PATH . '/footer.php'); ?>
     <!-- end footer part -->

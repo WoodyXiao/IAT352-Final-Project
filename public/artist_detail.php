@@ -66,6 +66,8 @@ if (isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?>.container {
@@ -141,10 +143,10 @@ if (isset($_SESSION['userID'])) {
             <div class="title-and-button">
                 <h1><?php echo $fname ?> <?php echo $lname ?></h1>
                 <?php if (isset($_SESSION['userID']) && !$follwing) { ?>
-                    <button class="followBtn">Follow</button>
+                    <button class="followBtn secondaryBtn">Follow</button>
                 <?php } else if (isset($_SESSION['userID']) && $follwing) { ?>
                     <input type="hidden" name="id" class="followID" value="<?php echo $follwing['followID'] ?>">
-                    <button name="unSaveBtn" class="unSaveBtn">Followed already</button>
+                    <button name="unSaveBtn" class="unSaveBtn secondaryBtn">Followed already</button>
                 <?php } else {
                 } ?>
             </div>
@@ -154,19 +156,19 @@ if (isset($_SESSION['userID'])) {
             <div class="details-container">
                 <div class="left-side">
                     <div class="detail-box">
-                        <h4>Resident</h4>
-                        <h5><?php echo $country ?></h5>
+                        <h2>Resident</h2>
+                        <p><?php echo $country ?></p>
                     </div>
                     <div class="detail-box">
-                        <h4>Website</h4>
-                        <a href="<?php echo $link ?>"><?php echo $website ?></a>
+                        <h2>Website</h2>
+                        <a class="textlink" href="<?php echo $link ?>"><?php echo $website ?></a>
                     </div>
                 </div>
 
                 <div class="right-side">
                     <div class="detail-box1">
-                        <h4>Biography</h4>
-                        <h5><?php echo $biography ?></h5>
+                        <h2>Biography</h2>
+                        <p><?php echo $biography ?></p>
                     </div>
                 </div>
             </div>
@@ -175,7 +177,7 @@ if (isset($_SESSION['userID'])) {
     <!-- end for the main part -->
     <div class="container" id="">
         <a href="index.php">
-            <h1>browse 2 artworks by <?php echo $fname ?> <?php echo $lname ?></h1>
+            <h2 class="textlink">Browse artworks by <?php echo $fname ?> <?php echo $lname ?> ></h2>
         </a>
     </div>
 

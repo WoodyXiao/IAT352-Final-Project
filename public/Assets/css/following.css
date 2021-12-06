@@ -6,3 +6,9 @@
 .main-containers .artistList .artistBox {
   display: flex;
 }
+
+i {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-left: 16px;
+}

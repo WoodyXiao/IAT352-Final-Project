@@ -24,6 +24,8 @@ include('../private/controller/user.php');
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <!-- Custom Styling -->
     <style>
         <?php include(PUBLIC_PATH . '/Assets/css/login.css');
@@ -62,17 +64,17 @@ include('../private/controller/user.php');
                 <!-- Login Form -->
                 <div class="form-container">
                     <div class="detail-box">
-                        <h5>Username</h5>
-                        <input type="text" id="login" class="" name="username" placeholder="username" value="<?php echo $username ?>">
+                        <h3>Username</h3>
+                        <input type="text" id="login" class="" name="username" placeholder="Username" value="<?php echo $username ?>">
                     </div>
                     <div class="detail-box">
-                        <h5>Password</h5>
-                        <input type="text" id="password" class="" name="password" placeholder="password" value="<?php echo $password ?>">
+                        <h3>Password</h3>
+                        <input type="text" id="password" class="" name="password" placeholder="Password" value="<?php echo $password ?>">
                     </div>
 
-                    <button type="submit" class="login-btn" name="login-btn">Login</button>
+                    <button type="submit" class="login-btn primaryBtn" name="login-btn">Login</button>
                     <div id="formFooter">
-                        <a class="" href="register.php">Not a member yet? Create an account now ></a>
+                        <p><a class="textlink" href="register.php">Not a member yet? Create an account now ></a></p>
                     </div>
                 </div>
             </div>

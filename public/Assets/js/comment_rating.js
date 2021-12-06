@@ -115,7 +115,7 @@ $(document).ready(function () {
         var msg = $('#comment').val();
         var artID = $('.artID').val();
         if ($.trim(msg).length == 0) {
-            error_msg = '(Please type comment!!)';
+            error_msg = '(Please type a comment!)';
             $('#error_status').html('<p>' + error_msg + '</p>')
         } else {
             error_msg = '';
