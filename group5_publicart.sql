@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2021 at 02:40 AM
+-- Generation Time: Dec 05, 2021 at 09:18 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -1385,7 +1385,22 @@ INSERT INTO `comment` (`commentID`, `userID`, `artID`, `date`, `commentText`) VA
 (70, 28, 869, '2021-11-28 19:01:47', 'nice!'),
 (71, 28, 870, '2021-11-28 19:02:07', 'good!'),
 (72, 28, 865, '2021-11-28 19:02:25', 'nice!'),
-(73, 28, 785, '2021-11-28 19:17:57', 'test1');
+(73, 28, 785, '2021-11-28 19:17:57', 'test1'),
+(75, 28, 237, '2021-11-29 05:27:26', 'hiiiii'),
+(76, 28, 299, '2021-11-29 05:27:58', 'nice'),
+(78, 29, 853, '2021-12-02 01:59:11', 'xwd'),
+(79, 30, 865, '2021-12-02 02:07:13', 'xwd'),
+(80, 30, 847, '2021-12-02 02:09:03', 'Good!'),
+(81, 31, 865, '2021-12-02 02:22:51', 'for test comment'),
+(82, 26, 785, '2021-12-02 04:57:40', 'hihihi'),
+(83, 26, 841, '2021-12-02 20:51:28', 'HIIIII'),
+(84, 26, 106, '2021-12-03 20:09:32', 'nice!'),
+(85, 26, 465, '2021-12-03 22:48:12', 'nice'),
+(86, 32, 785, '2021-12-05 01:40:35', 'love it'),
+(87, 32, 870, '2021-12-05 01:41:04', 'okk'),
+(88, 32, 830, '2021-12-05 01:41:27', 'look good!'),
+(89, 32, 161, '2021-12-05 01:41:58', 'not bad'),
+(90, 32, 712, '2021-12-05 01:42:41', 'good!!!');
 
 -- --------------------------------------------------------
 
@@ -1409,7 +1424,30 @@ INSERT INTO `favouriteslist` (`favID`, `userID`, `artID`) VALUES
 (46, 26, 843),
 (47, 26, 845),
 (48, 26, 847),
-(50, 26, 849);
+(50, 26, 849),
+(59, 26, 842),
+(60, 26, 869),
+(61, 26, 284),
+(63, 26, 686),
+(65, 26, 834),
+(66, 26, 832),
+(67, 26, 436),
+(68, 28, 833),
+(69, 28, 865),
+(70, 28, 237),
+(73, 28, 299),
+(75, 30, 870),
+(76, 30, 865),
+(77, 30, 869),
+(79, 30, 847),
+(80, 31, 870),
+(81, 26, 853),
+(83, 26, 865),
+(84, 26, 785),
+(85, 26, 465),
+(86, 32, 785),
+(87, 32, 870),
+(88, 32, 830);
 
 -- --------------------------------------------------------
 
@@ -1422,6 +1460,23 @@ CREATE TABLE `followinglist` (
   `userID` int(4) NOT NULL,
   `artistID` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `followinglist`
+--
+
+INSERT INTO `followinglist` (`followID`, `userID`, `artistID`) VALUES
+(7, 26, 561),
+(10, 26, 642),
+(11, 26, 650),
+(12, 13, 591),
+(13, 13, 647),
+(14, 13, 645),
+(15, 13, 642),
+(16, 32, 561),
+(17, 32, 633),
+(18, 32, 284),
+(19, 26, 342);
 
 -- --------------------------------------------------------
 
@@ -1463,9 +1518,36 @@ INSERT INTO `member` (`userID`, `username`, `password`, `name`, `phoneNumber`, `
 (20, 'kkk', '$2y$10$f.WjJ7ARsGQ67DVHnik.yON/83pIAPom0vDjOHE4QTgTjAH1.Dmtu', 'kk', 123, '', 'kk@kk.com'),
 (21, 'xxxxx', '$2y$10$LrBGCQLKS8YLScBWcdKJnuJugRNpPZWtEV80xdfgvr8yOd1elVQg6', 'xxxxx', 123, '', 'xx@xx.com'),
 (24, '1234', '', '12344', 123123, '', '123@123.com'),
-(26, '12345', '$2y$10$sGNjxZCWRNGTQvBdWSTx4eCR7pFdZQVxrwLAP4o4E2VXzMtLh3g7S', '1111', 2147483647, '', 'nnuw@hotmail.com'),
+(26, '12345', '$2y$10$sGNjxZCWRNGTQvBdWSTx4eCR7pFdZQVxrwLAP4o4E2VXzMtLh3g7S', 'zhang yi', 1234567, '', 'nnuw@hotmail.com'),
 (27, 'wwwww', '$2y$10$GdiZvBtao.UtZc6.FtuKc.znOG9GPyYllrv/zWMcCYoGgVrM1CgDm', 'xxxxx', 123, '', 'www@wwwww.com'),
-(28, 'xwdxwd', '$2y$10$iKg.HnWUi7idw11yi25K..8g4QzXKHHtAwFYMw4JZvk2KyASY2vIW', 'wwxx', 12345678, '', 'dd@ddd.com');
+(28, 'xwdxwd', '$2y$10$iKg.HnWUi7idw11yi25K..8g4QzXKHHtAwFYMw4JZvk2KyASY2vIW', 'wwxx', 12345678, '', 'dd@ddd.com'),
+(29, '11111', '$2y$10$H31fezt.ZJugnL9F4LIMPOan2kTcyQkl3lawnmnelHcvhW7bWJEuC', '123', 1213, '', '123@123.com123'),
+(30, 'xiaowendi123', '$2y$10$EDq9SGmDtmkuiunVATD.r.9FaqSm0ShoTJY9qHU9Xsv5ER.PK08by', 'xiaowendi123', 123456, '', 'xi@xi.com'),
+(31, 'test99', '$2y$10$wTgGSkHnC77vcqFaYqCEd.lOgpPJZGVKjSGHV97one/0V.1wTWSHG', 'test99', 1234, '', 't@tt.com'),
+(32, 'abc', '$2y$10$vPNmPRr/gPaSy9HPDTW2ieEE6i6METPN991iHXbVxVU7.pLld3Zwy', 'abc', 1234567, '', 'abc@abc.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `membersetting`
+--
+
+CREATE TABLE `membersetting` (
+  `settingID` int(10) NOT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `material` varchar(255) DEFAULT NULL,
+  `userID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `membersetting`
+--
+
+INSERT INTO `membersetting` (`settingID`, `location`, `type`, `material`, `userID`) VALUES
+(6, 'Fairview', 'Mosaic', NULL, 13),
+(7, 'Mount Pleasant', 'Mosaic', 'NULL', 26),
+(8, 'Downtown', 'Media work', 'paint', 6);
 
 -- --------------------------------------------------------
 
@@ -1517,7 +1599,21 @@ INSERT INTO `rating` (`rateID`, `userID`, `artID`, `score`) VALUES
 (127, 28, 785, 5),
 (128, 28, 869, 5),
 (129, 28, 870, 5),
-(130, 28, 865, 5);
+(130, 28, 865, 5),
+(131, 26, 436, 5),
+(132, 28, 237, 5),
+(134, 26, 841, 5),
+(135, 30, 865, 4),
+(136, 30, 847, 5),
+(137, 31, 865, 5),
+(138, 26, 853, 5),
+(139, 26, 106, 5),
+(140, 26, 465, 5),
+(141, 32, 785, 3),
+(142, 32, 870, 3),
+(143, 32, 830, 3),
+(144, 32, 161, 3),
+(145, 32, 712, 5);
 
 --
 -- Indexes for dumped tables
@@ -1567,6 +1663,13 @@ ALTER TABLE `member`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `membersetting`
+--
+ALTER TABLE `membersetting`
+  ADD PRIMARY KEY (`settingID`),
+  ADD KEY `userID` (`userID`);
+
+--
 -- Indexes for table `rating`
 --
 ALTER TABLE `rating`
@@ -1582,31 +1685,37 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `favouriteslist`
 --
 ALTER TABLE `favouriteslist`
-  MODIFY `favID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `favID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `followinglist`
 --
 ALTER TABLE `followinglist`
-  MODIFY `followID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `followID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `membersetting`
+--
+ALTER TABLE `membersetting`
+  MODIFY `settingID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `rateID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `rateID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- Constraints for dumped tables

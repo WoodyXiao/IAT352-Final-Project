@@ -2,6 +2,9 @@
 <?php include('../private/initialize.php');
 include("../private/database/db.php");
 include('../private/controller/visitorHomePageData.php');
+
+// storing the link to index in the variable.
+$linkToBrowser = 'index.php';
 ?>
 
 <!-- html part -->
@@ -36,7 +39,7 @@ include('../private/controller/visitorHomePageData.php');
     <!-- for the main part -->
     <div class="main-containers">
         <!-- --------------------- for artist part --------------------------- -->
-        <h1><a href="index.php">DECEMBER ARTIST FEATURE - <?php echo $artistName ?> > ></a></h1>
+        <h1><a href="browse.php">DECEMBER ARTIST FEATURE - <?php echo $artistName ?> > ></a></h1>
         <div class="art-container">
             <?php
             if (!$artistRecord) {
@@ -79,7 +82,7 @@ include('../private/controller/visitorHomePageData.php');
             } ?>
         </div>
         <!-- --------------------- for location part --------------------------- -->
-        <h3><a href="index.php"><?php echo $randomlocation ?> ></a></h3>
+        <h3><a href="browse.php?location=<?php echo $randomlocation ?>">ARTWORKS AT <?php echo $randomlocation ?> ></a></h3>
         <div class="art-container">
 
             <?php foreach ($locationRecord as $location) {
@@ -116,7 +119,7 @@ include('../private/controller/visitorHomePageData.php');
             <?php } ?>
         </div>
         <!-- ----------------------- for material part -------------------------- -->
-        <h3><a href=""><?php echo $randommaterial ?> ></a></h3>
+        <h3><a href="browse.php?material=<?php echo $randommaterial ?>">ARTWORKS MADE BY <?php echo $randommaterial ?> ></a></h3>
         <div class="art-container">
 
             <?php foreach ($materialRecord as $material) {
@@ -153,9 +156,7 @@ include('../private/controller/visitorHomePageData.php');
             <?php } ?>
         </div>
         <!-- -------------------- for type part --------------------- -->
-        <form action="homePageVisitor.php">
-            <h3><a href="index.php?type=<?php echo $randomtype ?>" type="submit"><?php echo $randomtype ?> ></a></h3>
-        </form>
+        <h3><a href="browse.php?type=<?php echo $randomtype ?>">ARTWORKS TYPE IS <?php echo $randomtype ?> ></a></h3>
         <div class="art-container">
 
             <?php foreach ($typeRecord as $type) {

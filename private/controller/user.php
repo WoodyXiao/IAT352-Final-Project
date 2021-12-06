@@ -3,6 +3,7 @@
 //include "../private/database/db.php";
 //include "../private/helpers/validate.php";
 
+
 $error = array(); // ---> collect the error message into an array.
 $username = '';
 $email = '';
@@ -11,6 +12,7 @@ $passwordConf = '';
 $phone = '';
 $name = '';
 $table = 'member'; // ---> table name.
+
 
 // ---------- for the login function ----------
 function loginUser($user)
@@ -21,6 +23,7 @@ function loginUser($user)
     $_SESSION['username'] = $user['username'];
     $_SESSION['message'] = 'logged in successfully';
     $_SESSION['type'] = 'success';
+
 
     if ($_SESSION['artID']) {
         $artID = $_SESSION['artID'];

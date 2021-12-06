@@ -1,14 +1,23 @@
-<!--------------------------------- index page part -------------------------------->
-<?php
-include('../private/initialize.php');
+<!--------------------------------- browser page part -------------------------------->
+<?php include('../private/initialize.php');
 include("../private/database/db.php");
 include '../private/controller/user.php';
-// if user did not log in, will redirect to the page the for visiotr.
-// otherwise will direct to the page that for memeber.
-if (isset($_SESSION['userID'])) {
-    header('location: homePageMember.php');
+
+// ---------- here is for the preset filter from the homepage. ----------
+if (isset($_GET['type'])) {
+    $presetType = $_GET['type'];
 } else {
-    header('location: homePageVisitor.php');
+    $presetType = '';
+}
+if (isset($_GET['location'])) {
+    $presetLocation = $_GET['location'];
+} else {
+    $presetLocation = '';
+}
+if (isset($_GET['material'])) {
+    $presetMaterial = $_GET['material'];
+} else {
+    $presetMaterial = '';
 }
 
 ?>
@@ -40,10 +49,6 @@ if (isset($_SESSION['userID'])) {
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
-    
     <!-- Custom Styling -->
     <style>
         <?php include(PUBLIC_PATH . '/Assets/css/css.css'); ?>
@@ -71,7 +76,7 @@ if (isset($_SESSION['userID'])) {
             <input type="search" id="form1" class="form-control search_text" placeholder="Search art..." aria-label="Search" />
         </div>
         <div id="filters">
-            <label>Country: &nbsp;</label>
+            <span>Country: &nbsp;</span>
             <select name="fetchval" id="fetchCountry">
                 <option value="ALL">---Select Country---</option>
                 <?php $result = getSpercificData('country', 'artist');
@@ -90,7 +95,7 @@ if (isset($_SESSION['userID'])) {
                 ?>
             </select>
             <!-- for the location part -->
-            <label>Neighborhood: &nbsp;</label>
+            <span>Neighborhood: &nbsp;</span>
             <select name="fetchLocationVal" id="fetchLocation">
                 <option value="ALL">---Select Neighborhood---</option>
                 <?php $result = getSpercificData('neighborhood', 'artwork');
@@ -103,16 +108,44 @@ if (isset($_SESSION['userID'])) {
                         $neighborhood = $row['neighborhood'];
                     }
                     ?>
-                    <option value="<?php echo $row['neighborhood']; ?>"><?php echo $neighborhood; ?></option>
+                    <option value="<?php echo $row['neighborhood']; ?>" <?php if ($presetLocation === $row['neighborhood'] && !empty($presetLocation)) {
+                                                                            echo "selected";
+                                                                        } else {
+                                                                        } ?>><?php echo $neighborhood; ?></option>
                 <?php
                 }
                 ?>
             </select>
             <!-- end for the location part -->
+
+            <!-- for the material part -->
+            <span>Material: &nbsp;</span>
+            <select name="fetchMaterialVal" id="fetchMaterial">
+                <option value="ALL">---Select Material---</option>
+                <?php $result = getSpercificData('material', 'artwork');
+                foreach ($result as $row) {
+                ?>
+                    <?php
+                    if ($row['material'] == '') {
+                        $material = 'Other';
+                    } else {
+                        $material = $row['material'];
+                    }
+                    ?>
+                    <option value="<?php echo $row['material']; ?>" <?php if ($presetMaterial === $row['material'] && !empty($presetMaterial)) {
+                                                                        echo "selected";
+                                                                    } else {
+                                                                    } ?>><?php echo $material; ?></option>
+                <?php
+                }
+                ?>
+            </select>
+            <!-- end for the material part -->
+
             <!-- for the ownership part -->
-            <label>Ownership: &nbsp;</label>
+            <span>Ownership: &nbsp;</span>
             <select name="fetchOwnerVal" id="fetchOwner">
-                <option value="ALL">--------------------Select Ownership---------------------</option>
+                <option value="ALL">------------------------Select Ownership-------------------------</option>
                 <?php $result = getSpercificData('ownership', 'artwork');
                 foreach ($result as $row) {
                 ?>
@@ -133,7 +166,7 @@ if (isset($_SESSION['userID'])) {
 
         <div class="list-group" id="yearRange">
             <div class="box">
-                <label>Year: </label>
+                <p>Year: </p>
                 <p id="year_show">1900 - 2022</p>
                 <input type="hidden" id="hidden_minimum_year" value="1900" />
                 <input type="hidden" id="hidden_maximum_year" value="2022" />
@@ -149,7 +182,6 @@ if (isset($_SESSION['userID'])) {
     <section class="main-container">
         <!-- side bar -->
         <div class="side-bar">
-            <h2>FILTERS</h2>
 
             <!-- for the type part -->
             <h3>Type</h3>
@@ -157,7 +189,10 @@ if (isset($_SESSION['userID'])) {
             foreach ($result as $row) {
             ?>
                 <div class="type-items">
-                    <label> <?php echo $row['type']; ?></label><input type="checkbox" class="type_selector type" value="<?php echo $row['type']; ?>">
+                    <label> <?php echo $row['type']; ?></label><input type="checkbox" class="type_selector type" value="<?php echo $row['type']; ?>" <?php if ($presetType === $row['type'] && !empty($presetType)) {
+                                                                                                                                                            echo "checked";
+                                                                                                                                                        } else {
+                                                                                                                                                        } ?>>
                 </div>
             <?php
             }
