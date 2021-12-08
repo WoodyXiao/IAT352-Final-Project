@@ -73,7 +73,13 @@ if (isset($_GET['material'])) {
     <!-- for the filter part -->
     <section class="filter-part">
         <div class="form-outline" id="search">
-            <input type="search" id="form1" class="form-control search_text" placeholder="Search art..." aria-label="Search" />
+            <div class="search-part">
+                <input type="search" id="form1" class="form-control search_text" placeholder="Search art or artist..." aria-label="Search" />
+                <button class="btn">Search</button>
+            </div>
+            <!-- for the autocomplete part -->
+            <div class="autocomplete">
+            </div>
         </div>
         <div id="filters">
             <label>Country: &nbsp;</label>
