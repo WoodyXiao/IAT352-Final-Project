@@ -176,7 +176,7 @@ if (isset($_SESSION['userID'])) {
     </div>
     <!-- end for the main part -->
     <div class="container" id="">
-        <a href="index.php">
+        <a href="browse.php?artistName=<?php echo $fname . ' ' . $lname ?>">
             <h2 class="textlink">Browse artworks by <?php echo $fname ?> <?php echo $lname ?> ></h2>
         </a>
     </div>

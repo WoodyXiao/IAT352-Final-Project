@@ -35,6 +35,9 @@ function loginUser($user)
     exit();
 }
 
+// ---------- ----------
+
+
 // ---------- for the register part -----------
 if (isset($_POST['register-btn'])) { // ---> When user clicked the submit button.
 
@@ -47,8 +50,18 @@ if (isset($_POST['register-btn'])) { // ---> When user clicked the submit button
         // --- hash the password entered by user.
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+        // --- check if user upload image or not. ---
+        if (isset($_FILES['profilePhoto']['name'])) {
+            $file = $_FILES['profilePhoto']['name'];
+            $profileImageDestination = 'Assets/img/';
+            move_uploaded_file($_FILES['profilePhoto']['tmp_name'], $profileImageDestination . $file);
+        } else {
+            $file = "";
+        }
+
+
         // --- call the create function from the db.php
-        $user_id = createRecord($table, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['name'], $_POST['phone']);
+        $user_id = createRecord($table, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['name'], $_POST['phone'], $file);
         $user = selectOneByOneTable($table, ['userID' => $user_id]);
 
         loginUser($user); // ---> call the login function.

@@ -168,11 +168,11 @@ function create($table, $data)
     return $id;
 }
 // ------ for create account function ------
-function createRecord($table, $username, $password, $email, $name, $phoneNumber)
+function createRecord($table, $username, $password, $email, $name, $phoneNumber, $profilePhoto)
 {
     global $conn;
-    $stmt = $conn->prepare("INSERT INTO $table (username, password, email, name, phoneNumber ) VALUES (?,?,?,?,?)");
-    $stmt->bind_param('sssss', $username, $password, $email, $name, $phoneNumber);
+    $stmt = $conn->prepare("INSERT INTO $table (username, password, email, name, phoneNumber, profilePhoto ) VALUES (?,?,?,?,?,?)");
+    $stmt->bind_param('ssssss', $username, $password, $email, $name, $phoneNumber, $profilePhoto);
     $stmt->execute();
     $id = $stmt->insert_id;
     return $id;
@@ -210,6 +210,13 @@ function updateRecord2($table, $username, $email, $name, $phoneNumber, $userid)
     global $conn;
     $stmt = $conn->prepare("UPDATE $table SET username=?, email=?, name=?, phoneNumber=? WHERE userID=?");
     $stmt->bind_param('sssss', $username, $email, $name, $phoneNumber, $userid);
+    $stmt->execute();
+}
+function updateRecord3($table, $file, $userid)
+{
+    global $conn;
+    $stmt = $conn->prepare("UPDATE $table SET profilePhoto=? WHERE userID=?");
+    $stmt->bind_param('ss', $file, $userid);
     $stmt->execute();
 }
 

@@ -46,7 +46,7 @@ include("../../private/controller/userProfile.php");
     <div class="main-containers">
         <h1>EDIT PROFILE</h1>
         <p>Please fill in all fields with *</p>
-        <form action="<?php echo url_for("/member/editProfile.php?userID=" . $_SESSION['userID'])  ?>" method="POST">
+        <form action="<?php echo url_for("/member/editProfile.php?userID=" . $_SESSION['userID'])  ?>" method="POST" enctype="multipart/form-data">
             <input type="hidden" id="name" class="" name="userID" placeholder="name" value="<?php echo $userid ?>">
             <div class="main-box">
                 <div class="left-side">
@@ -72,11 +72,15 @@ include("../../private/controller/userProfile.php");
                 <div class="right-side">
                     <div class="detail-box">
                         <h3>Upload A Profile Photo</h3>
-                        <input type="file" id="file">
+                        <input type="file" id="file" id="uploadBtn" name="profilePhoto">
                     </div>
                     <div class="image-preview">
                         <p>Preview Photo</p>
-                        <img src="../Assets/img/1.jpg" alt="">
+                        <img src="<?php if ($profilePhote != null) {
+                                        echo url_for($profileImageDestination . $profilePhote);
+                                    } else {
+                                        echo "../Assets/img/1.jpg";
+                                    } ?>" alt="" id="photo">
                     </div>
                 </div>
             </div>
@@ -105,6 +109,26 @@ include("../../private/controller/userProfile.php");
     <!-- footer part -->
     <?php include(INCLUDE_PATH . '/footer.php'); ?>
     <!-- end footer part -->
+
+    <script>
+        const img = document.querySelector('#photo');
+        const file = document.querySelector('#file');
+
+        // for the image uploading part.
+        file.addEventListener('change', function() {
+            // this mean the file
+            const choosedFile = this.files[0];
+            if (choosedFile) {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function() {
+                    img.setAttribute('src', reader.result);
+                });
+                console.log(choosedFile);
+                reader.readAsDataURL(choosedFile);
+            }
+        })
+    </script>
 </body>
 
 </html>
