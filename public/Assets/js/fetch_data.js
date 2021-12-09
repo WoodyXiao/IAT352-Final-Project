@@ -13,15 +13,15 @@ $(document).ready(function () {
             url: "filterData/filter_art.php",
             type: "POST",
             data: {
-                search: input,
-                status: status,
-                type: type,
-                from: from,
-                to: to,
-                country: country,
-                location: location,
-                material: material,
-                page: pageID,
+                search: input, // ---> for the search 
+                status: status, // ---> for the status of artwork
+                type: type, // ---> for the type of artwork
+                from: from, // ---> for the year of from
+                to: to, // ---> for the year of to
+                country: country, // ---> for the country of artwork
+                location: location, // ---> for the location of artwork
+                material: material, // ---> for the material of artwork
+                page: pageID, // ---> for the page
             },
             beforeSend: function () {
                 $(".main-content-container").html("<span>Working.....</span>");
@@ -48,7 +48,7 @@ $(document).ready(function () {
         });
     }
     filter_data();
-
+    autocomplete();
 
     // ----- for the checkbox. -----
     function get_filter(class_name) {
@@ -77,12 +77,11 @@ $(document).ready(function () {
         // ----- click event for autocomplete -----
         $('div.text-container').click(function (e) {
             data = $(this).children('.artName').val();
-            $('#form1').val('');
             autocomplete('');
             filter_data(id, data);
-
         });
     }
+
     // ---- search bar typeing part -----
     $('#form1').keyup(function (e) {
         input = $(this).val();
@@ -90,8 +89,17 @@ $(document).ready(function () {
             autocomplete(input);
         } else if (e.keyCode === 8 && input == "") {
             autocomplete('');
+            filter_data();
         }
     });
+
+    // ----- for when click from the home page -----
+    if ($('.artistName-container').val()) {
+        setTimeout(function () {
+            $(".btn").trigger('click');
+        }, 70);
+        $('.artistName-container').val("");
+    }
 
     // ----- click event for status checkbox -----
     $('.status_selector').click(function () {

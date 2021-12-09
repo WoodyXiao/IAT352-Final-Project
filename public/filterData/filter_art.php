@@ -19,10 +19,10 @@ if (isset($_POST['page'])) {
 if (isset($_POST['search'])) {
     $search = $_POST['search'];
     if ($num === 0) {
-        $query .= " WHERE a.artName LIKE '%{$search}%'";
+        $query .= " WHERE a.artName LIKE '%{$search}%' OR CONCAT(TRIM(a1.firstName), ' ', TRIM(a1.lastName)) LIKE '%{$search}%'";
         $num++;
     } else {
-        $query .= " AND a.artName LIKE '%{$search}%'";
+        $query .= " AND a.artName LIKE '%{$search}%' OR CONCAT(TRIM(a1.firstName), ' ', TRIM(a1.lastName)) LIKE '%{$search}%'";
         $num++;
     }
 }

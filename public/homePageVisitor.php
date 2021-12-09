@@ -41,7 +41,7 @@ $linkToBrowser = 'index.php';
     <!-- for the main part -->
     <div class="main-containers">
         <!-- --------------------- for artist part --------------------------- -->
-        <h1><a class="textlink" href="browse.php">DECEMBER ARTIST FEATURE - <?php echo $artistName ?> ></a></h1>
+        <h1><a class="textlink" href="browse.php?artistName=<?php echo $artistName ?>">DECEMBER ARTIST FEATURE - <?php echo $artistName ?> ></a></h1>
         <div class="art-container">
             <?php
             if (!$artistRecord) {

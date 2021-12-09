@@ -6,7 +6,7 @@ $output = '';
 
 if (isset($_POST['search']) && !empty($_POST['search'])) {
     $search = $_POST['search'];
-    $query = " SELECT a.artID,a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1  ON a.artistID = a1.artistID WHERE a.artName LIKE '{$search}%'";
+    $query = " SELECT a.artID,a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1  ON a.artistID = a1.artistID WHERE a.artName LIKE '{$search}%' OR CONCAT(TRIM(a1.firstName), ' ', TRIM(a1.lastName)) LIKE '%{$search}%'";
 
     $result = mysqli_query($conn, $query);
     $count = mysqli_num_rows($result);

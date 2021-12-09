@@ -19,6 +19,11 @@ if (isset($_GET['material'])) {
 } else {
     $presetMaterial = '';
 }
+if (isset($_GET['artistName'])) {
+    $artistName = $_GET['artistName'];
+} else {
+    $artistName = '';
+}
 
 ?>
 
@@ -74,7 +79,12 @@ if (isset($_GET['material'])) {
     <section class="filter-part">
         <div class="form-outline" id="search">
             <div class="search-part">
-                <input type="search" id="form1" class="form-control search_text" placeholder="Search art or artist..." aria-label="Search" />
+                <input type="hidden" class="artistName-container" value="<?php if (isset($artistName) && !empty($artistName)) {
+                                                                                echo $artistName;
+                                                                            } ?>" />
+                <input type="search" id="form1" class="form-control search_text" placeholder="Search art or artist ..." aria-label="Search" value="<?php if (isset($artistName) && !empty($artistName)) {
+                                                                                                                                                        echo $artistName;
+                                                                                                                                                    } ?>" />
                 <button class="btn">Search</button>
             </div>
             <!-- for the autocomplete part -->
