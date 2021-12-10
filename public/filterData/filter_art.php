@@ -171,6 +171,6 @@ if ($page < $total_page) {
     $output .= '<li class="page " id="' . $total_page . '"><span class="page-link">Last page</span></li>';
 }
 $output .= '</ul>';
-$num = '<P class="numOfData">Showing <span class="">' . $total_records . '</span> Result(s).</P>';
+$num = '<p class="numOfData">Showing <span class="">' . $total_records . '</span> Result(s).</P>';
 echo $output . $num;
 ?>
