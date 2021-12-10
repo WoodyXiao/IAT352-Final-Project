@@ -247,4 +247,11 @@ function setSettingRecord($user_id, $col, $colVal)
         $insert = $conn->query($query);
     }
 }
-// ------ function for deleting preference -------
+
+// --------- for disconnect connection function ----------
+function db_disconnect($connection)
+{
+    if (isset($connection)) {
+        mysqli_close($connection);
+    }
+}

@@ -31,7 +31,7 @@ if (isset($_GET['artistID'])) {
         $biography = $artist['biography'];
     }
     if ($artist['artistPhotoURL'] == '') {
-        $artistPhotoURL = 'public/Assets/img/1.jpg';
+        $artistPhotoURL = 'Assets/img/1.jpg';
     } else {
         $artistPhotoURL = $artist['artistPhotoURL'];
     }
