@@ -15,6 +15,17 @@ if (isset($_POST['page'])) {
 } else {
     $page = 1;
 }
+// --- for the research part ---
+if (isset($_POST['search'])) {
+    $search = $_POST['search'];
+    if ($num === 0) {
+        $query .= " WHERE a.artName LIKE '%{$search}%' OR CONCAT(TRIM(a1.firstName), ' ', TRIM(a1.lastName)) LIKE '%{$search}%'";
+        $num++;
+    } else {
+        $query .= " AND a.artName LIKE '%{$search}%' OR CONCAT(TRIM(a1.firstName), ' ', TRIM(a1.lastName)) LIKE '%{$search}%'";
+        $num++;
+    }
+}
 // --- for country of author ---
 if (isset($_POST['country'])) {
     $country = $_POST['country'];

@@ -15,19 +15,28 @@
 
         <!--  if user log in successfully, show the account name  -->
         <?php if (isset($_SESSION['userID'])) { ?>
-            <!-- <li><a href="<?php //echo PUBLIC_URL . 'member/favourite.php?userID=' .$_SESSION['userID'] 
-                                ?>">Favourites</a></li> -->
-            <!-- <li><a href="<?php //echo PUBLIC_URL . 'member/following.php?userID=' .$_SESSION['userID'] 
-                                ?>">Following</a></li> -->
+            <?php if (isset($_SESSION['userID'])) {
+                $userid = $_SESSION['userID'];
+                $user = selectOneByOneTable('member', ['userID' => $userid]);
+                $profilePhote = $user['profilePhoto'];
+            }  ?>
+
             <li><a href="<?php echo url_for('member/favourite.php?userID=' . $_SESSION['userID']) ?>">Favourites</a></li>
             <li><a href="<?php echo url_for('member/following.php?userID=' . $_SESSION['userID']) ?>">Following</a></li>
 
 
             <li>
-                <a href="#">
-                    <i class="fa fa-user"></i>
+                <a href="#" style="display:flex;">
+                    <?php if ($profilePhote != null) { ?>
+                        <div class="" style="width:1.5em; height:1.5em; overflow:hidden; border-radius: 50%; margin-right:0.3em;">
+                            <img style="width:100%; height:100%; object-fit: cover;" src="<?php echo url_for($profileImageDestination . $profilePhote); ?>" />
+                        </div>
+                    <?php } else { ?>
+                        <i class="fa fa-user" style="margin-right:0.3em; padding-top:0.3em;"></i>
+                    <?php } ?>
                     <?php echo $_SESSION['username']; ?>
-                    <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
+                    <i class="fa fa-chevron-down" style="font-size: .8em; padding-top:0.65em; padding-left:0.3em;"></i>
+
                 </a>
                 <ul>
                     <!-- <li><a href="<?php //echo PUBLIC_URL . 'member/profile.php?userID=' .  $_SESSION['userID'] 

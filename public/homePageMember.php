@@ -39,7 +39,7 @@ include '../private/controller/memberHomePageData.php';
     <!-- for the main part -->
     <div class="main-containers">
         <!-- --------------------- for artist part --------------------------- -->
-        <h1><a href="browse.php" class="textlink">DECEMBER ARTIST FEATURE - <?php echo $artistName ?> ></a></h1>
+        <h1><a href="browse.php?artistName=<?php echo $artistName ?>" class="textlink">DECEMBER ARTIST FEATURE - <?php echo $artistName ?> ></a></h1>
         <div class="art-container">
             <?php
             if (!$artistRecord) {

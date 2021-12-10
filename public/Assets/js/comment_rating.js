@@ -80,10 +80,16 @@ $(document).ready(function () {
                 count = 0;
                 $('.display-comment-box').html("");
                 $.each(res, function (key, value) {
-
+                    // ----- checking if user have profile photo or not. -----
+                    if (value.user['profilePhoto'] === '') {
+                        photo = 'Assets/img/1.jpg';
+                    } else {
+                        photo = 'Assets/img/' + value.user['profilePhoto'];
+                    }
+                    console.log("sdsds" + photo);
                     $('.display-comment-box').append('<div class="display-comment">\
                             <div class="profile">\
-                                <img src="Assets/img/1.jpg" alt="">\
+                                <img src="'+ photo + '" alt=""/>\
                             </div>\
                             <div class="comment-body"  id=' + value.user['username'] + '>\
                                 <div class="name-and-time">\

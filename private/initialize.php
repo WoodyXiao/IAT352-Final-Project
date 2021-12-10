@@ -11,13 +11,16 @@ define("WWW_ROOT", $doc_root);
 define("BASE_URL", "http://localhost/IAT352-Final-Project-main/");
 define("PUBLIC_URL", "http://localhost/IAT352-Final-Project-main/public/");
 
-function url_for($script_path) {
-    // add the leading '/' if not present
-    if($script_path[0] != '/') {
-      $script_path = "/" . $script_path;
-    }
-    return WWW_ROOT . $script_path;
+$profileImageDestination = 'Assets/img/';
+
+function url_for($script_path)
+{
+  // add the leading '/' if not present
+  if ($script_path[0] != '/') {
+    $script_path = "/" . $script_path;
   }
+  return WWW_ROOT . $script_path;
+}
 
 require_once('helpers/functions.php');
 //require_once('database/db.php');

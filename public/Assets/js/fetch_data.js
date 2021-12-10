@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // ----- for the function of fetching data -----
-    function filter_data(pageID) {
+    function filter_data(pageID, input) {
         var status = get_filter('status');
         var type = get_filter('type');
         var from = $('#hidden_minimum_year').val();
@@ -13,14 +13,15 @@ $(document).ready(function () {
             url: "filterData/filter_art.php",
             type: "POST",
             data: {
-                status: status,
-                type: type,
-                from: from,
-                to: to,
-                country: country,
-                location: location,
-                material: material,
-                page: pageID,
+                search: input, // ---> for the search 
+                status: status, // ---> for the status of artwork
+                type: type, // ---> for the type of artwork
+                from: from, // ---> for the year of from
+                to: to, // ---> for the year of to
+                country: country, // ---> for the country of artwork
+                location: location, // ---> for the location of artwork
+                material: material, // ---> for the material of artwork
+                page: pageID, // ---> for the page
             },
             beforeSend: function () {
                 $(".main-content-container").html("<span>Working.....</span>");
@@ -31,7 +32,23 @@ $(document).ready(function () {
             }
         });
     }
+    // ----- for autocomplete fetch artname and artist name -----
+    function autocomplete(input) {
+        $.ajax({
+            url: "filterData/autocomplete.php",
+            type: "POST",
+            data: {
+                search: input,
+            },
+            success: function (data) {
+                $(".autocomplete").html(data);
+                callBack();
+            }
+
+        });
+    }
     filter_data();
+    autocomplete();
 
     // ----- for the checkbox. -----
     function get_filter(class_name) {
@@ -49,7 +66,39 @@ $(document).ready(function () {
             filter_data(id);
         });
 
+        // -----  search button onclick event part -----
+        $('.btn').click(function (e) {
+            input = $('#form1').val();
+            if (input != null) {
+                filter_data(id, input);
+            }
+        });
 
+        // ----- click event for autocomplete -----
+        $('div.text-container').click(function (e) {
+            data = $(this).children('.artName').val();
+            autocomplete('');
+            filter_data(id, data);
+        });
+    }
+
+    // ---- search bar typeing part -----
+    $('#form1').keyup(function (e) {
+        input = $(this).val();
+        if (input) {
+            autocomplete(input);
+        } else if (e.keyCode === 8 && input == "") {
+            autocomplete('');
+            filter_data();
+        }
+    });
+
+    // ----- for when click from the home page -----
+    if ($('.artistName-container').val()) {
+        setTimeout(function () {
+            $(".btn").trigger('click');
+        }, 70);
+        $('.artistName-container').val("");
     }
 
     // ----- click event for status checkbox -----

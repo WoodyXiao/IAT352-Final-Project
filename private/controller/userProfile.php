@@ -28,10 +28,6 @@ if (isset($_POST['saveBtn'])) {
 
         unset($_POST['saveBtn'], $_POST['userID']);
 
-        $_POST['newPassword'] = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
-
-        $oldPassword = $_POST['oldPassword'];
-        $newPassword = $_POST['newPassword'];
         $username = $_POST['username'];
         $email = $_POST['email'];
         $phoneNumber = $_POST['phone'];
@@ -40,8 +36,22 @@ if (isset($_POST['saveBtn'])) {
         $_SESSION['message'] = 'user data updated successfully!';
         $_SESSION['type'] = 'success';
         $_SESSION['username'] = $username;
+
+
+        // --- check if user update image or not. ---
+        if (isset($_FILES['profilePhoto']['name']) && !empty($_FILES['profilePhoto']['name'])) {
+            unlink('../Assets/img/' . $profilePhote);
+            $file = $_FILES['profilePhoto']['name'];
+            $destination = '../Assets/img/';
+
+            updateRecord3($table, $file, $userid);
+            move_uploaded_file($_FILES['profilePhoto']['tmp_name'], $destination . $file);
+        } else {
+            // for the original photo
+        }
+
         updateRecord2($table, $username, $email, $name, $phoneNumber, $userid);
-        header('location: ' . BASE_URL . 'public/member/profile.php?userID=' . $userid);
+        header('location: profile.php?userID=' . $userid);
 
         exit();
     }
@@ -73,7 +83,7 @@ if (isset($_POST['changePassBtn'])) {
         $_SESSION['type'] = 'success';
         $_SESSION['username'] = $username;
         updateRecord($table, $username, $newPassword, $email, $name, $phoneNumber, $userid);
-        header('location: ' . BASE_URL . 'public/member/profile.php?userID=' . $userid);
+        header('location: profile.php?userID=' . $userid);
 
 
         exit();

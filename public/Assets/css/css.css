@@ -230,6 +230,31 @@ select {
   margin-left: 20px;
   margin-right: 20px;
 }
+.filter-part .form-outline{
+  position:relative;
+}
+.filter-part .form-outline .search-part{
+  display: flex;
+}
+/* for the part of autocomplete  */
+.filter-part .form-outline .autocomplete{
+  position:absolute;
+  background-color: #e0e0e0;
+  width: 100%;
+  z-index: 999;
+}
+.filter-part .form-outline .autocomplete .text-container{
+  display: flex;
+}
+.filter-part .form-outline .autocomplete .text-container:hover{
+  cursor: pointer;
+  background-color: #4E55FF;
+  color:white;
+}
+.filter-part .form-outline .autocomplete .text-container h4{
+  padding:10px;
+}
+/* end for the part of autocomplete */
 
 .filter-part #filters #fetchCountry,
 .filter-part #filters #fetchLocation {

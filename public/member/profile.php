@@ -56,7 +56,11 @@ $material  = getSpercificData('material', $table);
             <div class="left-side">
                 <h2>PERSONAL INFORMATION</h2>
                 <div class="imgBox">
-                    <img src="../Assets/img/1.jpg" alt="">
+                    <img src="<?php if ($profilePhote != null) {
+                                    echo url_for($profileImageDestination . $profilePhote);
+                                } else {
+                                    echo "../Assets/img/1.jpg";
+                                } ?>" alt="">
                 </div>
                 <div class="detail-box">
                     <h3>Name</h3>

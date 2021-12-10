@@ -25,17 +25,19 @@ include('../private/controller/user.php');
     <!-- Custom Styling -->
     <style>
         <?php //include(PUBLIC_PATH . '/Assets/css/login.css'); 
-        ?><?php include(PUBLIC_PATH . '/Assets/css/css.css'); 
+        ?><?php include(PUBLIC_PATH . '/Assets/css/css.css');
             ?><?php //include('public/Assets/css/login.css'); 
-                ?><?php //include('public/Assets/css/css.css'); ?><?php include(PUBLIC_PATH . '/Assets/css/edit.css'); ?>
+                ?><?php //include('public/Assets/css/css.css'); 
+                    ?><?php include(PUBLIC_PATH . '/Assets/css/edit.css'); ?>
     </style>
 </head>
 
 <body>
     <!-- header part -->
-    <?php include(INCLUDE_PATH . '/header.php'); 
+    <?php include(INCLUDE_PATH . '/header.php');
     ?>
-    <?php //include '../private/includes/header.php'; ?>
+    <?php //include '../private/includes/header.php'; 
+    ?>
     <!-- end header part -->
 
     <!-- display the error in the register form  -->
@@ -43,7 +45,7 @@ include('../private/controller/user.php');
     <!-- end display the error in the register form  -->
 
     <!-- for the login body part -->
-    <form action="register.php" method="post">
+    <form action="register.php" method="post" enctype="multipart/form-data">
         <div class="main-containers">
             <h1>CREATE YOUR ACCOUNT</h1>
             <p>Please fill in all fields with *</p>
@@ -78,7 +80,7 @@ include('../private/controller/user.php');
                 <div class="right-side">
                     <div class="detail-box">
                         <h3>Upload A Profile Photo</h3>
-                        <input type="file" id="file" id="uploadBtn">
+                        <input type="file" id="file" id="uploadBtn" name="profilePhoto">
                     </div>
                     <div class="profile-pic-div">
                         <p>Preview Photo</p>
@@ -106,16 +108,6 @@ include('../private/controller/user.php');
         const file = document.querySelector('#file');
         const uploadBtn = document.querySelector('#uploadBtn');
 
-        // if user hover on img div
-        imgDiv.addEventListener('mouseenter', function() {
-            uploadBtn.style.display = "block";
-        });
-
-        // if user hover out from img div
-        imgDiv.addEventListener('mouseleave', function() {
-            uploadBtn.style.display = "none";
-        });
-
         // for the image uploading part.
         file.addEventListener('change', function() {
             // this mean the file
@@ -126,7 +118,7 @@ include('../private/controller/user.php');
                 reader.addEventListener('load', function() {
                     img.setAttribute('src', reader.result);
                 });
-
+                console.log(choosedFile);
                 reader.readAsDataURL(choosedFile);
             }
         })
