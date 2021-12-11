@@ -1,19 +1,19 @@
 <!--------------------------------- data fetching for non-member homepage part -------------------------------->
 <?php
 // ---------- create array list to collect all type of the artworks.
-$artistWhiteList = array();
+// $artistWhiteList = array();
 $locationWhiteList = array();
 $materialWhiteList = array();
 $typeWhiteList = array();
 
-$artistData = getSpercificData('artistID', 'artist');
+// $artistData = getSpercificData('artistID', 'artist');
 $locationData = getSpercificData('neighborhood', 'artwork');
 $materialData = getSpercificData('material', 'artwork');
 $typeData = getSpercificData('type', 'artwork');
 
-foreach ($artistData as $row) {
-    array_push($artistWhiteList, $row['artistID']);
-}
+// foreach ($artistData as $row) {
+//     array_push($artistWhiteList, $row['artistID']);
+// }
 foreach ($locationData as $row) {
     array_push($locationWhiteList, $row['neighborhood']);
 }
@@ -25,10 +25,11 @@ foreach ($typeData as $row) {
 }
 
 // ---------- for artist. ------------
-$randomartist = $artistWhiteList[rand(0, count($artistWhiteList) - 1)];
-$artistNameData = selectOneByOneTable('artist', ['artistID' => $randomartist]);
-$artistName = $artistNameData['firstName'] . ' ' . $artistNameData['lastName'];
-$artistRecord = selectAllFromTwoTable('artwork', 'artist', 'artistID', $randomartist);
+// $randomartist = $artistWhiteList[rand(0, count($artistWhiteList) - 1)];
+// $artistNameData = selectOneByOneTable('artist', ['artistID' => $randomartist]);
+// $artistName = $artistNameData['firstName'] . ' ' . $artistNameData['lastName'];
+$artistName = "Cameron Kerr";
+$artistRecord = selectAllFromTwoTable('artwork', 'artist', 'artistID', 382);
 
 // ---------- for location. ------------
 $randomlocation = $locationWhiteList[rand(0, count($locationWhiteList) - 1)];
