@@ -68,10 +68,10 @@ include("../../private/controller/getfavourite.php");
                         </a>
                     </div>
                     <a href="../art_detail.php?id=<?php echo $fav['artID'] ?>">
-                        <h3><?php echo $fav['artName'] ?></h3>
+                        <h3 class="textlink"><?php echo $fav['artName'] ?></h3>
                     </a>
                     <a href="../artist_detail.php?artistID=<?php echo $fav['artistID'] ?>">
-                        <h5><?php echo $fav['firstName'] ?> <?php echo $fav['lastName'] ?> - <?php echo $fav['year'] ?></h5>
+                        <h5 class="textlink"><?php echo $fav['firstName'] ?> <?php echo $fav['lastName'] ?> - <?php echo $fav['year'] ?></h5>
                     </a>
                     <div class="descripBox">
                         <p><?php echo $fav['description'] ?></p>

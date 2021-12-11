@@ -36,3 +36,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+h3 {
+  text-transform: uppercase;
+}
