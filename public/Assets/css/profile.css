@@ -22,7 +22,7 @@
   margin-bottom: 40px;
 }
 .profile-container .profile-box .right-side {
-  margin-right: 150px;
+  margin-left: 56px;
 }
 .profile-container .profile-box .right-side .detail-box1 {
   margin-top: 40px;
@@ -30,9 +30,15 @@
   display: flex;
   justify-content: space-between;
 }
+select {
+  margin-left: 16px;
+}
 button {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+button a:hover {
+  color: white;
 }
 .profile-container .profile-box .right-side .historyBox {
   margin-top: 50px;

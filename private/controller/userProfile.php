@@ -33,7 +33,7 @@ if (isset($_POST['saveBtn'])) {
         $phoneNumber = $_POST['phone'];
         $name = $_POST['name'];
 
-        $_SESSION['message'] = 'user data updated successfully!';
+        $_SESSION['message'] = 'Your profile has been updated successfully!';
         $_SESSION['type'] = 'success';
         $_SESSION['username'] = $username;
 
@@ -79,7 +79,7 @@ if (isset($_POST['changePassBtn'])) {
         $newPasswordConf = $_POST['newPasswordConf'];
 
 
-        $_SESSION['message'] = 'user data updated successfully!';
+        $_SESSION['message'] = 'Your password has been updated successfully!';
         $_SESSION['type'] = 'success';
         $_SESSION['username'] = $username;
         updateRecord($table, $username, $newPassword, $email, $name, $phoneNumber, $userid);

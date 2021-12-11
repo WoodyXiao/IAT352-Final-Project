@@ -1,7 +1,7 @@
 function removeFavouritesList(favID) {
     $('.msg').removeClass('success');
     $('.msg li').html("");
-    if (confirm("are you sure?")) {
+    if (confirm("Are you sure you want to remove this artwork?")) {
         $.ajax({
             type: 'POST',
             url: "../favourite/removeFavourite.php",
@@ -10,7 +10,7 @@ function removeFavouritesList(favID) {
             },
             success: function (res) {
                 $('.msg').addClass('success');
-                $('.msg li').html("Removed to your favourite successfully!!");
+                $('.msg li').html("Artwork is removed from your favorites");
                 $('#fav' + favID).fadeOut('slow');
             }
         });

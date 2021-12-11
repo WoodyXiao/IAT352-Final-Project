@@ -82,10 +82,10 @@ if (isset($_GET['artistName'])) {
                 <input type="hidden" class="artistName-container" value="<?php if (isset($artistName) && !empty($artistName)) {
                                                                                 echo $artistName;
                                                                             } ?>" />
-                <input type="search" id="form1" class="form-control search_text" placeholder="Search art or artist ..." aria-label="Search" value="<?php if (isset($artistName) && !empty($artistName)) {
+                <input type="search" id="form1" class="form-control search_text" placeholder="Search artwork or artist name" aria-label="Search" value="<?php if (isset($artistName) && !empty($artistName)) {
                                                                                                                                                         echo $artistName;
                                                                                                                                                     } ?>" />
-                <button class="btn">Search</button>
+                <button class="btn primaryBtn">Search</button>
             </div>
             <!-- for the autocomplete part -->
             <div class="autocomplete">
@@ -156,6 +156,7 @@ if (isset($_GET['artistName'])) {
             <!-- end for the location part -->
 
             <!-- for the material part -->
+            <br>
             <label>Material: &nbsp;</label>
             <select name="fetchMaterialVal" id="fetchMaterial">
                 <option value="ALL">---Select Material---</option>

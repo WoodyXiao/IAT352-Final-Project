@@ -62,8 +62,8 @@ if (isset($_POST['material'])) {
 if (isset($_POST['status'])) {
     $status_filter =  implode("','", $_POST["status"]);
     if ($num === 0) {
-        $query = '';
-        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.status IN ('" . $status_filter . "')";
+        // $query = '';
+        $query .= "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.status IN ('" . $status_filter . "')";
         $num++;
     } else {
         $query .= " AND a.status IN('" . $status_filter . "')";
@@ -73,8 +73,8 @@ if (isset($_POST['status'])) {
 if (isset($_POST['type'])) {
     $type_filter =  implode("','", $_POST["type"]);
     if ($num === 0) {
-        $query = '';
-        $query = "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.type IN ('" . $type_filter . "')";
+        // $query = '';
+        $query .= "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.type IN ('" . $type_filter . "')";
         $num++;
     } else {
         $query .= " AND a.type IN('" . $type_filter . "')";
@@ -118,8 +118,8 @@ if ($count > 0) {
                         <img src="' . $photo . '">
                     </a>
                 </div>
-                <h2 class="title"><a href="art_detail.php?id=' . $row['artID'] . '">' . $row['artName'] . '</a></h2>
-                <h4 class="author"><a href="artist_detail.php?artistID=' . $row['artistID'] . '">' . $row['firstName'] . ' ' .  $row['lastName'] . '</a></h4>
+                <h2 class="title"><a class="textlink" href="art_detail.php?id=' . $row['artID'] . '">' . $row['artName'] . '</a></h2>
+                <h4 class="author"><a class="textlink" href="artist_detail.php?artistID=' . $row['artistID'] . '">' . $row['firstName'] . ' ' .  $row['lastName'] . '</a></h4>
                 <div class="subTitle-box">
                     <p class="Type">' . $row['type'] . '</p>
                     <p class="year">' . $row['year'] . '</p>
@@ -128,7 +128,7 @@ if ($count > 0) {
                     
                 </div>
                 <div class="moreBtn">
-                    <button><a href="art_detail.php?id=' . $row['artID'] . '">More Info</a></button>
+                    <a class="textlink" href="art_detail.php?id=' . $row['artID'] . '">View artwork details ></a>
                 </div>
             </div>
         ';
@@ -169,6 +169,6 @@ if ($page < $total_page) {
     $output .= '<li class="page " id="' . $total_page . '"><span class="page-link">Last page</span></li>';
 }
 $output .= '</ul>';
-$num = '<P class="numOfData">Showing <span class="">' . $total_records . '</span> Result(s).</P>';
+$num = '<p class="numOfData">Showing <span class="">' . $total_records . '</span> Result(s).</P>';
 echo $output . $num;
 ?>

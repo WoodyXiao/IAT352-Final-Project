@@ -18,7 +18,7 @@ $(document).ready(function () {
             data: data,
             success: function (res) {
                 $('.msg').addClass('success');
-                $('.msg li').html("Added to your following list successfully!!");
+                $('.msg li').html("Added to your following list successfully!");
                 $('.followBtn').remove();
                 $('.title-and-button').append('<button name="unSaveBtn" class="unSaveBtn" >Followed already</button>');
                 setTimeout(function () {
@@ -43,7 +43,7 @@ $(document).ready(function () {
             data: data,
             success: function (res) {
                 $('.msg').addClass('success');
-                $('.msg li').html("Removed to your following list successfully!!");
+                $('.msg li').html("Removed from your following list successfully!");
                 $('.unSaveBtn').remove();
                 $('.title-and-button').append('<button name="followBtn" class="followBtn" >Follow</button>');
                 setTimeout(function () {

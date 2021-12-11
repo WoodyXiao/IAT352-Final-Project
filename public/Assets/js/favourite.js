@@ -18,7 +18,7 @@ $(document).ready(function () {
             data: data,
             success: function (res) {
                 $('.msg').addClass('success');
-                $('.msg li').html("Added to your favourite successfully!!");
+                $('.msg li').html("Added to your favourites successfully!");
                 $('.favBtn').remove();
                 $('.title-and-button').append('<button name="unSaveBtn" class="unSaveBtn" >Saved already</button>');
                 setTimeout(function () {
@@ -42,7 +42,7 @@ $(document).ready(function () {
             data: data,
             success: function (res) {
                 $('.msg').addClass('success');
-                $('.msg li').html("Removed to your favourite successfully!!");
+                $('.msg li').html("Removed from your favourite successfully!");
                 $('.unSaveBtn').remove();
                 $('.title-and-button').append('<button name="favBtn" class="favBtn" >Add to Favourites</button>');
                 setTimeout(function () {

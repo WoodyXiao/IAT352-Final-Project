@@ -184,10 +184,6 @@ header ul li ul li a.logout {
   color: red;
 }
 
-/* header ul li ul li a:hover {
-  background: #d5d6d6;
-} */
-
 header ul li a {
   display: block;
   margin-top: 8px;
@@ -197,7 +193,6 @@ header ul li a {
 }
 
 header ul li a:hover {
-  /* background: #006669; */
   transition: 0.5s;
   text-decoration: none;
 }
@@ -213,7 +208,6 @@ header .menu-toggle {
 }
 
 .heading {
-  /* text-align: center; */
   margin: 56px 0px 24px 20px;
 }
 /* end for the header part */
@@ -225,7 +219,6 @@ select {
 /* for the filter part and body part */
 .filter-part {
   height: auto;
-  /* background-color: #d6d6d6; */
   padding: 8px;
   margin-left: 20px;
   margin-right: 20px;
@@ -236,6 +229,11 @@ select {
 .filter-part .form-outline .search-part{
   display: flex;
 }
+.form-control {
+  height: 40px;
+  margin-right: 16px;
+}
+
 /* for the part of autocomplete  */
 .filter-part .form-outline .autocomplete{
   position:absolute;
@@ -269,6 +267,7 @@ select {
 .filter-part .list-group .box {
   display: flex;
   justify-content: space-between;
+  margin-top: 8px;
 }
 
 .main-container {
@@ -360,12 +359,13 @@ select {
   padding-left: 10px;
 }
 .main-container .main-content-container .main-content .card-box .moreBtn {
-  /* position: absolute; */
   right: 10px;
   bottom: 10px;
-  /* text-align: end;
-  padding-top: 20px;
-  padding-right: 20px; */
+  padding-left: 10px;
+  margin-top: 24px;
+}
+.main-container .main-content-container .main-content .card-box .moreBtn a{
+  text-transform: uppercase;
 }
 /* end for the filter part and body part */
 
@@ -378,7 +378,7 @@ select {
 /* for showing the number of record part */
 p.numOfData {
   position: absolute;
-  top: 427px;
+  top: 465px;
   left: 250px;
 }
 /* end for showing the number of record part */
