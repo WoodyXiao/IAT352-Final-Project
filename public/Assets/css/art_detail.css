@@ -97,11 +97,9 @@ textarea {
     margin-top: 80px;
 }
 
-.container .text-container .details-container .left-side {}
-
-
 .container .text-container .details-container .left-side .detail-box {
     margin-bottom: 20px;
+    padding-right: 8px;
 }
 
 .container .text-container .details-container .right-side {

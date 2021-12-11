@@ -37,9 +37,10 @@
 }
 .main-containers .detail-box .artCard .descripBox p {
   width: 100%;
+  height: 30px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
 }
 .main-containers .detail-box .artCard .removeBtn {
   position: absolute;

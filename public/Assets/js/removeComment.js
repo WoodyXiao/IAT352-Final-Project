@@ -1,7 +1,7 @@
 function removeComment(commentID) {
     $('.msg').removeClass('success');
     $('.msg li').html("");
-    if (confirm("are you sure?")) {
+    if (confirm("Are you sure you want to remove this comment?")) {
         $.ajax({
             type: 'POST',
             url: "../comment/removeComment.php",
@@ -10,7 +10,7 @@ function removeComment(commentID) {
             },
             success: function (res) {
                 $('.msg').addClass('success');
-                $('.msg li').html("Removed your comment successfully!!");
+                $('.msg li').html("Your comment has been removed");
                 $('#cmt' + commentID).fadeOut('slow');
             }
         });

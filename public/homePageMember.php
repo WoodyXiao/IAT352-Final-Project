@@ -63,11 +63,11 @@ include '../private/controller/memberHomePageData.php';
                                                                                                     ?>" alt=""></a>
                         </div>
                         <a href="art_detail.php?id=<?php echo $artist['artID'] ?>">
-                            <h3><?php echo $artist['artName']
+                            <h3 class="textlink"><?php echo $artist['artName']
                                 ?></h3>
                         </a>
                         <a href="artist_detail.php?artistID=<?php echo $artist['artistID'] ?>">
-                            <h5><?php echo $artist['firstName']
+                            <h5 class="textlink"><?php echo $artist['firstName']
                                 ?> <?php echo $artist['lastName']
                                     ?> - <?php echo $artist['year']
                                             ?></h5>
@@ -99,10 +99,10 @@ include '../private/controller/memberHomePageData.php';
                                                                                                 ?>" alt=""></a>
                     </div>
                     <a href="art_detail.php?id=<?php echo $follow['artID'] ?>">
-                        <h3><?php echo $follow['artName'] ?></h3>
+                        <h3 class="textlink"><?php echo $follow['artName'] ?></h3>
                     </a>
                     <a href="artist_detail.php?artistID=<?php echo $follow['artistID'] ?>">
-                        <h5><?php echo $follow['firstName'] ?> <?php echo $follow['lastName'] ?> - <?php echo $follow['year'] ?></h5>
+                        <h5 class="textlink"><?php echo $follow['firstName'] ?> <?php echo $follow['lastName'] ?> - <?php echo $follow['year'] ?></h5>
                     </a>
                     <div class="descripBox">
                         <p><?php echo $follow['description']
@@ -131,11 +131,11 @@ include '../private/controller/memberHomePageData.php';
                                                                                                 ?>" alt=""></a>
                     </div>
                     <a href="art_detail.php?id=<?php echo $location['artID'] ?>">
-                        <h3><?php echo $location['artName']
+                        <h3 class="textlink"><?php echo $location['artName']
                             ?></h3>
                     </a>
                     <a href="artist_detail.php?artistID=<?php echo $location['artistID'] ?>">
-                        <h5><?php echo $location['firstName']
+                        <h5 class="textlink"><?php echo $location['firstName']
                             ?> <?php echo $location['lastName']
                                 ?> - <?php echo $location['year']
                                         ?></h5>
@@ -168,11 +168,11 @@ include '../private/controller/memberHomePageData.php';
                                                                                                 ?>" alt=""></a>
                     </div>
                     <a href="art_detail.php?id=<?php echo $material['artID'] ?>">
-                        <h3><?php echo $material['artName']
+                        <h3 class="textlink"><?php echo $material['artName']
                             ?></h3>
                     </a>
                     <a href="artist_detail.php?artistID=<?php echo $material['artistID'] ?>">
-                        <h5><?php echo $material['firstName']
+                        <h5 class="textlink"><?php echo $material['firstName']
                             ?> <?php echo $material['lastName']
                                 ?> - <?php echo $material['year']
                                         ?></h5>
@@ -206,11 +206,11 @@ include '../private/controller/memberHomePageData.php';
                                         ?>" alt=""></a>
                     </div>
                     <a href="art_detail.php?id=<?php echo $type['artID'] ?>">
-                        <h3><?php echo $type['artName']
+                        <h3 class="textlink"><?php echo $type['artName']
                             ?></h3>
                     </a>
                     <a href="artist_detail.php?artistID=<?php echo $type['artistID'] ?>">
-                        <h5><?php echo $type['firstName']
+                        <h5 class="textlink"><?php echo $type['firstName']
                             ?> <?php echo $type['lastName']
                                 ?> - <?php echo $type['year']
                                         ?></h5>

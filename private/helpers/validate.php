@@ -20,18 +20,18 @@ function validateUser($user)
         array_push($error, 'Name is required');
     }
     if ($user['password'] != $user['passwordConf']) {
-        array_push($error, 'Password do not match');
+        array_push($error, 'Password does not match');
     }
 
     // ----- calling the selectOne function to check if is the same email address as the record of the member table -----
     $existingUser = selectOneByOneTable('member', ['username' => $user['username']]);
     if ($existingUser) {
-        array_push($error, 'Username already registered');
+        array_push($error, 'Username is already registered');
     }
     // ----- same as above, check if the same emial address as the record of the member table ----- 
     $existingEmail = selectOneByOneTable('member', ['email' => $user['email']]);
     if ($existingEmail) {
-        array_push($error, 'Email already registered');
+        array_push($error, 'Email is already registered');
     }
 
     return $error; // ---> return $error array.
@@ -57,13 +57,13 @@ function validateUserUpdate($user)
 
     foreach ($data as $row) {
         if ($user['userID'] != $row['userID'] && $user['username'] === $row['username']) {
-            array_push($error, 'Username already registered');
+            array_push($error, 'Username is already registered');
         }
     }
 
     foreach ($data as $row) {
         if ($user['userID'] != $row['userID'] && $user['email'] === $row['email']) {
-            array_push($error, 'Email already registered');
+            array_push($error, 'Email is already registered');
         }
     }
 
@@ -79,7 +79,7 @@ function validateUserUpdatePass($user, $userid)
         array_push($error, 'Old password incorrect!');
     }
     if ($user['newPasswordConf'] != $user['newPassword']) {
-        array_push($error, 'New password are not matched!');
+        array_push($error, 'New passwords are not matching!');
     }
     return $error;
 }

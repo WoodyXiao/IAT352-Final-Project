@@ -161,7 +161,7 @@ if (isset($_SESSION['userID'])) {
                     </div>
                     <div class="detail-box">
                         <h2>Website</h2>
-                        <a class="textlink" href="<?php echo $link ?>"><?php echo $website ?></a>
+                        <a class="textlink" href="<?php echo $link ?>" target="_blank"><?php echo $website ?></a>
                     </div>
                 </div>
 
