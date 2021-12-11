@@ -47,7 +47,9 @@ include '../private/controller/memberHomePageData.php';
             } else {
 
             ?>
-                <?php foreach ($artistRecord as $artist) {
+                <?php
+                foreach ($artistRecord as $artist) {
+
                 ?>
                     <?php
                     if ($artist['photoURL'] === "") {
