@@ -137,13 +137,16 @@ function selectAllFromFourTables($artwork, $favouriteslist, $member, $artist, $u
     $result = mysqli_query($conn, $query);
     return $result;
 }
-function selectAllFromFourTables2($artwork, $followinglist, $member, $artist, $userID)
+function selectAllFromFourTables2($artwork, $followinglist, $member, $artist, $userID, $limit)
 {
     global $conn;
     $query = "SELECT DISTINCT f.followID,m.userID,a.artID,a.artName,a.year,a.photoURL,a1.artistID,a1.firstName,a1.lastName,a.status,a.description 
     FROM $artwork a INNER JOIN $followinglist f ON f.artistID = a.artistID 
                 INNER JOIN $member m ON f.userID = m.userID 
                 INNER JOIN $artist a1 ON a.artistID = a1.artistID WHERE m.userID =$userID GROUP BY f.followID";
+    if ($limit != NULL) {
+        $query .= " LIMIT $limit";
+    }
     $result = mysqli_query($conn, $query);
     return $result;
 }

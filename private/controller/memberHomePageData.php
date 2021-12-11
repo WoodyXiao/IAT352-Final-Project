@@ -27,7 +27,7 @@ foreach ($typeData as $row) {
 // ---------- for following artist ----------
 if (isset($_SESSION['userID'])) {
     $userID = $_SESSION['userID'];
-    $followingData = selectAllFromFourTables2('artwork', 'followinglist', 'member', 'artist', $userID);
+    $followingData = selectAllFromFourTables2('artwork', 'followinglist', 'member', 'artist', $userID, '4');
 }
 
 // ---------- for artist. ------------
