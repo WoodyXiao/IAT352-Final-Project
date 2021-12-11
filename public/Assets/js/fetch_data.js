@@ -9,6 +9,9 @@ $(document).ready(function () {
         var country = $('#fetchCountry').val();
         var location = $('#fetchLocation').val();
         var material = $('#fetchMaterial').val();
+        if(!input){
+            input = $('#form1').val()
+        }
         $.ajax({
             url: "filterData/filter_art.php",
             type: "POST",
@@ -72,6 +75,7 @@ $(document).ready(function () {
             if (input != null) {
                 filter_data(id, input);
             }
+            autocomplete('');
         });
 
         // ----- click event for autocomplete -----
