@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2021 at 10:38 PM
+-- Generation Time: Dec 12, 2021 at 03:43 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -1482,7 +1482,8 @@ INSERT INTO `favouriteslist` (`favID`, `userID`, `artID`) VALUES
 (106, 5, 865),
 (107, 5, 845),
 (108, 5, 843),
-(109, 5, 857);
+(109, 5, 857),
+(115, 52, 785);
 
 -- --------------------------------------------------------
 
@@ -1521,7 +1522,11 @@ INSERT INTO `followinglist` (`followID`, `userID`, `artistID`) VALUES
 (27, 27, 563),
 (28, 49, 591),
 (29, 5, 591),
-(30, 5, 651);
+(30, 5, 651),
+(32, 26, 264),
+(35, 52, 561),
+(36, 52, 563),
+(38, 53, 591);
 
 -- --------------------------------------------------------
 
@@ -1573,7 +1578,11 @@ INSERT INTO `member` (`userID`, `username`, `password`, `name`, `phoneNumber`, `
 (33, 'www', '$2y$10$paPlVlzA6NBF5hjxoZ32IuVuIqhRNqG8OitI1O0twINulPo/voqwe', 'wwwwwwwww', 2048813703, '086265700_1578478117-LA_Lakers_Vs_New_York_Knicks_01.jpg', 'www@ww.com'),
 (46, '1122', '$2y$10$YVXdv7ko9thByl06LGHh9OG6decvBJD2zyHT0ukxW7esfwlsgEagu', '1122231231', 123, 'horse.PNG', '1122@1122.com123'),
 (48, '2222', '$2y$10$EQ6iwy6zcrOzZ9I7sOTy6OIlgcTnnm0n6LUxpeBB6szWKT/lBflwm', '2222', 2222, 'IMG_2900.JPG', '2222@2222.com'),
-(49, 'nnbb', '$2y$10$k7Bwk7ZhfLdNev92xNC9iOdtZaNu6wmd39C9eRdeD3n.A1Lt6gvUu', 'xiix', 123456, 'Dua-Lipa-1200x800_c.jpg', 'nnn@bbb.com');
+(49, 'nnbb', '$2y$10$k7Bwk7ZhfLdNev92xNC9iOdtZaNu6wmd39C9eRdeD3n.A1Lt6gvUu', 'xiix', 123456, 'Dua-Lipa-1200x800_c.jpg', 'nnn@bbb.com'),
+(50, 'test9', '$2y$10$nJ9opVE7nR9NanApzRgDiutfkwqifyAK1y3R6je3S3TRDleBwHI5W', 'test9', 12334, '0375d06a430f13b41ef326afe9f87ad86cfd3afe.jpg', 'tt@tttt.com'),
+(51, 'test111', '$2y$10$pWR1B4BU.pB1AbAwLscsJOAxbInweT.74N/8akLJgNmqIyk16HsTS', 'test111', 123456, 'b812a16f8c60b004f4f255876aefbe73.jpg', 'tt111@t.com'),
+(52, 'test133', '$2y$10$XfGW0m2d1rwQAPKg3vzZ4.ugNHXmjeawjSlg60aJULZR2pKKpmaPS', 'test133', 123456, 'b812a16f8c60b004f4f255876aefbe73.jpg', 'test11@ww.com'),
+(53, 'test144', '$2y$10$iLtF3lBdrwFLqFgEOzRh7OckboNJTVxOM.D.V0XThtYOOITgWTpba', 'test144', 123455644, 'b812a16f8c60b004f4f255876aefbe73.jpg', 'test14@t.com');
 
 -- --------------------------------------------------------
 
@@ -1598,7 +1607,11 @@ INSERT INTO `membersetting` (`settingID`, `location`, `type`, `material`, `userI
 (7, 'Mount Pleasant', 'Mosaic', 'Paint on concrete', 26),
 (8, 'Downtown', 'Media work', 'paint', 6),
 (9, 'Mount Pleasant', 'Figurative', 'NULL', 33),
-(10, 'West End', 'Sculpture', 'NULL', 10);
+(10, 'West End', 'Sculpture', 'NULL', 10),
+(11, 'Mount Pleasant', 'Mosaic', 'paint', 50),
+(12, 'Mount Pleasant', 'Sculpture', 'wood', 51),
+(13, 'Mount Pleasant', 'Mosaic', 'wood', 52),
+(14, 'South Cambie', 'Sculpture', 'wood', 53);
 
 -- --------------------------------------------------------
 
@@ -1680,7 +1693,11 @@ INSERT INTO `rating` (`rateID`, `userID`, `artID`, `score`) VALUES
 (158, 49, 843, 3),
 (159, 49, 360, 5),
 (160, 5, 845, 4),
-(161, 5, 857, 5);
+(161, 5, 857, 5),
+(162, 50, 869, 4),
+(163, 51, 865, 5),
+(164, 52, 865, 4),
+(165, 53, 865, 5);
 
 --
 -- Indexes for dumped tables
@@ -1752,37 +1769,37 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `favouriteslist`
 --
 ALTER TABLE `favouriteslist`
-  MODIFY `favID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `favID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `followinglist`
 --
 ALTER TABLE `followinglist`
-  MODIFY `followID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `followID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `userID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `membersetting`
 --
 ALTER TABLE `membersetting`
-  MODIFY `settingID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `settingID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `rateID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `rateID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 
 --
 -- Constraints for dumped tables
