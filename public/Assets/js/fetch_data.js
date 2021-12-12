@@ -9,7 +9,8 @@ $(document).ready(function () {
         var country = $('#fetchCountry').val();
         var location = $('#fetchLocation').val();
         var material = $('#fetchMaterial').val();
-        if(!input){
+        var ownership = $('#fetchOwner').val();
+        if (!input) {
             input = $('#form1').val()
         }
         $.ajax({
@@ -23,6 +24,7 @@ $(document).ready(function () {
                 to: to, // ---> for the year of to
                 country: country, // ---> for the country of artwork
                 location: location, // ---> for the location of artwork
+                ownership: ownership, // ---> for the ownership of artwork
                 material: material, // ---> for the material of artwork
                 page: pageID, // ---> for the page
             },
@@ -130,7 +132,11 @@ $(document).ready(function () {
         id = $(".page").attr('id');
         filter_data(id);
     });
-
+    // ---- click event for ownership selecting ----
+    $("#fetchOwner").on("change", function () {
+        id = $(".page").attr('id');
+        filter_data(id);
+    });
 
     // ----- for the slider of year -----
     $('#year_range').slider({

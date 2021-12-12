@@ -9,6 +9,10 @@
 .main-containers .main-box {
   display: flex;
 }
+.main-containers .main-box .left-side{
+  width: 360px;
+  min-width: 360px;
+}
 .main-containers .main-box .left-side .detail-box,
 .main-containers .main-box .right-side .detail-box {
   margin-top: 40px;
@@ -37,7 +41,18 @@
   height: 35px;
   text-align: center;
 }
+.password-box{
+  width: 360px;
+  min-width: 250px;
+}
 .password-box .detail-box {
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 40px; 
+}
+.password-box .detail-box input{
+  width: 100%;
+}
+.changePassBtn{
+  width: 360px;
+  min-width: 250px;
 }

@@ -6,7 +6,7 @@ $limit = 10; // ---> setting default by 5 for the limit at first.
 $output = ''; // ---> initialize output frist.
 $page = ''; // ---> page.
 
-$query = "SELECT a.artID,a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1  ON a.artistID = a1.artistID ";
+$query = "SELECT a.artID,a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL,a.ownership, a1.country FROM artwork a INNER JOIN artist a1  ON a.artistID = a1.artistID ";
 $num = 0;
 
 // --- setting the page as 1 by default. --- 
@@ -47,6 +47,17 @@ if (isset($_POST['location'])) {
         $query .= " AND a.neighborhood = '$location'";
     }
 }
+// --- for ownership of artwork ---
+if (isset($_POST['ownership'])) {
+    $ownership = $_POST['ownership'];
+    if ($ownership === 'ALL') {
+    } else if ($num === 0 && $ownership != 'ALL') {
+        $query .= " WHERE a.ownership = '$ownership'";
+        $num++;
+    } else if ($num != 0 && $ownership != 'ALL') {
+        $query .= " AND a.ownership = '$ownership'";
+    }
+}
 // --- for material of artwork ---
 if (isset($_POST['material'])) {
     $material = $_POST['material'];
@@ -63,7 +74,7 @@ if (isset($_POST['status'])) {
     $status_filter =  implode("','", $_POST["status"]);
     if ($num === 0) {
         // $query = '';
-        $query .= "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.status IN ('" . $status_filter . "')";
+        $query .= "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.ownership, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.status IN ('" . $status_filter . "')";
         $num++;
     } else {
         $query .= " AND a.status IN('" . $status_filter . "')";
@@ -74,7 +85,7 @@ if (isset($_POST['type'])) {
     $type_filter =  implode("','", $_POST["type"]);
     if ($num === 0) {
         // $query = '';
-        $query .= "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.type IN ('" . $type_filter . "')";
+        $query .= "SELECT a.artID, a.artName,a1.artistID, a1.firstName, a1.lastName, a.status, a.type, a.year, a.photoURL, a.ownership, a1.country FROM artwork a INNER JOIN artist a1 ON a.artistID = a1.artistID WHERE a.type IN ('" . $type_filter . "')";
         $num++;
     } else {
         $query .= " AND a.type IN('" . $type_filter . "')";

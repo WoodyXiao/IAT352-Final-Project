@@ -69,7 +69,7 @@ include('../private/controller/user.php');
                     </div>
                     <div class="detail-box">
                         <h3>Password</h3>
-                        <input type="text" id="password" class="" name="password" placeholder="Password" value="<?php echo $password ?>">
+                        <input type="password" id="password" class="" name="password" placeholder="Password" value="<?php echo $password ?>">
                     </div>
 
                     <button type="submit" class="login-btn primaryBtn" name="login-btn">Login</button>
